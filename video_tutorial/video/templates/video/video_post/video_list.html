@@ -1,0 +1,95 @@
+{% extends 'video/parent/base.html' %}
+{% load static %}
+{% load video_tags %}
+
+{% block head %}
+        <title>products</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width" initial-scale="1">
+        <link  rel="stylesheet" type="text/css" href="{% static 'css/videolist/products.css' %}">
+        <link  rel="stylesheet" type="text/css" href="{% static 'css/base1.css' %}">
+        <script type="text/javascript" src="{% static 'js/videolist/jquery.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/videolist/jsproducts.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    <div id="oll" class="wid-1500-px dis-tab dir-rtl mar-aut">
+        <nav>
+            <ul class="list-style-t-none wid-90 mar-aut tex-ali-cen padi-10 bor-bot-000 wid-r-9">
+                <a href="#"><li id="li-1" class="dis-inl-blo padi-8 tex-ali-cen bor-rad-10-px bac-col-whi mar-5 border-167785-1px back-hov hover-fff" >پربازدید ترین</li></a>
+                <a href="#"><li id="li-2" class="dis-inl-blo padi-8 tex-ali-cen bor-rad-10-px bac-col-whi mar-5 border-167785-1px back-hov hover-fff" >بیشترین دانلودها</li></a>
+                <a href="#"><li id="li-3" class="dis-inl-blo padi-8 tex-ali-cen bor-rad-10-px bac-col-whi mar-5 border-167785-1px back-hov hover-fff">جدید ترین</li></a>
+                <a href="#"><li id="li-4" class="dis-inl-blo padi-8 tex-ali-cen bor-rad-10-px bac-col-whi mar-5 border-167785-1px back-hov hover-fff">گران ترین</li></a>
+                <a href="#"><li id="li-5" class="dis-inl-blo padi-8 tex-ali-cen bor-rad-10-px bac-col-whi mar-5 border-167785-1px back-hov hover-fff">ارزان ترین</li></a>
+                <li id="li-6" class="padi-10 mar-10 dis-non ver-ali-top trans-25 border-167785-1px bor-rad-10-px cur-poi fon-siz-15 bac-col-whi relative back-hov hover-fff">مرتب سازی
+                    <section id="sec-r" class="dis-non absol bac-col-whi bor-rad-10-px box-sha-2-2-4-gra right0 top-48 over-hid">
+                        <a href="#"><p class="dis-tab wid-250-px padi-10 tex-ali-cen trans-25 back-hov hover-fff">پربازدید ترین</p></a>
+                        <a href="#"><p class="dis-tab wid-250-px padi-10 tex-ali-cen trans-25 back-hov hover-fff">بیشترین دانلود ها</p></a>
+                        <a href="#"><p class="dis-tab wid-250-px padi-10 tex-ali-cen trans-25 back-hov hover-fff">جدید ترین</p></a>
+                        <a href="#"><p class="dis-tab wid-250-px padi-10 tex-ali-cen trans-25 back-hov hover-fff">گران ترین</p></a>
+                        <a href="#"><p class="dis-tab wid-250-px padi-10 tex-ali-cen trans-25 back-hov hover-fff">ارزان ترین</p></a>
+                    </section>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    {% if tag %}
+    <div style=" width:500px; border: solid 3px #009688;border-radius: 50px; margin:10px auto;">
+        <p class=" wid-500-px padi-10 tex-ali-cen ">محصولات با تگ: {{ tag.name }}</p></div>
+    {% endif %}
+<!-------------------------product---------------------->
+
+    <div id="secend-div" class="wid-100">
+        <div id="image-list">
+           {% include 'video/Ajax/video_list_ajax.html' %}
+        </div>
+
+    </div>
+    <!------------------------end---------------------->
+
+    {% include 'video/partials/pagination.html' with page=videos%}
+{#    {% include 'video/partials/pagination.html' with page=page_obj%}#}
+        <script type="text/javascript" src = "{% static 'js/index/jquery.js' %}"></script>
+    <script type="text/javascript" src = "{% static 'js/index/scripts.js' %}"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js"></script>
+        <script>
+        var csrftoken = Cookies.get('csrftoken');
+        function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+        $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+        }
+        });
+        $(document).ready(function(){
+        var page = 1;
+        var empty_page = false;
+        var block_request = false;
+
+        $(window).scroll(function() {
+            var margin = $(document).height() - $(window).height() - 200;
+            if($(window).scrollTop() > margin && empty_page === false && block_request === false) {
+                block_request = true;
+                page += 1;
+                $.get('?page=' + page, function(data) {
+                if(data === '') {
+                    empty_page = true;
+                }
+                else {
+                    block_request = false;
+                    $('#image-list').append(data);
+                }
+            });
+            }
+        });
+        });
+    </script>
+
+
+{% endblock %}

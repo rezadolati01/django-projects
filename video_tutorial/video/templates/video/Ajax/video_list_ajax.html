@@ -1,0 +1,34 @@
+{% load static %}
+{% load video_tags %}
+
+            <!-------------------------product---------------------->
+
+    <div id="secend-div" class="wid-100">
+        {% for video in videos %}
+        <a href="{{ video.get_absolute_url }}"><section class="box-sha-5-5-666 wid-18 hei-430-px mar-30-15-0-0 relative dis-inl-blo bac-col-whi box-sha-3-3-10-gra">
+                <img src="{% static 'images/videolist/ash.jpg' %}" class="dis-inl-blo wid-20 hei-50-px bor-rad-50 mar-15 absol wid-r-17">
+            <p class="tex-ali-cen mar-top-25 fon-bold fon-siz-18">{{ video.teacher }}</p>
+            <button class="dis-inl-blo absol lef-10 top10 bac-col-whi out-non padi-6 cur-poi bor-non box-sha-ccc-15"><img src="{% static 'images/videolist/save-button.png' %}"></button>
+            <img src="{{ video.preview_image.url}}" class="wid-70 hei-160-px mar-25-35-0-0">
+            <div class="wid-100 hei-180-px absol top-250">
+                <ul class="tex-ali-cen wid-100 list-style-t-none">
+                    <li class="fon-bold mar-aut wid-60 bor-bot-f93 trans-2 hover-wid-60 padi-3 box-sha-ccc-15 bor-rad-5-px">
+                        {{ video.title }}</li>
+                    <li class="fon-bold mar-aut wid-80 bor-bot-167785 trans-2 hover-wid-90 padi-3 box-sha-ccc-15 mar-5-aut bor-rad-5-px">
+                        {{ video.caption|markdown|truncatewords_html:2}}</li>
+                    <li class="fon-bold mar-aut wid-50 bor-bot-f93 trans-2 hover-wid-60 padi-3 box-sha-ccc-15 mar-5-aut bor-rad-5-px">
+                        {{ video.price}} تومان</li>
+                    {% for tag in video.tags.all %}
+                        <a href="{% url 'video:video_list_by_tag' tag.slug %}">{{ tag.name }}
+                        {% if not forloop.last %}, {% endif %}</a>
+                    {% endfor %}
+                </ul>
+                <img src="{% static 'images/videolist/002-eye.png' %}" class="wid-20-px absol lef-10 top-150">
+                <ins class="decor-none fon-siz-10 absol top-157 lef-35">1023</ins>
+                <img src="{% static 'images/videolist/004-download-2.png' %}" class="wid-18-px absol lef-70 top-150">
+                <ins class="decor-none fon-siz-10 absol top-157 lef-94">112</ins>
+            </div>
+        </section></a>
+        {% endfor %}
+    </div>
+    <!------------------------end---------------------->

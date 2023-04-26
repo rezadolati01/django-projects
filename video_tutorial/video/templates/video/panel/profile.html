@@ -1,0 +1,102 @@
+{% extends 'video/parent/base.html' %}
+{% load static %}
+{% block head %}
+        <title>products</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width" initial-scale="1">
+        <link  rel="stylesheet" type="text/css" href="{% static 'css/profile/profile.css' %}">
+        <link  rel="stylesheet" type="text/css" href="{% static 'css/base1.css' %}">
+        <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+
+    <div id="oll" class="wid-1500-px dis-tab dir-rtl mar-aut dis-flx">
+            <div id="profils" class="wid-25 mar-20-10">
+                <div class="wid-100 hei-300-px bac-col-whi bor-rad-5-px box-sha-0-0-5-ccc">
+                    <div id="img-profils" class="wid-50 hei-160-px bac-col-eaeaea bor-rad-50 mar-30-80 relative box-sha-0-0-10-999 dis-inl-blo">
+                        <input type="file" name="file" id="file" class="inputfile1">
+                        <label for="file"><strong><img src="{% static 'images/profile/add.png' %}" style="position:absolute;bottom:10px;right:15px;"></strong></label>
+                    </div>
+                    <p class="fon-bold fon-siz-20 tex-ali-cen">نام شما</p>
+                </div>
+                <div class="wid-100 hei-270-px bac-col-whi bor-rad-5-px box-sha-0-0-5-ccc mar-top-20">
+                    <p id="p-profils" class="wid-80 mar-righ-25 bor-bot-167785 fon-bold fon-siz-18 tex-ali-cen padi-10">حساب کاربری شما</p>
+                    <br>
+                    <img src="{% static 'images/profile/pro1.png' %}" class="mar-righ-12 flo-righ">
+                    <a href="{% url 'video:profile' %}"><p class="hover-167785 mar-righ-50 wid-70">پروفایل</p></a>
+
+                    <img src="{% static 'images/profile/001-play-button-arrowhead.png' %}" class="mar-righ-12 flo-righ mar-top-12">
+                    <a href="{% url 'video:my_download' %}"><p class="hover-167785  mar-righ-50 mar-top-12 ">دانلود های من</p></a>
+
+                    <img src="{% static 'images/profile/004-video-player.png' %}" class="mar-righ-12 flo-righ mar-top-12">
+                    <a href="{% url 'video:my_upload' %}"><p class="hover-167785  mar-righ-50 mar-top-12 ">دوره های من</p></a>
+
+                    <img src="{% static 'images/profile/exit.png' %}" class="mar-righ-12 flo-righ mar-top-12">
+                    <a href="{% url 'video:index' %}"><p class="hover-167785  mar-righ-50 mar-top-12 ">خروج از حساب</p></a>
+                </div>
+            </div>
+            <div id="personaliti" class="wid-75 bac-col-whi mar-20-10 bor-rad-5-px box-sha-0-0-5-ccc">
+                <p id="p-personaliti" class="wid-96 hei-50-px mar-righ-18 bac-col-167785 tex-ali-cen padi-top-10 col-whi mar-top-12 bor-rad-5-px fon-bold">اطلاعات شخصی</p>
+                <form id="form-personaliti" class="wid-100">
+                    <div class="wid-96 mar-righ-50">
+                        <div id="div-form1" class="wid-47 flo-righ mar-righ-25 padi-8 mar-top-5">
+                            <label class="">نام:</label>
+                            <br>
+                            <input type="text" class="wid-85 mar-top-12 padi-6 bor-rad-5-px out-non border-167785-1px inputhover"required>
+                        </div>
+                         <div id="div-form2" class="wid-47 flo-righ mar-righ-18 padi-8 mar-top-5">
+                            <label class="">نام خانوادگی:</label>
+                             <br>
+                            <input type="text" class="wid-85 mar-top-12 padi-6 bor-rad-5-px out-non border-167785-1px inputhover"required>
+                        </div>
+
+                        <div id="div-form3" class="wid-47 flo-righ mar-righ-25 padi-8 mar-top-5">
+                            <label class="">نام کاربری:</label>
+                            <br>
+                            <input value="zahra" type="text" class="wid-85 mar-top-12 padi-6 bor-rad-5-px out-non border-167785-1px inputhover"required>
+                        </div>
+                         <div id="div-form4" class="wid-47 flo-righ mar-righ-18 padi-8 mar-top-5">
+                            <label class="">رمز عبور:</label>
+                             <br>
+                        <input type="password" class="wid-85 mar-top-12 padi-6 bor-rad-5-px out-non border-167785-1px inputhover"required>
+                        </div>
+
+                        <div id="div-form5" class="wid-47 flo-righ mar-righ-25 padi-8 mar-top-5">
+                            <label class="">کدملی:</label>
+                            <br>
+                            <input type="text" class="wid-85 mar-top-12 padi-6 bor-rad-5-px out-non border-167785-1px inputhover"required>
+                        </div>
+                         <div id="div-form6" class="wid-47 flo-righ mar-righ-18 padi-8 mar-top-5">
+                            <label class="">ایمیل:</label>
+                             <br>
+                            <input type="text" class="wid-85 mar-top-12 padi-6 bor-rad-5-px out-non border-167785-1px inputhover"required>
+                        </div>
+
+                        <div id="div-form7" class="wid-47 flo-righ mar-righ-25 padi-8 mar-top-5">
+                            <label class="">شماره موبایل:</label>
+                            <br>
+                            <input type="tel" class="wid-85 mar-top-12 padi-6 bor-rad-5-px out-non border-167785-1px inputhover" alue="" minlength="11" maxlength="11" required>
+                        </div>
+                         <div id="div-form8" class="wid-47 flo-righ mar-righ-18 padi-8 mar-top-5">
+                            <label class="">شماره ثابت:</label>
+                             <br>
+                            <input type="tel" class="wid-85 mar-top-12 padi-6 bor-rad-5-px out-non border-167785-1px inputhover"required>
+                        </div>
+                    </div>
+                    <button id="save-inform" class="wid-25 mar-30-auto padi-6 out-non bor-rad-5-px bor-non cur-poi col-whi bac-col-ff9933 fon-siz-16 back-hov-f60">
+                        <span>ثبت اطلاعات</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    <script>
+        function myFunction() {
+          var x = document.getElementById("myFile");
+          x.disabled = true;
+        }
+    </script>
+        <script type="text/javascript" src = "{% static 'js/index/jquery.js' %}"></script>
+    <script type="text/javascript" src = "{% static 'js/index/scripts.js' %}"></script>
+
+{% endblock %}

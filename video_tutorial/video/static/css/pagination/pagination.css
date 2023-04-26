@@ -1,0 +1,38 @@
+#ulor{
+    margin : 30px auto;
+    display: table;
+    padding: 5px;
+    box-shadow: 2px 2px 5px gray;
+    border-radius: 10px;
+}
+#ulor li{
+    display: inline-block;
+    vertical-align: top;
+}
+.lor img{
+    width: 100%;
+    opacity: .6;
+}
+.dor , .tor , .lor{
+    padding : 2px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.tor{
+    background-color: #167785;
+    border-radius: 100%;
+    color : white;
+}
+.dor p , .tor p , .lor p{
+    margin: 0;
+}
+.disabled{
+    display: none;
+}
+.end-f{
+    margin-top: 2%;
+    margin-left: 5%;
+    height: 100px;
+ }

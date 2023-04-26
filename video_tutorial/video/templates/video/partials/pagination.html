@@ -1,0 +1,24 @@
+{% load static %}
+<link  rel="stylesheet" type="text/css" href="{% static 'css/pagination/pagination.css' %}">
+
+<div class="end-f">
+        <ul id="ulor">
+        {% if page.has_previous %}
+        <a href="?page={{ page.previous_page_number }}"><li class="lor"> <p> <img src="{% static 'images/pagination/next.png' %}"> </p> </li></a>
+        {% else %}
+        <a href="#" class="disabled"><li class="lor"> <p> <img src="{% static 'images/pagination/next.png' %}"> </p> </li></a>
+        {% endif %}
+        {% for i in page.paginator.page_range %}
+        {% if page.number == i %}
+            <a  href="?page={{ i }}"><li class="tor"> <p> {{ i }}</p> </li></a>
+        {% else %}
+            <a href="?page={{ i }}"><li class="dor"> <p> {{ i }}</p> </li></a>
+        {% endif %}
+        {% endfor %}
+        {% if page.has_next %}
+        <a href="?page={{ page.next_page_number }}"><li class="lor"> <p> <img src="{% static 'images/pagination/back.png' %}"> </p> </li></a>
+        {% else %}
+        <a href="#" class="disabled"><li class="lor"> <p> <img src="{% static 'images/pagination/back.png' %}"> </p> </li></a>
+        {% endif %}
+        </ul>
+</div>

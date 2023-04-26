@@ -1,0 +1,230 @@
+
+/*________________________________مدیا کوئری______________________*/
+  
+@media screen and (min-width : 360px) and (max-width : 639px){
+    #oll{
+        width: 360px;
+    }
+    #div-o1{
+        float: none;
+        width: 100%;
+    }
+    #section-1{
+       width: 100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #befo-video{
+        margin: 17px;
+        margin-bottom: 8px;
+    }
+    #buton-vidsave{
+        margin-right: 250px;
+    }
+    #section-2{
+       width: 100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #p-vide{
+        width: 85%;
+    }
+    #section-3{
+       width: 100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #div-o2{
+        float: none;
+        width: 100%;
+    }
+    #section-4{
+        width:  100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #section-5{
+       width: 100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #section-6{
+       width: 100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #section-7{
+       width: 100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #text-comen{
+        margin-right: 15px;
+    }
+    #buto-coment{
+        margin-right: 195px;
+    }
+}
+@media screen and (min-width : 640px) and (max-width : 767px){
+    #oll{
+        width: 640px;
+    }
+    #div-o1{
+        float: none;
+        width: 85%;
+        margin: 0px 45px 0px 0px;
+    }
+    #section-1{
+       width: 100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #befo-video{
+        margin: 17px 25px 8px 0px;
+    }
+    #buton-vidsave{
+        margin-right:420px;
+    }
+    #section-2{
+       width: 100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #p-vide{
+        width: 85%;
+    }
+    #section-3{
+       width: 100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #div-o2{
+        float: none;
+        width: 85%;
+        margin: 0px 45px 0px 0px;
+    }
+    #section-4{
+        width:  100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #section-5{
+       width: 100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #img-downl{
+        margin-right: 110px;
+    }
+    #section-6{
+       width: 100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #section-7{
+       width: 100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #text-comen{
+        margin-right: 25px;
+    }
+    #buto-coment{
+        margin-right: 357px;
+    }
+    
+}
+@media screen and (min-width : 768px) and (max-width : 1023px){
+    #oll{
+        width: 768px;
+    }
+    #div-o1{
+        float: none;
+        width: 85%;
+        margin: 0px 45px 0px 0px;
+    }
+    #section-1{
+       width: 100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #befo-video{
+        margin: 17px 30px 8px 0px;
+    }
+    #buton-vidsave{
+        margin-right:520px;
+    }
+    #section-2{
+       width: 100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #p-vide{
+        width: 85%;
+    }
+    #section-3{
+       width: 100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #div-o2{
+        float: none;
+        width: 85%;
+        margin: 0px 45px 0px 0px;
+    }
+    #section-4{
+        width:  100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #section-5{
+       width: 100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #img-downl{
+        margin-right: 150px;
+    }
+    #section-6{
+       width: 100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #section-7{
+       width: 100%;
+        margin: 25px 0px 0px 0px;
+    }
+    #text-comen{
+        margin-right: 30px;
+    }
+    
+    #buto-coment{
+        margin-right: 455px;
+    }
+    
+}	
+@media screen and (min-width : 1024px) and (max-width : 1365px){
+    #oll{
+        width: 1024px;
+    }  
+    #befo-video{
+        margin: 17px 35px 8px 0px;;
+    }
+    #buton-vidsave{
+        margin-right:560px;
+    }
+     #section-4{
+        width:  100%;
+        margin-right: 10px;
+        font-size: 15px;
+    }
+    #section-5{
+       width: 100%;
+        margin-right: 10px;
+    }
+    #img-downl{
+        margin-right: 45px;
+    }
+    #h4-down{
+        font-size: 13px;
+    }
+    #section-6{
+       width: 100%;
+        margin-right: 10px;
+    }
+    #section-7{
+       width: 100%;
+        margin-right: 10px;
+    }
+    #text-comen{
+        margin-right: 13px;
+    }
+     #buto-coment{
+        margin-right: 146px;
+    }
+}
+@media screen and (min-width : 1366px) and (max-width : 1499px){
+    #oll{
+        width: 1366px;
+    }
+}

@@ -1,0 +1,213 @@
+.inputfile1 {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile1 + label {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    padding: 5px 30px;
+    display: inline-block;
+    outline: none;
+    border:none;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+}
+
+.inputfile1:focus + label,
+.inputfile1 + label:hover {
+}
+
+.inputfile1 + label {
+	cursor: pointer; /* "hand" cursor */
+}
+.inputfile1:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+/*____________________________مدیا کوئری______________________*/
+  
+@media screen and (min-width : 360px) and (max-width : 639px){
+
+    #oll{
+        width: 360px;
+        flex-direction: column;
+    }
+    #div-profile{
+        width: 100%;
+    }
+    #img-your{
+        width: 45%;
+        margin-right: 95px;
+    }
+    #p-your{
+        margin-right: 35px;
+    }
+    #my-uplou{
+        width: 100%;
+    }
+    #add-video{
+        width: 45%;
+    }
+    #div-uplou{
+        flex-direction: column;
+    }
+    #div-imgupload{
+        width: 100%;
+    }
+    #p-namevideo{
+        width: 60%;
+        margin-right: 70px;
+    }
+    #div-uplou1{
+        width: 96%;
+        margin-right: 10px;
+    }
+    #edit-video{
+        width: 30%;
+        margin-right: 210px;
+    }
+}
+@media screen and (min-width : 640px) and (max-width : 767px){
+    
+    #oll{
+        width: 640px;
+        flex-direction: column;
+    }
+    #div-profile{
+        width: 55%;
+        margin-right: 140px;
+    }
+    #img-your{
+        width: 45%;
+        margin-right: 95px;
+    }
+    #p-your{
+        margin-right: 35px;
+    }
+    #my-uplou{
+        width: 55%;
+        margin-right: 140px;
+    }
+    #add-video{
+        width: 45%;
+    }
+    #div-uplou{
+        flex-direction: column;
+    }
+    #div-imgupload{
+        width: 100%;
+    }
+    #p-namevideo{
+        width: 60%;
+        margin-right: 70px;
+    }
+    #div-uplou1{
+        width: 96%;
+        margin-right: 10px;
+    }
+    #edit-video{
+        width: 30%;
+        margin-right: 210px;
+    }
+}
+@media screen and (min-width : 768px) and (max-width : 1023px){
+    
+   #oll{
+        width: 768px;
+    }
+    #div-profile{
+        width: 30%;
+    }
+    #img-your{
+        width: 55%;
+        height: 130px;
+        margin-right: 45px;
+    }
+    #p-your{
+        margin-right: 20px;
+    }
+    #my-uplou{
+        width: 70%;
+    }
+    #add-video{
+        width: 35%;
+    }
+    #div-imgupload{
+        width: 100%;
+    }
+    #p-namevideo{
+        width: 90%;
+        margin-right: 35px;
+    }
+    #div-uplou1{
+        width: 100%;
+        margin-right: 10px;
+    }
+    #edit-video{
+        width: 40%;
+        margin-right: 120px;
+    }
+    #div-uplou1-1{
+        width: 100%;
+    }
+    #div-uplou1-2{
+        width: 100%;
+    }
+}	
+@media screen and (min-width : 1024px) and (max-width : 1365px){
+    
+    #oll{
+        width: 1024px;
+    }
+     #div-profile{
+        width: 30%;
+    }
+    #img-your{
+        width: 45%;
+        height: 130px;
+        margin-right: 85px;
+    }
+    #p-your{
+        margin-right: 30px;
+    }
+    #my-uplou{
+        width: 70%;
+    }
+    #add-video{
+        width: 25%;
+    }
+    #div-imgupload{
+        width: 90%;
+    }
+    #p-namevideo{
+        width: 90%;
+        margin-right: 75px;
+    }
+    #div-uplou1{
+        width: 100%;
+        margin-right: 10px;
+    }
+    #edit-video{
+        width: 40%;
+        margin-right: 170px;
+    }
+    #div-uplou1-1{
+        width: 100%;
+    }
+    #div-uplou1-2{
+        width: 100%;
+    }
+}
+@media screen and (min-width : 1366px) and (max-width : 1499px){
+  
+    #oll{
+        width: 1366px;
+    }
+}

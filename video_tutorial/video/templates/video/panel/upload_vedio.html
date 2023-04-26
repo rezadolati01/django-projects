@@ -1,0 +1,99 @@
+{% extends 'video/parent/base.html' %}
+{% load static %}
+{% block head %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width" initial-scale="1">
+        <link  rel="stylesheet" type="text/css" href="{% static 'css/uplod-video' %}">
+        <link  rel="stylesheet" type="text/css" href="{% static 'css/base1.css' %}">
+        <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+     <div id="oll" class="wid-1500-px dis-tab dir-rtl mar-aut dis-flx">
+
+            <div id="div-top" class="wid-70">
+                <div id="upload-div" class="relative wid-96 hei-480-px mar-18 bac-col-whi box-sha-0-0-5-ccc bor-rad-10-px">
+                    <input type="file" name="file" id="file" class="inputfile">
+                    <label for="file">آپلود ویدئو</label>
+                </div>
+                <div id="explain" class="wid-96 mar-18 bac-col-whi box-sha-0-0-5-ccc bor-rad-10-px relative">
+                    <img src="{% static 'images/uplod-video/order%20list6.png' %}" class="absol top8 right15">
+                    <h4 class="wid-93 padi-6-30 bor-bot-167785 mar-righ-25">توضیحات</h4>
+                    <form>
+                        <div class="wid-100">
+                            <label class="wid-90 mar-righ-25 padi-10 dis-blo">توضیحات کلی دوره :</label>
+                            <textarea id="textarea-1" type="text" class="wid-90 mar-righ-50 hei-200-px out-non bor-rad-5-px border-167785-2px padi-6 box-sha-0-0-3-167785 "></textarea>
+                        </div>
+                        <div class="wid-100">
+                                <p class="wid-90 mar-righ-25 padi-10 dis-blo">معرفی سرفصل های دوره : <span class="col-f93">(افزودن توضیحات هرفصل + مدت زمان هر فصل + قیمت هر فصل در این بخش الزامی است.)</span></p>
+                                <p class="mar-righ-50 padi-3">نمونه : <br>فصل اول : رنگ شناسی <br> در این فصل به شناسایی انواع رنگ ها و رنگ های مکمل آشنا می شویم و ماهیت رنگ را برا استفاده صحیح در بوم نقاشی در میابیم.<br>مدت زمان دوره : 00:15:25 &nbsp;&nbsp;قیمت: 10,000 تومان</p>
+                                <textarea id="textarea-2" type="text" class="wid-90 mar-righ-50 hei-160-px out-non bor-rad-5-px border-f93-2px padi-6 mar-bot-20 mar-top-12 box-sha-0-0-3-f93"></textarea>
+                        </div>
+                        <button id="sabt-explain" class="wid-25 mar-top-15 padi-6 out-non bor-rad-5-px bor-non cur-poi col-whi bac-col-ff9933 fon-siz-16 back-hov-f60 mar-righ-645 mar-bot-30">
+                            <span>ثبت</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="div-bottom" class="wid-30">
+
+                <div id="moshakhasat" class="wid-90 mar-18 bac-col-whi box-sha-0-0-5-ccc bor-rad-10-px relative">
+                        <img src="{% static 'images/uplod-video/orderlist2.png' %}" class="absol top8 right15">
+                        <h4 class="wid-90 padi-6-30 bor-bot-167785 mar-righ-18">مشخصات دوره</h4>
+                    <form id="form-inp">
+                        <div class="wid-90 mar-top-25">
+                            <input type="text" class="inputhover wid-80 padi-6 mar-righ-50 out-non border-167785-1px bor-rad-5-px" placeholder="عنوان دوره" required>
+                        </div>
+                        <div class="wid-90 mar-top-20">
+                            <input type="text" class="inputhover wid-80 padi-6 mar-righ-50 out-non border-167785-1px bor-rad-5-px" placeholder="قیمت کل دوره" required>
+                        </div>
+                        <div class="wid-90 mar-top-20">
+                            <input type="text" class="inputhover wid-80 padi-6 mar-righ-50 out-non border-167785-1px bor-rad-5-px" placeholder="تعداد سرفصل ها" required>
+                        </div>
+                        <div class="wid-90 mar-top-20">
+                            <input type="text" class="inputhover wid-80 padi-6 mar-righ-50 out-non border-167785-1px bor-rad-5-px" placeholder="تعداد ویدئو ها" required>
+                        </div>
+                        <div class="wid-90 mar-top-20">
+                            <input type="text" class="inputhover wid-80 padi-6 mar-righ-50 out-non border-167785-1px bor-rad-5-px" placeholder="مدت زمان کل دوره" required>
+                        </div>
+                        <div class="wid-90 mar-top-20">
+                            <input type="text" class="inputhover wid-80 padi-6 mar-righ-50 out-non border-167785-1px bor-rad-5-px" placeholder="سطح دوره" required>
+                        </div>
+                        <button class="wid-50 mar-top-20 padi-6 mar-righ-95 out-non bor-rad-5-px bor-non cur-poi col-whi bac-col-ff9933 fon-siz-16 back-hov-f60 mar-bot-30">
+                            <span>ثبت</span>
+                        </button>
+                    </form>
+                </div>
+
+                <div id="barchasb" class="wid-90 mar-18 bac-col-whi box-sha-0-0-5-ccc bor-rad-10-px relative">
+                    <img src="{% static 'images/uplod-video/taraconesh2.png' %}" class="absol top8 right15">
+                    <h4 class="wid-90 padi-6-30 bor-bot-167785 mar-righ-18">برچسب ها</h4>
+                    <p class="tex-ali-cen mar-top-20 padi-3">برای افزایش بازدید و دانلود ویدئوهای آموزشی خود <br>از برچسب های معتبر استفاده کنید.<br><span class="col-f93">(وارد نمودن حداقل 2 برچسب الزامی است.)</span></p>
+                    <p class="tex-ali-cen mar-top-12 padi-3">نمونه : آموزش خیاطی</p>
+                    <div class="wid-100 mar-top-12">
+                        <form id="form-barchasb">
+                            <input type="text" class="inputhover wid-40 padi-6 mar-righ-25 mar-top-15 out-non border-167785-1px bor-rad-5-px" placeholder="برچسب 1" value="" required>
+                            <input type="text" class="inputhover wid-40 padi-6 mar-righ-18 mar-top-15 out-non border-167785-1px bor-rad-5-px" placeholder="برچسب 2" value="" required>
+                            <input type="text" class="inputhover wid-40 padi-6 mar-righ-25 mar-top-15 out-non border-167785-1px bor-rad-5-px" placeholder="برچسب 3" value="">
+                            <input type="text" class="inputhover wid-40 padi-6 mar-righ-18 mar-top-15 out-non border-167785-1px bor-rad-5-px" placeholder="برچسب 4" value="">
+                            <input type="text" class="inputhover wid-40 padi-6 mar-righ-25 mar-top-15 out-non border-167785-1px bor-rad-5-px" placeholder="برچسب 5" value="">
+                            <button class="wid-50 mar-top-20 padi-6 mar-righ-95 out-non bor-rad-5-px bor-non cur-poi col-whi bac-col-ff9933 fon-siz-16 back-hov-f60 mar-bot-30">
+                            <span>ثبت</span>
+                        </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    <script>
+        function myFunction() {
+          var x = document.getElementById("myFile");
+          x.disabled = true;
+        }
+    </script>
+        <script type="text/javascript" src = "{% static 'js/index/jquery.js' %}"></script>
+    <script type="text/javascript" src = "{% static 'js/index/scripts.js' %}"></script>
+{% endblock %}

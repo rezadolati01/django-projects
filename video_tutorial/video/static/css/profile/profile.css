@@ -1,0 +1,291 @@
+.inputfile1 {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile1 + label {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    padding: 5px 30px;
+    display: inline-block;
+    outline: none;
+    border:none;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+}
+
+.inputfile1:focus + label,
+.inputfile1 + label:hover {
+}
+
+.inputfile1 + label {
+	cursor: pointer; /* "hand" cursor */
+}
+.inputfile1:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+/*____________________________مدیا کوئری______________________*/
+  
+@media screen and (min-width : 360px) and (max-width : 639px){
+
+    #oll{
+        width: 360px;
+        flex-direction: column;
+    }
+    #profils{
+        width: 100%;
+    }
+    #img-profils{
+        margin-right:85px;
+    }
+    #p-profils{
+        margin-right: 35px;
+    }
+    #personaliti{
+        width: 100%;
+    }
+    #p-personaliti{
+        margin-right: 7px;
+    }
+    #form-personaliti{
+        width: 100%;
+    }
+    #div-form1{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-form2{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-form3{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-form4{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-form5{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-form6{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-form7{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-form8{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #save-inform{
+        width: 40%;
+        margin-right: 110px;
+    }
+}
+@media screen and (min-width : 640px) and (max-width : 767px){
+    
+    #oll{
+        width: 640px;
+        flex-direction: column;
+    }
+    #profils{
+        width: 55%;
+        margin-right: 140px;
+    }
+    #img-profils{
+        margin-right:85px;
+    }
+    #p-profils{
+        margin-right: 35px;
+    }
+    #personaliti{
+        width: 55%;
+        margin-right: 140px;
+    }
+    #p-personaliti{
+        margin-right: 7px;
+    }
+    #form-personaliti{
+        width: 100%;
+    }
+    #div-form1{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-form2{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-form3{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-form4{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-form5{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-form6{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-form7{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-form8{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #save-inform{
+        width: 40%;
+        margin-right: 110px;
+    }
+}
+@media screen and (min-width : 768px) and (max-width : 1023px){
+    
+   #oll{
+        width: 768px;
+    }
+    #profils{
+        width: 30%;
+        margin-right: 10px;
+    }
+    #img-profils{
+        margin-right:40px;
+        height: 120px;
+        width: 55%;
+    }
+    #p-profils{
+        margin-right: 15px;
+    }
+    #personaliti{
+        width: 70%;
+    }
+    #p-personaliti{
+        margin-right: 10px;
+    }
+    #form-personaliti{
+        width: 100%;
+    }
+    #div-form1{
+        width: 90%;
+        margin-right: 20px;
+    }
+    #div-form2{
+        width: 90%;
+        margin-right: 20px;
+    }
+    #div-form3{
+        width: 90%;
+        margin-right: 20px;
+    }
+    #div-form4{
+        width: 90%;
+        margin-right: 20px;
+    }
+    #div-form5{
+        width: 90%;
+        margin-right: 20px;
+    }
+    #div-form6{
+        width: 90%;
+        margin-right: 20px;
+    }
+    #div-form7{
+        width: 90%;
+        margin-right: 20px;
+    }
+    #div-form8{
+        width: 90%;
+        margin-right: 20px;
+    }
+    #save-inform{
+        width: 40%;
+        margin-right: 160px;
+    }
+}	
+@media screen and (min-width : 1024px) and (max-width : 1365px){
+    
+    #oll{
+        width: 1024px;
+    }
+    #profils{
+        width: 30%;
+        margin-right: 10px;
+    }
+    #img-profils{
+        margin-right:75px;
+        height: 160px;
+        width: 50%;
+    }
+    #p-profils{
+        margin-right: 30px;
+    }
+    #personaliti{
+        width: 70%;
+    }
+    #p-personaliti{
+        margin-right: 12px;
+    }
+    #form-personaliti{
+        width: 100%;
+    }
+    #div-form1{
+        width: 45%;
+        margin-right: 20px;
+    }
+    #div-form2{
+        width: 45%;
+        margin-right: 20px;
+    }
+    #div-form3{
+        width: 45%;
+        margin-right: 20px;
+    }
+    #div-form4{
+        width: 45%;
+        margin-right: 20px;
+    }
+    #div-form5{
+        width: 45%;
+        margin-right: 20px;
+    }
+    #div-form6{
+        width: 45%;
+        margin-right: 20px;
+    }
+    #div-form7{
+        width: 45%;
+        margin-right: 20px;
+    }
+    #div-form8{
+        width: 45%;
+        margin-right: 20px;
+    }
+    #save-inform{
+        width: 30%;
+        margin-right: 260px;
+    }
+}
+@media screen and (min-width : 1366px) and (max-width : 1499px){
+  
+    #oll{
+        width: 1366px;
+    }
+}

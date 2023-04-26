@@ -1,0 +1,161 @@
+
+/*________________________________مدیا کوئری______________________*/
+  
+@media screen and (min-width : 360px) and (max-width : 639px){
+    #oll{
+        width: 360px;
+    }
+    #li-1{
+       display: none;
+    }
+    #li-2{
+        display: none;
+    }
+    #li-3{
+        display: none;
+    }
+    #li-4{
+        display: none;
+    }
+    #li-5{
+        display: none;
+    }
+    #li-6{
+        display: inline-block;
+    }
+    #li-6:hover #sec-r{
+        display: block;
+        top: 49px;
+        z-index: 100;
+    }
+    #sec-r{
+        top: 32px;
+        right: -80px;
+    }
+    #secend-div section{
+        width: 80%;
+        margin:15px 37px;
+    }
+    #ul-end{
+        width: 65%;
+        margin-right: 40px;
+    }
+}
+@media screen and (min-width : 640px) and (max-width : 767px){
+    #oll{
+        width: 640px;
+    }
+    #li-1{
+       display: none;
+    }
+    #li-2{
+        display: none;
+    }
+    #li-3{
+        display: none;
+    }
+    #li-4{
+        display: none;
+    }
+    #li-5{
+        display: none;
+    }
+    #li-6{
+        display: inline-block;
+    }
+    #li-6:hover #sec-r{
+        display: block;
+        top: 48px;
+        z-index: 100;
+    }
+    #sec-r{
+        top: 32px;
+        right: -80px;
+    }
+    #secend-div{
+        width: 85%;
+        margin-right: 50px; 
+    }
+    #secend-div section{
+        width: 45%;
+
+    }
+    #ul-end{
+        width: 40%;
+        margin:auto;
+    }
+}
+@media screen and (min-width : 768px) and (max-width : 1023px){
+    #oll{
+        width: 768px;
+    }
+    #li-1{
+       display: none;
+    }
+    #li-2{
+        display: none;
+    }
+    #li-3{
+        display: none;
+    }
+    #li-4{
+        display: none;
+    }
+    #li-5{
+        display: none;
+    }
+    #li-6{
+        display: inline-block;
+    }
+    #li-6:hover #sec-r{
+        display: block;
+        top: 48px;
+        z-index: 100;
+    }
+    #sec-r{
+        top: 32px;
+        right: -80px;
+    }
+    #secend-div{
+        width: 85%;
+        margin-right: 65px; 
+    }
+    #secend-div section{
+        width: 45%;
+
+    }
+    #ul-end{
+        width: 35%;
+        margin:auto;
+    }
+}	
+@media screen and (min-width : 1024px) and (max-width : 1365px){
+    #oll{
+        width: 1024px;
+    }  
+    #secend-div{
+        width: 88%;
+        margin-right: 70px; 
+    }
+    #secend-div section{
+        width: 30%;
+
+    }
+    #ul-end{
+        width: 25%;
+        margin:auto;
+    }
+}
+@media screen and (min-width : 1366px) and (max-width : 1499px){
+    #oll{
+        width: 1366px;
+    }
+    #secend-div{
+        width: 95%;
+        margin-right: 30px; 
+    }
+    #secend-div section{
+        width: 18.5%;
+
+    }
+}

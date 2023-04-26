@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+
+    <head>
+        <title>{% block title %} فیلم آموزشی {% endblock %}</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7;IE=edge,chrome=1"/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width" >
+        <link  rel="stylesheet" type="text/css" href="{% static 'css/base.css' %} ">
+        {% block head %}
+
+        {% endblock %}
+
+    </head>
+    <body>
+	<div id='all' class='fixed dis-non wid-100 hei-100 z-ind-1000 bac-col-bla opa-5 mar-0 fixed top0 left0'></div>
+	<div id='usrpop' class='ove-hid dis-non top100 wid-400-px z-ind-1001 bor-rad-5-px bac-col-fafafa bor-167785 fixed' style="left:37%;">
+		<section id='poprev'>
+			<a href='#'> <section id='popreg' class='tex-ali-cen wid-49_9 dis-inl-blo ver-ali-top pad-15 bac-col-167785'> <span style="color:#fff;">ثبت نام</span> </section> </a>
+			<a href='#'> <section id='poplog' class='flo-lef tex-ali-cen wid-49_9 dis-inl-blo ver-ali-top pad-15 bac-col-167785'> <span style="color:#fff">ورود</span> </section> </a>
+		</section>
+		<section id='popform' class='dis-non mar-0-20-20-20'>
+			<form id='popform1' method="post" action="{% url 'video:login_register' %}">
+				{% csrf_token %}
+				{% comment %} <input type='text' class='wid-100 mar-20-0-0-0 inpt dir-rtl pad-5 tra-25 bor-rad-3-px bor-non out-sty-non' name="first_name"placeholder='نام'>
+				<input type='text' class='wid-100 mar-20-0-0-0 inpt dir-rtl pad-5 tra-25 bor-rad-3-px bor-non out-sty-non' name="last_name" placeholder='نام خانوادگی'> {% endcomment %}
+				<input type='text' class='wid-100 mar-20-0-0-0 inpt dir-rtl pad-5 tra-25 bor-rad-3-px bor-non out-sty-non inpt2 hei-50-px bor-167785 pad-10 bor-rad-5-px' name="phone_number" placeholder='شماره تلفن' required pattern="09(0[1-9]|1[0-9]|3[0-9]|2[0-9]|9[0-9])-?[0-9]{3}-?[0-9]{4}">
+				<input type='text' class='wid-100 mar-20-0-0-0 inpt dir-rtl pad-5 tra-25 bor-rad-3-px bor-non out-sty-non inpt2 hei-50-px bor-167785 pad-10 bor-rad-5-px' name="username" placeholder='نام کاربری' required>
+				<input type='password' class='wid-100 mar-20-0-0-0 inpt dir-rtl pad-5 tra-25 bor-rad-3-px bor-non out-sty-non inpt2 hei-50-px bor-167785 pad-10 bor-rad-5-px' name="password1" placeholder='رمز عبور' required>
+				<input type='password' class='wid-100 mar-20-0-0-0 inpt dir-rtl pad-5 tra-25 bor-rad-3-px bor-non out-sty-non inpt2 hei-50-px bor-167785 pad-10 bor-rad-5-px' name="password2" placeholder='تکرار رمز عبور' required>
+				<input type='submit' value='ثبت نام' id='popsub' class='wid-100 mar-20-0-0-0 tex-ali-cen opac tra-25 pad-27-0 lin-hei-0 bor-rad-5-px cur-poi bac-col-whi bor-167785'>
+				<input type='submit' value='بستن' id='popclose' class='wid-100 mar-20-0-0-0 tex-ali-cen opac tra-25 pad-27-0 lin-hei-0 bor-rad-5-px cur-poi bac-col-whi bor-167785'>
+			</form>
+		</section>
+		<section id='popformlog' class="mar-0-20-20-20">
+			<form id='popformlog1'  method="post" action="{% url 'video:login_register' %}">
+				{% csrf_token %}
+				<input type='text' name="username" id="username" class='wid-100 mar-20-0-0-0 inpt dir-rtl pad-5 tra-25 bor-rad-3-px bor-non out-sty-non inpt2 hei-50-px bor-167785 pad-10 bor-rad-5-px' placeholder='نام کاربری' required>
+				<input type='password' id="password" name="password" class='wid-100 mar-20-0-0-0 inpt dir-rtl pad-5 tra-25 bor-rad-3-px bor-non out-sty-non inpt2 hei-50-px bor-167785 pad-10 bor-rad-5-px' placeholder='رمز عبور' required>
+				<section id='popcheck' class="wid-100 mar-20-0-0-0 dis-inl-blo ver-ali-top wid-50 mar-top-0">   </section>
+				<a href="#" style='text-decoration: underline;'> <p id='faramoosh' class='tex-ali-cen wid-100 tex-ali-cen mar-10-aut'> رمز عبور خود را فراموش کرده اید؟ </p> </a>
+				<input type='submit' value='ورود' id='popsub' class='wid-100 mar-20-0-0-0 tex-ali-cen opac tra-25 pad-27-0 lin-hei-0 bor-rad-5-px cur-poi bac-col-whi bor-167785'>
+				<input type='button' value='بستن' id='popclose' class='wid-100 mar-20-0-0-0 tex-ali-cen opac tra-25 pad-27-0 lin-hei-0 bor-rad-5-px cur-poi bac-col-whi bor-167785'>
+			</form>
+		</section>
+	</div>
+
+        {% include "video/partials/header.html" %}
+        {% include "video/partials/navigation.html" %}
+        <div id='oll' class='relative mar-aut wid-1500-px dir-rtl m1366-wid-1366-px m1024-wid-1024-px m768-wid-768-px m640-wid-640-px m360-wid-360-px'>
+        {% block body %}
+
+		{% endblock %}
+	</div>
+		{% include "video/partials/footer.html" %}
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js"></script>
+            <script>
+            var csrftoken = Cookies.get('csrftoken');
+            function csrfSafeMethod(method) {
+                // these HTTP methods do not require CSRF protection
+                return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+            }
+            $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                    }
+                }
+             });
+
+        $(document).ready(function(){
+            {% block domready %}
+            {% endblock %}
+        });
+    </script>
+
+    </body>
+
+
+</html>

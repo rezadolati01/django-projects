@@ -1,0 +1,36 @@
+{% extends 'video/parent/base.html' %}
+{% load static %}
+{% block head %}
+    <link  rel="stylesheet"  type="text/css" href="{% static 'css/resset_password.css' %} ">
+{% endblock %}
+{% block body %}
+<div style="min-height:700px" >
+        <form class="box-bw wid-570-px hei-220-px mar-110-aut box-sha-0-0-4-167785 dir-rtl bor-rad-10-px m360-wid-90 m360-mar-top-75 m360-hei-175-px " method="post" action="{% url 'video:confirm_register' %}">
+        {% csrf_token %}
+            <label for="phone" id="la-ph fon-siz-15 pad-10 mar-15-0 wid-100 tex-ali-cen dis-inl-blo m360-tex-ali-cen m360-wid-90 m360-dis-tab m360-mar-5-aut ">لطفا کد ارسال شده به شماره {{p}} را وارد کنید :</label>
+            <input type="tel" name="token" class="control-phone wid-49 dis-tab hei-30-px fon-siz-15 mar-10-aut out-non pad-7 bor-rad-5-px tex-ali-lef dir-ltr m360-tex-ali-cen m360-wid-90 m360-dis-tab m360-mar-5-aut "  minlength="6" maxlength="6"  required>
+            <button class="btn-send wid-150-px hei-30-px mar-30-aut fon-siz-15 bac-col-167785 bor-167785 col-whi bor-rad-5-px cur-poi dis-tab m360-wid-33 m360-mar-20-aut m360-fon-siz-12  " type="submit">ارسال</button>
+            {% if err %}
+              <div class="error_message" style ="color:red;">
+                {{err}}
+              </div>
+            {% endif %}
+        </form>
+</div>
+    {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <div class="error_message bac-col-fff9fa bor-ffc1c5 col-ef5662 wid-80 lin-hei-30 bor-rad-5-px tex-ali-cen mar-aut pad-10-5 dir-rtl mar-bot-10" style="font-size:12px">
+                        <strong>{{field.label}} : {{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                <div class="error_message bac-col-fff9fa bor-ffc1c5 col-ef5662 wid-80 lin-hei-30 bor-rad-5-px tex-ali-cen mar-aut pad-10-5 dir-rtl mar-bot-10">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+<script type="text/javascript" src = "{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src = "{% static 'js/scripts.js' %}"></script>
+{% endblock %}

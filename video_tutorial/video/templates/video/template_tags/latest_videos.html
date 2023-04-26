@@ -1,0 +1,24 @@
+{% load static %}
+<div id="radif" class="wid-50 hei-40-px mar-55-350-0-20 bor-bot-167785">
+            <h3 class="tex-ali-cen col-167785 fon-lalezar">جدیدترین آموزش ها</h3>
+        </div>
+        <div class="cats wid-100">
+            {% for n in newest %}
+        <a href="{{n.get_absolute_url}}"><section class="box-sha-5-5-666 wid-22 hei-450-px mar-30-17-0-15 relative dis-inl-blo bac-col-whi box-sha-3-3-10-gra">
+            <span class="absol col-167785 fon-siz-16 mar-10-20-0-0 fon-bold">{{n.title}}</span>
+            <button class="dis-inl-blo absol lef-10 top10 bac-col-whi out-non padi-6 cur-poi bor-non box-sha-ccc-15"><img src="{% static 'images/index/save-button.png' %}"></button>
+            <img src="{{ n.preview_image.url}}" alt="" class="wid-70 hei-180-px absol right45 top60">
+            <div class="wid-100 hei-180-px absol top-250">
+                    <ul class="tex-ali-cen wid-100 list-style-t-none">
+                        <li class="fon-bold mar-aut wid-60 padi-3 bor-rad-5-px hover-167785">www.dastganj.com</li>
+                        <li class="fon-bold mar-aut wid-50 bor-bot-f93 trans-2 hover-wid-60 padi-3 box-sha-ccc-15 mar-5-aut bor-rad-5-px back-hov-f93 hover-fff">
+                            {{ n.teacher}}</li>
+                        <li class="fon-bold mar-aut wid-80 bor-bot-167785 trans-2 hover-wid-90 padi-3 box-sha-ccc-15 mar-5-aut bor-rad-5-px back-hov hover-fff">
+                            {{ n.caption|truncatewords:2}}</li>
+                        <li class="fon-bold mar-aut wid-50 bor-bot-f93 trans-2 hover-wid-60 padi-3 box-sha-ccc-15 mar-5-aut bor-rad-5-px back-hov-f93 hover-fff">
+                            {{ n.price}} تومان</li>
+                    </ul>
+            </div>
+        </section></a>
+            {% endfor %}
+        </div>

@@ -1,0 +1,80 @@
+{% load static %}
+
+<nav id="nav-big" class="wid-100 box-sha-2-2-3-aaa bac-col-whi z-ind-100 top0 fon-siz-14 " style="position:sticky;">
+<div id='nav' class="wid-1500-px dis-tab mar-aut dir-rtl relative m1366-wid-1366-px m1024-wid-1024-px m768-wid-768-px m640-wid-640-px m360-wid-360-px ">
+    <a href='#'><section id='open' class='opac tra-25 dis-non navspan1 pad-4 bor-bot-whi tra-25 cur-poi ver-ali-mid tra-25 m768-dis-inl-blo m640-dis-inl-blo m360-dis-inl-blo m360-pad-1 '>
+        <p class='dir-rtl mar-0' style="margin-right:5px"><img class="profi-1 flo-lef hei-34-px mar-70-0-0-6 mar-top-7 tra-25 m768-dis-blo m640-dis-blo m360-dis-blo " src="{% static 'images/navigation/menu.png' %}"> </p>
+    </section></a>
+    <section id='jost' class='opac tra-25 dis-non navspan1 pad-14 bor-bot-whi tra-25 cur-poi m360-pad-9 m360-dis-inl-blo '>
+        <span class='dir-rtl'> جست و جو </span>
+    </section>
+    <a href="{% url 'video:index' %}"><section class='navspan pad-14 bor-bot-whi tra-25 cur-poi dis-inl-blo ver-ali-top  m768-dis-non m640-dis-non m360-dis-non m360-pad-9 '>
+        <span class='dir-rtl'> صفحه اصلی </span>
+    </section></a>
+    <a href="#"><section id='mahsul' class='navspan pad-14 bor-bot-whi tra-25 cur-poi dis-inl-blo ver-ali-top  m768-dis-non m640-dis-non m360-dis-non m360-pad-9 '>
+        <span class='dir-rtl mahsul-span dis-inl-blo ver-ali-mid mar-0-3 tra-25 '> ویدیو ها </span><img src="{% static 'images/navigation/down.png' %}" class=" dis-inl-blo ver-ali-mid mar-0-3 tra-25  " width="10px">
+    </section></a>
+    <a href="#"><section class='navspan pad-14 bor-bot-whi tra-25 cur-poi dis-inl-blo ver-ali-top  m768-dis-non m640-dis-non m360-dis-non m360-pad-9 '>
+        <span class='dir-rtl'> درباره ما </span>
+    </section></a>
+
+   <a href="{% url 'video:email_to_admin' %}"><section class='navspan pad-14 bor-bot-whi tra-25 cur-poi dis-inl-blo ver-ali-top  m768-dis-non m640-dis-non m360-dis-non m360-pad-9 '>
+        <span class='dir-rtl'> تماس با ما </span>
+    </section></a>
+    <a href="#"><section class='flo-lef relative' >
+        <img  id='buy' src="{% static 'images/navigation/buy.png' %}" class="wid-45-px mar-0-20 m360-wid-35-px m360-mar-top-5 ">
+        <section id='buynum' class='absol wid-20-px hei-20-px bac-col-167785 bor-rad-50 bottom0 right15 tex-ali-cen ove-hid '>
+        <p id="Sabad_num" class="dis-inl-blo ver-ali-mid mar-bot-0 mar-top-0 col-whi ">
+        {% if request.user.is_authenticated %}
+        	{{request.user.sabadkharid_items.count }}
+        {% else %}
+         	0
+        {% endif %}
+        </p>
+        </section>
+    </section></a>
+    {% if request.user.is_authenticated %}
+        <a href="#">
+					<section class='navspan1 vared flo-lef pad-14 bor-bot-whi tra-25 cur-poi m768-pad-4 m640-pad-4 m360-pad-1 ' id="username-nav">
+        		<span class='dir-rtl profi2 m768-dis-non m640-dis-non m360-dis-non '> {{ request.user.get_username }}  </span>
+						<img id='img-down' class="m768-dis-non m640-dis-non m360-dis-non " src="{% static 'images/navigation/down.png' %}" width="10px">
+        		<img class="profi-2 dis-non  flo-lef hei-34-px mar-70-0-0-6 mar-top-7 tra-25 m768-dis-blo m640-dis-blo m360-dis-blo " src="{% static 'images/navigation/user-icon.png' %}">
+        	</section>
+				</a>
+        <div id='varedshod' class='absol qermez dir-rtl dis-non absol wid-150-px left85 bottom-102 bor-rad-0-0-10-10 z-ind-9 ove-hid bac-col-whi m768-left20 m640-left20 m360-left18 '>
+            <a href="{% url 'video:profile' %}"><p class='openp pad-14 mar-0'> پنل کاربری </p></a>
+            <a href="#"><p class='openp pad-14 mar-0'> خروج </p></a>
+        </div>
+    {% else %}
+      <a href='#'>
+				<section class='navspan1 usr flo-lef pad-14 bor-bot-whi tra-25 cur-poi m768-pad-4 m640-pad-4 m360-pad-1 m360-pad-9 '>
+	        <span class='dir-rtl profi2 m768-dis-non m640-dis-non m360-dis-non '> ورود یا ثبت نام</span>
+					<img class="profi-2 dis-non  flo-lef hei-34-px mar-70-0-0-6 mar-top-7 tra-25 m768-dis-blo m640-dis-blo m360-dis-blo " src="{% static 'images/navigation/user-icon.png' %}">
+        </section>
+			</a>
+
+    {% endif %}
+    <a href="{% url 'video:video_feed' %}"><section class='navspan pad-14 bor-bot-whi tra-25 cur-poi flo-lef dis-inl-blo ver-ali-top m768-dis-non m640-dis-non m360-dis-non m360-pad-9 '>
+        <span class='dir-rtl'> Rss Feed </span>
+    </section></a>
+    <div id='opened' class='absol qermez dir-rtl dis-non wid-100 left0 bor-rad-5-px bac-col-whi bor-ddd z-ind-1000 ove-hid '>
+        <a href="{% url 'video:index' %}"><p class='openp pad-14 mar-0'> صفحه اصلی </p></a>
+        <a href="#"><p class='openp pad-14 mar-0'> ویدیو ها </p></a>
+        <a href="#"><p class='openp pad-14 mar-0'> درباره ما </p></a>
+        <a href="#"><p class='openp pad-14 mar-0'> تماس با ما </p></a>
+        <a href="#"><p class='openp pad-14 mar-0'> فروشنده اید؟ </p></a>
+    </div>
+    <form id='jostoju' class='absol sabz dir-rtl dis-non wid-100 left0 bac-col-whi z-ind-1000 ' method="get" action="#">
+        <input type='search' class='inpt wid-250-px hei-30-px mar-10 m360-wid-100 m360-hei-100 m360-bor-eee m360-mar-0 m360-pad-8 ' name="product_name" placeholder=' دربین محصولات جست و جو کنید...'>
+    </form>
+    <div id='mahsulat' class='absol dir-rtl dis-non absol bac-col-whi wid-50 right98 bor-rad-0-0-10-10 z-ind-9 ove-hid bor-aaa m768-dis-non m640-dis-non m360-dis-non '>
+        <a href='{% url "video:video_list" %}'><p class='openp pad-14 mar-0'> همه ویدیو ها </p></a>
+        <a href='#'><p class='openp pad-14 mar-0'> خیاطی </p></a>
+        <a href='#'><p class='openp pad-14 mar-0'> آشپزی </p></a>
+        <a href='#'><p class='openp pad-14 mar-0'>بافتنی </p></a>
+        <a href='#'><p class='openp pad-14 mar-0'>عروسکی </p></a>
+        <a href="#"><p class='openp pad-14 mar-0'> مد و لباس </p></a>
+        <a href='#'><p class='openp pad-14 mar-0'> دیگر دسته بندی ها... </p></a>
+    </div>
+</div>
+</nav>

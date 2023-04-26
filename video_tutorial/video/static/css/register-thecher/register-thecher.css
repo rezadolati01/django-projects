@@ -1,0 +1,319 @@
+.inputfile1 {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile1 + label {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    padding: 5px 30px;
+    display: inline-block;
+    outline: none;
+    border:none;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+}
+
+.inputfile1:focus + label,
+.inputfile1 + label:hover {
+}
+
+.inputfile1 + label {
+	cursor: pointer; /* "hand" cursor */
+}
+.inputfile1:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+/*________________________________مدیا کوئری______________________*/
+  
+@media screen and (min-width : 360px) and (max-width : 639px){
+
+    #oll{
+        width: 360px;
+        flex-direction: column;
+    }
+    #prfi{
+        width: 100%;
+    }
+    #img-profi{
+        margin-right: 90px;
+    }
+    #p-profi{
+        margin-right: 40px;
+    }
+    #div-thecher{
+        width: 100%;
+    }
+    #p-thecher{
+        margin-right: 7px;
+    }
+    #div-thech1{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #form-thech{
+        width: 100%;
+    }
+    #div-thech2{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-thech3{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-thech4{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-thech5{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-thech6{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-thech7{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-thech8{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-thech9{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #textarea9{
+        width: 85%;
+    }
+    #inp-thech{
+        width: 40%;
+        margin-right: 115px;
+    }
+}
+@media screen and (min-width : 640px) and (max-width : 767px){
+    
+    #oll{
+        width: 640px;
+        flex-direction: column;
+    }
+    #prfi{
+        width: 55%;
+        margin-right: 140px;
+    }
+    #img-profi{
+        margin-right: 90px;
+    }
+    #p-profi{
+        margin-right: 40px;
+    }
+    #div-thecher{
+        width: 55%;
+        margin-right: 140px;
+    }
+    #p-thecher{
+        margin-right: 7px;
+    }
+    #div-thech1{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #form-thech{
+        width: 100%;
+    }
+    #div-thech2{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-thech3{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-thech4{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-thech5{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-thech6{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-thech7{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-thech8{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #div-thech9{
+        width: 90%;
+        margin-right: 0px;
+    }
+    #textarea9{
+        width: 85%;
+    }
+    #inp-thech{
+        width: 40%;
+        margin-right: 110px;
+    }
+}
+@media screen and (min-width : 768px) and (max-width : 1023px){
+    
+   #oll{
+        width: 768px;
+    }
+    #prfi{
+        width: 100%;
+    }
+    #img-profi{
+        width: 55%;
+        height: 140px;
+        margin-right: 40px;
+    }
+    #p-profi{
+        margin-right:20px;
+    }
+    #div-thecher{
+        width: 70%;
+        margin-right: 10px;
+    }
+    #p-thecher{
+        margin-right: 10px;
+    }
+    #div-thech1{
+        width: 90%;
+        margin-right: 20px;
+    }
+    #form-thech{
+        width: 100%;
+    }
+    #div-thech2{
+        width: 90%;
+        margin-right: 20px;
+    }
+    #div-thech3{
+        width: 90%;
+        margin-right: 20px;
+    }
+    #div-thech4{
+        width: 90%;
+        margin-right: 20px;
+    }
+    #div-thech5{
+        width: 90%;
+        margin-right: 20px;
+    }
+    #div-thech6{
+        width: 90%;
+        margin-right: 20px;
+    }
+    #div-thech7{
+        width: 90%;
+        margin-right: 20px;
+    }
+    #div-thech8{
+        width: 90%;
+        margin-right: 20px;
+    }
+    #div-thech9{
+        width: 90%;
+        margin-right: 20px;
+    }
+    #textarea9{
+        width: 85%;
+    }
+    #inp-thech{
+        width: 40%;
+        margin-right: 160px;
+    }
+}	
+@media screen and (min-width : 1024px) and (max-width : 1365px){
+    
+    #oll{
+        width: 1024px;
+    }
+    #prfi{
+        width: 35%;
+    }
+    #img-profi{
+        width: 45%;
+        height: 140px;
+        margin-right: 100px;
+    }
+    #p-profi{
+        margin-right:35px;
+    }
+    #div-thecher{
+        width: 65%;
+        margin-right: 10px;
+    }
+    #p-thecher{
+        margin-right: 10px;
+    }
+    #div-thech1{
+        width: 45%;
+        margin-right: 20px;
+    }
+    #form-thech{
+        width: 90%;
+    }
+    #div-thech2{
+        width: 45%;
+        margin-right: 20px;
+    }
+    #div-thech3{
+        width: 45%;
+        margin-right: 20px;
+    }
+    #div-thech4{
+        width: 45%;
+        margin-right: 20px;
+    }
+    #div-thech5{
+        width: 45%;
+        margin-right: 20px;
+    }
+    #div-thech6{
+        width: 45%;
+        margin-right: 20px;
+    }
+    #div-thech7{
+        width: 45%;
+        margin-right: 20px;
+    }
+    #div-thech8{
+        width: 45%;
+        margin-right: 20px;
+    }
+    #div-thech9{
+        width: 100%;
+        margin-right: 20px;
+    }
+    #textarea9{
+        width: 86%;
+    }
+    #inp-thech{
+        width: 30%;
+        margin-right: 230px;
+    }
+}
+@media screen and (min-width : 1366px) and (max-width : 1499px){
+  
+    #oll{
+        width: 1366px;
+    }
+}

@@ -1,0 +1,255 @@
+.inputfile1 {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile1 + label {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    padding: 5px 30px;
+    display: inline-block;
+    outline: none;
+    border:none;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+}
+
+.inputfile1:focus + label,
+.inputfile1 + label:hover {
+}
+
+.inputfile1 + label {
+	cursor: pointer; /* "hand" cursor */
+}
+.inputfile1:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+/*____________________________مدیا کوئری______________________*/
+  
+@media screen and (min-width : 360px) and (max-width : 639px){
+
+    #oll{
+        width: 360px;
+        flex-direction: column;
+    }
+    #div-pro{
+        width: 96%;
+        margin-right: 15px;
+    }
+    #your-pro{
+        margin-right: 30px;
+    }
+    #my-downl{
+        width: 96%;
+        margin-right: 15px;
+    }
+    #downl{
+        flex-direction: column;
+    }
+    #div-downl1{
+        width: 100%;
+
+    }
+    #p-downl-1{
+        width: 60%;
+        margin-right: 80px;
+    }
+    #div-downl2{
+        width: 96%;
+        margin-right: 10px;
+    }
+    #p-downl-2{
+        width: 100%;
+    }
+    #p-downl-3{
+        width: 100%;
+    }
+    #div-downl3{
+        margin-right: 170px;
+        width: 40%;
+    }
+}
+@media screen and (min-width : 640px) and (max-width : 767px){
+    
+    #oll{
+        width: 640px;
+        flex-direction: column;
+    }
+    #div-pro{
+        width: 55%;
+        margin-right: 140px;
+    }
+    #your-pro{
+        margin-right: 35px;
+    }
+    #my-downl{
+        width: 55%;
+        margin-right: 140px;
+    }
+    #downl{
+        flex-direction: column;
+    }
+    #div-downl1{
+        width: 100%;
+
+    }
+    #p-downl-1{
+        width: 60%;
+        margin-right: 80px;
+    }
+    #div-downl2{
+        width: 96%;
+        margin-right: 10px;
+    }
+    #p-downl-2{
+        width: 100%;
+    }
+    #p-downl-3{
+        width: 100%;
+    }
+    #div-downl3{
+        margin-right: 170px;
+        width: 40%;
+    }
+}
+@media screen and (min-width : 768px) and (max-width : 1023px){
+    
+   #oll{
+        width: 768px;
+    }
+    #div-pro{
+        width: 35%;
+    }
+    #pro-imge{
+        margin-right: 35px;
+        width: 60%;
+        height: 130px;
+    }
+    #your-pro{
+        margin-right: 17px;
+    }
+    #my-downl{
+        width: 70%;
+    }
+    #div-downl1{
+        width: 90%;
+
+    }
+    #p-downl-1{
+        width: 90%;
+        margin-right: 40px;
+    }
+    #div-downl2{
+        width: 96%;
+        margin-right: 10px;
+    }
+    #p-downl-2{
+        width: 90%;
+    }
+    #p-downl-3{
+        width: 100%;
+    }
+    #p-downl-4{
+        width: 100%;
+    }
+    #p-downl-5{
+        width: 100%;
+    }
+    #div-downl3{
+        margin-right: 100px;
+        width: 50%;
+    }
+}	
+@media screen and (min-width : 1024px) and (max-width : 1365px){
+    
+    #oll{
+        width: 1024px;
+    }
+    #div-pro{
+        width: 35%;
+    }
+    #pro-imge{
+        margin-right: 80px;
+        width: 50%;
+        height: 150px;
+    }
+    #your-pro{
+        margin-right: 30px;
+    }
+    #my-downl{
+        width: 70%;
+    }
+    #div-downl1{
+        width: 90%;
+
+    }
+    #p-downl-1{
+        width: 60%;
+        margin-right: 70px;
+    }
+    #div-downl2{
+        width: 96%;
+        margin-right: 10px;
+    }
+    #p-downl-2{
+        width: 90%;
+    }
+    #p-downl-3{
+        width: 100%;
+    }
+    #p-downl-4{
+        width: 100%;
+    }
+    #p-downl-5{
+        width: 100%;
+    }
+    #div-downl3{
+        margin-right: 160px;
+        width: 40%;
+    }
+}
+@media screen and (min-width : 1366px) and (max-width : 1499px){
+  
+    #oll{
+        width: 1366px;
+    }
+}
+/*________________________________مدیا کوئری______________________*/
+  
+@media screen and (min-width : 360px) and (max-width : 639px){
+
+    #oll{
+        width: 360px;
+    }
+}
+@media screen and (min-width : 640px) and (max-width : 767px){
+    
+    #oll{
+        width: 640px;
+    }
+}
+@media screen and (min-width : 768px) and (max-width : 1023px){
+    
+   #oll{
+        width: 768px;
+    }
+}	
+@media screen and (min-width : 1024px) and (max-width : 1365px){
+    
+    #oll{
+        width: 1024px;
+    }
+}
+@media screen and (min-width : 1366px) and (max-width : 1499px){
+  
+    #oll{
+        width: 1366px;
+    }
+}

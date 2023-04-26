@@ -1,0 +1,205 @@
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    padding: 5px 30px;
+    background-color: #ff9933;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    border-radius: 5px;
+    border: none;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #ff6600;
+}
+
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+.inputfile:focus + label {
+	border:solid 1px #ff9933;
+}
+/*________________________________مدیا کوئری______________________*/
+  
+@media screen and (min-width : 360px) and (max-width : 639px){
+
+    #oll{
+        width: 360px;
+        flex-direction: column;
+    }
+    #div-top{
+        width: 100%;
+    }
+    #upload-div{
+        width: 100%;
+    }
+    #explain{
+        width: 100%;
+    }
+    #textarea-1{
+        margin: 18px;
+    }
+    #textarea-2{
+        margin: 18px;
+    }
+    #sabt-explain{
+        margin: 10px 250px 30px 0px;
+    }
+    #div-bottom{
+        width: 100%;
+    }
+    #moshakhasat{
+        width: 100%;
+    }
+    #barchasb{
+        width: 100%;
+    }
+}
+@media screen and (min-width : 640px) and (max-width : 767px){
+    
+    #oll{
+        width: 640px;
+        flex-direction: column;
+    }
+    #div-top{
+        width: 100%;
+        margin-right: 15px;
+    }
+    #upload-div{
+        width: 93%;
+    }
+    #explain{
+        width: 93%;
+    }
+    #textarea-1{
+        margin: 30px;
+    }
+    #textarea-2{
+        margin: 30px;
+    }
+    #sabt-explain{
+        margin: 10px 415px 30px 0px;
+    }
+    #div-bottom{
+        width: 100%;
+        margin-right: 15px;
+    }
+    #moshakhasat{
+        width: 93%;
+    }
+    #barchasb{
+        width: 93%;
+    }
+    #form-inp{
+        width: 60%;
+        margin-right: 130px;
+    }
+    #form-barchasb{
+        width: 60%;
+        margin-right: 130px;
+    }
+}
+@media screen and (min-width : 768px) and (max-width : 1023px){
+    
+   #oll{
+        width: 768px;
+    }
+    #div-top{
+        width: 60%;
+    }
+    #upload-div{
+        width: 96%;
+    }
+    #explain{
+        width: 96%;
+    }
+    #textarea-1{
+        margin: 22px;
+    }
+    #textarea-2{
+        margin: 22px;
+    }
+    #sabt-explain{
+        margin: 10px 310px 20px 0px;
+    }
+    #div-bottom{
+        width: 40%;
+    }
+    #moshakhasat{
+        width: 93%;
+    }
+    #barchasb{
+        width: 93%;
+    }
+    #form-inp{
+        width: 90%;
+        
+    }
+    #form-barchasb{
+        width: 90%;
+        
+    }
+}	
+@media screen and (min-width : 1024px) and (max-width : 1365px){
+    
+    #oll{
+        width: 1024px;
+    }
+    #div-top{
+        width: 60%;
+    }
+    #upload-div{
+        width: 96%;
+    }
+    #explain{
+        width: 96%;
+    }
+    #textarea-1{
+        margin: 30px;
+    }
+    #textarea-2{
+        margin: 30px;
+    }
+    #sabt-explain{
+        margin: 10px 415px 20px 0px;
+    }
+    #div-bottom{
+        width: 40%;
+    }
+    #moshakhasat{
+        width: 93%;
+    }
+    #barchasb{
+        width: 93%;
+    }
+    #form-inp{
+        width: 90%;
+        margin-right: 20px;
+        
+    }
+    #form-barchasb{
+        width: 90%;
+        margin-right: 20px;
+    }
+}
+@media screen and (min-width : 1366px) and (max-width : 1499px){
+  
+    #oll{
+        width: 1366px;
+    }
+}

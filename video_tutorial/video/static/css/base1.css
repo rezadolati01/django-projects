@@ -1,0 +1,936 @@
+*{
+    box-sizing: border-box;
+    font-family : iransans;
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: iransans;
+    src: url(../fonts/ttf/IRANSansWeb.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family:IRANSansWeb_Bold;
+    src: url(../fonts/ttf/IRANSansWeb_Bold.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family:Lalezar-Regular;
+    src: url(../fonts/ttf/Lalezar-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    background-color : #f1f1f1;
+}
+a{
+    text-decoration : none;
+    color : black;
+}
+body{
+    margin : 0px;
+    direction: rtl;
+    font-family: iransans;
+}
+/*____________________کلاس ها_________________*/
+/*_______________ background-color_______________________*/
+.bac-col-167785{
+    background-color: #167785;
+}
+.bac-col-ff9933{
+    background-color: #ff9933;
+}
+.bac-col-eaeaea{
+    background-color: #eaeaea;
+}
+.bac-col-bla{
+    background-color: black;
+}
+.bac-col-gra{
+    background-color: gray;
+}
+.bac-col-whi{
+    background-color: white;
+}
+/*________________________ border__________________________*/
+
+.bor-non{
+    border: none;
+}
+.border-167785-1px{
+    border: solid 1px #167785;
+}
+.border-167785-2px{
+    border: solid 2px #167785;
+}
+.border-f93-2px{
+    border: solid 2px #f93;
+}
+/*______________________ border-bottom ____________________________*/
+.bor-bot-000{
+    border-bottom: solid 2px #000;
+}
+.bor-bot-167785{
+    border-bottom: solid 2px #167785;
+}
+.bor-bot-f93{
+    border-bottom: solid 2px #f93;
+}
+/*___________________ border-radius __________________________*/
+.bor-rad-50{
+    border-radius: 50%;
+}
+.bor-rad-50-px{
+    border-radius: 50px;
+}
+.bor-rad-10-px{
+    border-radius: 10px;
+}
+.bor-rad-5-px{
+    border-radius: 5px;
+}
+/*_______________________ border-top-radius __________________________*/
+.bor-top-rad{  
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+}
+
+/*_______________________ border-bottom-radius __________________________*/
+.bor-bott-rad{  
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+
+/*_____________________________ bottom ___________________________*/
+.bottom0{
+    bottom: 0px;
+}
+.bottom15{
+    bottom: 15px;
+}
+/*___________________________ box-shadow _________________________________*/
+.box-sha-0-0-5-ccc{
+    box-shadow: 0px 0px 10px #ccc;
+}
+.box-sha-0-0-10-999{
+    box-shadow: 0px 0px 10px #999;
+}
+.box-sha-2-2-4-gra{
+    box-shadow: 2px 2px 4px gray;
+}
+.box-sha-3-3-10-gra{
+    box-shadow: 3px 3px 10px gray;
+}
+.box-sha-0-0-7-999{
+    box-shadow: 0px 0px 10px #999;
+}
+.box-sha-0-0-3-167785{
+    box-shadow: 0px 0px 3px #167785;
+}
+.box-sha-0-0-3-f93{
+    box-shadow: 0px 0px 3px #f93;
+}
+/*____________________ color __________________________*/
+.col-whi{
+    color: #fff;
+}
+.col-bla{
+    color: #000;
+}
+.col-167785{
+    color: #167785;
+}
+.col-f93{
+    color: #f93;
+}
+.col-red{
+    color: red;
+}
+/*_____________________________ cursor __________________________*/
+.cur-poi{
+    cursor: pointer;
+}
+/*_____________________________ direction _______________________*/
+.dir-ltr{
+    direction: ltr;
+}
+.dir-rtl{
+    direction : rtl;
+}
+/*____________________________ display ____________________________*/
+.dis-non{
+    display : none;
+}
+.dis-blo{
+    display: block;
+}
+.dis-inl-blo{
+    display: inline-block;
+}
+.dis-tab{
+    display: table;
+}
+.dis-flx{
+    display: flex;
+}
+/*____________________________ float ____________________________*/
+.flo-righ{
+    float: right;
+}
+.flo-lef{
+    float: left;
+}
+/*_____________________________ vertical-align _______________________*/
+.ver-ali-top{
+    vertical-align: top;
+}
+.ver-ali-mid{
+    vertical-align: middle;
+}
+/*______________________________ font-size _____________________________*/
+.fon-siz-20{
+    font-size: 20px;
+}
+.fon-siz-18{
+    font-size: 18px;
+}
+.fon-siz-16{
+    font-size: 16px;
+}
+.fon-siz-15{
+    font-size: 15px;
+}
+.fon-siz-13{
+    font-size: 13px;
+}
+.fon-siz-10{
+    font-size: 10px;
+}
+/*______________________________ font-family _____________________________*/
+.fon-bold{
+    font-family:IRANSansWeb_Bold;
+}
+.fon-lalezar{
+    font-family:Lalezar-Regular;
+}
+/*___________________________ font-weight __________________________*/
+.fon-wei-1000{
+    font-weight:100;
+}
+/*___________________________ height __________________________________*/
+.hei-5-px{
+    height: 5px;
+}
+.hei-15-px{
+    height: 15px;
+}
+.hei-21-px{
+    height: 21px;
+}
+.hei-30-px{
+    height: 30px;
+}
+.hei-33-px{
+    height: 33px;
+}
+.hei-40-px{
+    height: 40px;
+}
+.hei-50-px{
+    height: 50px;
+}
+.hei-55-px{
+    height: 55px;
+}
+.hei-80-px{
+    height: 80px;
+}
+.hei-85-px{
+    height: 85px;
+}
+.hei-100-px{
+    height: 100px;
+}
+.hei-140-px{
+    height: 140px;
+}
+.hei-160-px{
+    height: 160px;
+}
+.hei-170-px{
+    height: 170px;
+}
+.hei-180-px{
+    height: 180px;
+}
+.hei-190-px{
+    height: 190px;
+}
+.hei-200-px{
+    height: 200px;
+}
+.hei-240-px{
+    height: 240px;
+}
+.hei-270-px{
+    height: 270px;
+}
+.hei-300-px{
+    height: 300px;
+}
+.hei-400-px{
+    height: 400px;
+}
+.hei-430-px{
+    height: 430px;
+}
+.hei-450-px{
+    height: 450px;
+}
+.hei-480-px{
+    height: 480px;
+}
+.hei-540-px{
+    height: 540px;
+}
+.hei-600-px{
+    height: 600px;
+}
+.hei-800-px{
+    height: 800px;
+}
+/*____________________________ left __________________________________*/
+.lef-0{
+    left: 0px;
+}
+.lef-5{
+    left: 5px;
+}
+.lef-10{
+    left: 10px;
+}
+.lef-16{
+    left: 16px;
+}
+.lef-27{
+    left: 27px;
+}
+.lef-25{
+    left: 25px;
+}
+.lef-35{
+    left: 35px;
+}
+.lef-45{
+    left: 45px;
+}
+.lef-70{
+    left: 70px;
+}
+.lef-80{
+    left: 80px;
+}
+.lef-94{
+    left: 94px;
+}
+.lef-115{
+    left: 115px;
+}
+/*__________________ line-height ____________________________*/
+.line-30{
+    line-height: 30px;
+}
+/*_______________________ margin __________________________*/
+.mar-aut{
+    margin: 0px auto;
+}
+.mar-5-aut{
+    margin: 7px auto;
+}
+.mar-5{
+    margin: 5px;
+}
+.mar-5-3{
+    margin: 5px 3px;
+}
+.mar-10-5{
+    margin: 15px 10px;
+}
+.mar-10-3{
+    margin: 10px 3px;
+}
+.mar-5-140-0-0{
+    margin:5px 140px 0px 0px;
+}
+.mar-7-280-0-0{
+    margin:7px 280px 0px 0px; 
+}
+.mar-7-350-0-0{
+    margin:7px 350px 0px 0px; 
+}
+.mar-10-aut{
+    margin: 10px auto;
+}
+.mar-10{
+    margin: 10px;
+}
+.mar-10-20-0-0{
+    margin: 10px 20px 0px 0px;
+}
+.mar-10-20-20-15{
+    margin: 10px 25px 20px 15px;
+}
+.mar-15{
+    margin: 15px;
+}
+.mar-18{
+    margin: 18px;
+}
+.mar-15-47-0-20{
+    margin: 15px 47px 0px 20px;
+}
+.mar-15-40-0-0{
+    margin: 15px 40px 0px 0px;
+}
+.mar-15-50{
+    margin: 15px 50px;
+}
+.mar-18-20-0-0{
+    margin: 18px 20px 0px 0px;
+}
+.mar-0-20{
+    margin: 0px 20px;
+}
+.mar-20{
+    margin: 20px 85px;
+}
+.mar-20-auto{
+    margin: 20px auto;
+}
+.mar-20-10{
+    margin: 20px 10px;
+}
+.mar-20-15-20-0{
+    margin: 20px 15px 20px 0px;
+}
+.mar-25-42-0-0{ 
+    margin: 25px 42px 0px 0px; 
+}
+.mar-25-35-0-0{
+    margin: 25px 35px 0px 0px;
+}
+.mar-28{
+    margin: 28px;
+}
+.mar-30-auto{
+    margin: 50px 380px;
+}
+.mar-30-80{
+    margin: 30px 80px;
+}
+.mar-30-30-25-0{ 
+    margin: 30px 30px 25px 0px; 
+}
+.mar-30-30-25-10{
+    margin: 30px 60px 25px 10px;
+}
+.mar-30-35-0-0{
+    margin: 30px 35px 0px 0px;
+}
+.mar-30-17-0-15{
+    margin: 30px 17px 0px 15px;
+}
+.mar-30-15-0-0{
+    margin: 30px 15px 0px 0px;
+}
+.mar-27-18-0-0{
+    margin: 27px 18px 0px 0px;
+}
+.mar-40-18-0-0{
+    margin: 40px 18px 0px 0px;
+}
+.mar-50-30-0-0{
+    margin: 50px 30px 0px 0px;
+}
+.mar-55-350-0-20{
+    margin: 55px 350px 0px 20px;
+}
+.mar-90-30-0-0{
+    margin: 90px 30px 0px 0px;
+}
+.mar-90-0-0-0{
+    margin-top: 90px;
+}
+.mar-130-30-0-0{
+    margin: 130px 30px 0px 0px;
+}
+/*_______________________ margin-right __________________________*/
+.mar-righ-12{
+    margin-right: 12px;
+}
+.mar-righ-18{
+    margin-right: 18px;
+}
+.mar-righ-25{
+    margin-right: 25px;
+}
+.mar-righ-50{
+    margin-right: 50px;
+}
+.mar-righ-60{
+    margin-right: 60px;
+}
+.mar-righ-65{
+    margin-right: 65px;
+}
+.mar-righ-95{
+    margin-right: 95px;
+}
+.mar-righ-215{
+    margin-right: 215px;
+}
+.mar-righ-500{
+    margin-right: 500px;
+}
+.mar-righ-645{
+    margin-right: 645px;
+}
+.mar-righ-770{
+    margin-right: 770px;
+}
+/*_______________________ margin-top __________________________*/
+.mar-top-5{
+    margin-top: 5px;
+}
+.mar-top-12{
+    margin-top: 12px;
+}
+.mar-top-15{
+    margin-top: 15px;
+}
+.mar-top-20{
+    margin-top: 20px;
+}
+.mar-top-25{
+    margin-top: 25px;
+}
+.mar-top-40{
+    margin-top: 40px;
+}
+.mar-top-50{
+    margin-top: 50px;
+}
+.mar-top-60{
+    margin-top: 60px;
+}
+.mar-top-100{
+    background-color: aqua;
+}
+/*_______________________ margin-bottom __________________________*/
+.mar-bot-20{
+    margin-bottom: 20px;
+}
+.mar-bot-30{
+    margin-bottom: 30px;
+}
+/*__________________________ outline ____________________________*/
+.out-non{
+    outline: none;
+}
+/*__________________________ over-hidden ____________________________*/
+.over-hid{
+    overflow: hidden;
+}
+/*__________________________ text-decoration ____________________________*/
+.decor-none{
+    text-decoration: none;
+}
+/*_________________________ padding _______________________*/
+
+.padi-3{
+    padding: 3px;
+}
+.padi-3-10{
+    padding: 3px 10px;
+}
+.padi-3-35{
+    padding: 3px 35px;
+}
+.padi-6{
+    padding: 6px;
+}
+.padi-6-10{
+    padding: 6px 10px;
+}
+.padi-6-30{
+    padding: 6px 30px;
+}
+.padi-6-25{
+    padding: 6px 40px;
+}
+.padi-8{
+    padding: 8px;
+}
+.padi-10{
+    padding: 10px;
+}
+.padi-15{
+    padding: 15px;
+}
+.padi-15-10-10-10{
+    padding: 15px 10px 10px 10px;
+}
+/*_________________________ padding-bottom _______________________*/
+.padi-bot-30{
+    padding-bottom: 30px;
+}
+/*_________________________ padding-bottom _______________________*/
+.padi-top-30{
+    padding-top: 30px;
+}
+.padi-top-10{
+    padding-top: 10px;
+}
+/*___________________________ position _________________________*/
+.absol{
+    position : absolute;
+}
+.relative{
+    position : relative;
+}
+/*_______________________________ right ________________________________*/
+.right0{
+    right:0px;
+}
+.right5{
+    right:5px;
+}
+.right15{
+    right:15px;
+}
+.right20{
+    right: 20px;
+}
+.right40{
+    right: 40px;
+}
+.right45{
+    right: 45px;
+}
+.right50{
+    right: 50px;
+}
+.right60{
+    right: 60px;
+}
+.right30{
+    right: 30px;
+}
+.right100{
+    right: 755px;
+}
+/*_______________________ text-align ___________________________*/
+.tex-ali-cen{
+    text-align: center;
+}
+.tex-ali-jus{
+    text-align: justify;
+}
+/*____________________________ top ____________________________*/
+.top5{
+    top:5px;
+}
+.top8{
+    top:8px;
+}
+.top10{
+    top:10px;
+}
+.top15{
+    top: 15px;
+}
+.top-25{
+    top: 25px;
+}
+.top-35{
+    top: 35px;
+}
+.top-48{
+    top: 48px;
+}
+.top-50{
+    top: 50px;
+}
+.top60{
+    top: 60px;
+}
+.top70{
+    top: 70px;
+}
+.top80{
+    top: 80px;
+}
+.top-100{
+    top: 100px;
+}
+.top-150{
+    top: 153px;
+}
+.top-157{
+    top: 157px;
+}
+.top-250{
+    top:250px;
+}
+.top-260{
+    top:260px;
+}
+.top270{
+    top: 270px;
+}
+.top-290{
+    top:290px;
+}
+/*___________________________ width ______________________________*/
+.wid-6{
+    width: 6px;
+}
+.wid-18-px{
+    width: 18px;
+}
+.wid-20-px{
+    width: 20px;
+}
+.wid-27-px{
+    width: 27px;
+}
+.wid-40-px{
+    width: 40px;
+}
+.wid-250-px{
+    width: 250px;
+}
+.wid-16{
+    width: 16%;
+}
+.wid-17{
+    width: 17%;
+}
+.wid-18{
+    width: 18.5%;
+}
+.wid-20{
+    width: 20%;
+}
+.wid-21{
+    width: 21%;
+}
+.wid-22{
+    width: 22%;
+}
+.wid-25{
+    width: 24.5%;
+}
+.wid-28{
+    width: 28%;
+}
+.wid-30{
+    width: 30%;
+}
+.wid-32{
+    width: 32.5%;
+}
+.wid-33{
+    width: 33%;
+}
+.wid-36{
+    width: 36.3%;
+}
+.wid-40{
+    width: 40%;
+}
+.wid-46{
+    width: 46%;
+}
+.wid-47{
+    width: 47.5%;
+}
+.wid-50{
+    width: 50%;
+}
+.wid-60{
+    width: 60%;
+}
+.wid-65{
+    width: 65%;
+}
+.wid-68{
+    width: 68%;
+}
+.wid-70{
+    width: 70%;
+}
+.wid-75{
+    width: 75%;
+}
+.wid-80{
+    width: 80%;
+}
+.wid-85{
+    width: 85%;
+}
+.wid-90{
+    width: 90%;
+}
+.wid-93{
+    width: 93%;
+}
+.wid-96{
+    width: 96%;
+}
+.wid-97{
+    width: 97%;
+}
+.wid-100{
+    width: 100%;
+}
+.wid-1500-px{
+    width: 1500px;
+}
+.wid-310-px{
+    width: 310px;
+}
+.wid-130-px{
+    width: 130px;
+}
+/*_____________________________ z-index ____________________________*/
+.z-ind-2{
+    z-index: 2;
+}
+/*_____________________________ list-style-type ____________________________*/
+.list-style-t-none{
+    list-style-type: none;
+}
+/*_____________________________ transition ____________________________*/
+.trans-2{
+    transition: .2s;
+}
+.trans-25{
+    transition : .25s;
+}
+
+/*_____________________________hover-wid ____________________________*/
+.hover-wid-60:hover{
+    width: 60%;
+}
+.hover-wid-90:hover{
+    width: 90%;
+}
+
+/*_________________________ hover-color _________________________*/
+
+.hover-fff:hover{
+    color: #fff;
+}
+.hover-f93:hover{
+    color: #f93;
+}
+.hover-167785:hover{
+    color: #167785;
+}
+/*_________________________ hover-box-shadow _________________________*/
+.box-sha-000:hover{
+    box-shadow: 5px 5px 20px #000;
+}
+.box-sha-ccc-30:hover{
+    box-shadow: 0px 0px 30px #ccc;
+}
+.box-sha-666:hover{
+    box-shadow: 0px 0px 15px #666;
+}
+.box-sha-5-5-666:hover{
+    box-shadow: 5px 5px 20px #666;
+}
+.box-sha-ccc-15:hover{
+    box-shadow: 0px 0px 15px #ccc;
+}
+/*_________________________ hover-backgroundcolor _________________________*/
+.back-hov:hover{
+    background-color: #167785;
+}
+.back-hov-f93:hover{
+    background-color: #f93;
+}
+.back-hov-f60:hover{
+    background-color: #f60;
+}
+
+/*__________________________hover-opacity ____________________________*/
+.opac-6-hover:hover{
+    opacity: 0.6;
+}
+
+/*__________________________inputhover____________________________*/
+.inputhover{
+    opacity: 0.6; 
+}
+.inputhover:focus,.inputhover:hover{
+    opacity: 1;
+}
+.inputhover:focus{
+    border: solid 1px #66f;
+}
+/*input[type=text]:placeholder-shown{}*/
+::-webkit-input-placeholder{
+    color: #999;
+}
+/*________________________________مدیا کوئری______________________*/
+  
+@media screen and (min-width : 360px) and (max-width : 639px){
+    #oll{
+        width: 360px;
+    }
+    .wid-r-17{
+        width: 17%;
+    }
+    .mar360-15-18{
+        margin: 15px 18px;
+    }
+    .mar360-10{
+        margin: 10px;
+    }
+}
+@media screen and (min-width : 640px) and (max-width : 767px){
+    #oll{
+        width: 640px;
+    }
+    .mar640-15-25{
+        margin: 15px 25px;
+    }
+}
+@media screen and (min-width : 768px) and (max-width : 1023px){
+    #oll{
+        width: 768px;
+    }
+    .mar640-15-25{
+        margin: 15px 25px;
+    }
+}	
+@media screen and (min-width : 1024px) and (max-width : 1365px){
+    #oll{
+        width: 1024px;
+    }
+    .mar640-15-25{
+        margin: 15px 25px;
+    }
+}
+@media screen and (min-width : 1366px) and (max-width : 1499px){
+    #oll{
+        width: 1366px;
+    }
+    .wid-r-9{
+        width: 95%;
+    }
+}

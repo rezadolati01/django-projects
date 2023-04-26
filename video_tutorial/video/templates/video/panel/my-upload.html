@@ -1,0 +1,95 @@
+{% extends 'video/parent/base.html' %}
+{% load static %}
+{% block head %}
+        <title>products</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width" initial-scale="1">
+        <link  rel="stylesheet" type="text/css" href="{% static 'css/my-upload/my-upload.css' %}">
+        <link  rel="stylesheet" type="text/css" href="{% static 'css/base1.css' %}">
+        <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+        <div id="oll" class="wid-1500-px dis-tab dir-rtl mar-aut dis-flx">
+            <div id="div-profile" class="wid-25 mar-20-10">
+                <div class="wid-100 hei-300-px bac-col-whi bor-rad-5-px box-sha-0-0-5-ccc">
+                    <div id="img-your" class="wid-50 hei-160-px bac-col-eaeaea bor-rad-50 mar-30-80 relative box-sha-0-0-10-999 dis-inl-blo">
+                        <input type="file" name="file" id="file" class="inputfile1">
+                        <label for="file"><strong><img src="{% static 'images/my-upload/add.png' %}" style="position:absolute;bottom:10px;right:15px;"></strong></label>
+                    </div>
+                    <p class="fon-bold fon-siz-20 tex-ali-cen">نام شما</p>
+                </div>
+                <div class="wid-100 hei-270-px bac-col-whi bor-rad-5-px box-sha-0-0-5-ccc mar-top-20">
+                    <p id="p-profils" class="wid-80 mar-righ-25 bor-bot-167785 fon-bold fon-siz-18 tex-ali-cen padi-10">حساب کاربری شما</p>
+                    <br>
+                    <img src="{% static 'images/profile/pro1.png' %}" class="mar-righ-12 flo-righ">
+                    <a href="{% url 'video:profile' %}"><p class="hover-167785 mar-righ-50 wid-70">پروفایل</p></a>
+
+                    <img src="{% static 'images/profile/001-play-button-arrowhead.png' %}" class="mar-righ-12 flo-righ mar-top-12">
+                    <a href="{% url 'video:my_download' %}"><p class="hover-167785  mar-righ-50 mar-top-12 ">دانلود های من</p></a>
+
+                    <img src="{% static 'images/profile/004-video-player.png' %}" class="mar-righ-12 flo-righ mar-top-12">
+                    <a href="{% url 'video:my_upload' %}"><p class="hover-167785  mar-righ-50 mar-top-12 ">دوره های من</p></a>
+
+                    <img src="{% static 'images/profile/exit.png' %}" class="mar-righ-12 flo-righ mar-top-12">
+                    <a href="{% url 'video:index' %}"><p class="hover-167785  mar-righ-50 mar-top-12 ">خروج از حساب</p></a>
+                </div>
+            </div>
+            <div id="my-uplou" class="wid-75 bac-col-whi mar-20-10 bor-rad-5-px box-sha-0-0-5-ccc">
+                <a href="{% url 'video:upload_vedio' %}">
+                    <div id="add-video" class="wid-17 padi-8 bac-col-ff9933 relative bor-rad-5-px mar-20-auto back-hov-f60">
+                        <span class="col-whi">افزودن دوره جدید</span>
+                        <img src="{% static 'images/my-upload/add1.png' %}" class="absol top8 lef-10">
+                    </div>
+                </a>
+                <div id="div-uplou" class="wid-93 mar-20-auto border-167785-2px dis-flx">
+                    <div id="div-imgupload" class="wid-30">
+                        <p id="p-namevideo" class="padi-8 mar-righ-60 fon-bold">آموزش انواع فینگرفود</p>
+                        <img src="{% static 'images/my-upload/ash.jpg' %}" class="wid-85 mar-10-20-20-15 hei-200-px">
+                    </div>
+                    <div id="div-uplou1" class="wid-70">
+                        <p id="div-uplou1-1" class="fon-bold mar-top-50 wid-65">قیمت دوره : <span class="col-167785">110,000 تومان</span></p>
+                        <p class="fon-bold mar-top-15 wid-65">تعداد سر فصل ها : <span class="col-167785">10</span></p>
+                        <p class="fon-bold mar-top-15 wid-65">تعداد ویدئو ها :<span class="col-167785">25</span></p>
+                        <p id="div-uplou1-2" class="fon-bold mar-top-15 wid-65">مدت زمان کل دوره : <span class="col-167785">10:05:30</span></p>
+                        <p class="fon-bold mar-top-15 wid-65 dis-inl-blo">سطح دوره : <span class="col-167785">بالا</span></p>
+                        <a href="#">
+                            <div id="edit-video" class="wid-20 bac-col-ff9933 bor-rad-5-px back-hov-f60 hei-30-px mar-righ-500 mar-bot-20">
+                                <p class="tex-ali-cen col-whi">ویرایش</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="div-uplou" class="wid-93 mar-20-auto border-167785-2px dis-flx">
+                    <div id="div-imgupload" class="wid-30">
+                        <p id="p-namevideo" class="padi-8 mar-righ-60 fon-bold">آموزش انواع فینگرفود</p>
+                        <img src="{% static 'images/my-upload/ash.jpg' %}" class="wid-85 mar-10-20-20-15 hei-200-px">
+                    </div>
+                    <div id="div-uplou1" class="wid-70">
+                        <p id="div-uplou1-1" class="fon-bold mar-top-50 wid-65">قیمت دوره : <span class="col-167785">110,000 تومان</span></p>
+                        <p class="fon-bold mar-top-15 wid-65">تعداد سر فصل ها : <span class="col-167785">10</span></p>
+                        <p class="fon-bold mar-top-15 wid-65">تعداد ویدئو ها :<span class="col-167785">25</span></p>
+                        <p id="div-uplou1-2" class="fon-bold mar-top-15 wid-65">مدت زمان کل دوره : <span class="col-167785">10:05:30</span></p>
+                        <p class="fon-bold mar-top-15 wid-65 dis-inl-blo">سطح دوره : <span class="col-167785">بالا</span></p>
+                        <a href="#">
+                            <div id="edit-video" class="wid-20 bac-col-ff9933 bor-rad-5-px back-hov-f60 hei-30-px mar-righ-500 mar-bot-20">
+                                <p class="tex-ali-cen col-whi">ویرایش</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    <script>
+        function myFunction() {
+          var x = document.getElementById("myFile");
+          x.disabled = true;
+        }
+    </script>
+        <script type="text/javascript" src = "{% static 'js/index/jquery.js' %}"></script>
+    <script type="text/javascript" src = "{% static 'js/index/scripts.js' %}"></script>
+
+{% endblock %}

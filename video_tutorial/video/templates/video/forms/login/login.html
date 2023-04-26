@@ -1,0 +1,76 @@
+{% extends 'video/parent/base.html' %}
+{% load static %}
+{% block head %}
+    <link  rel="stylesheet"  type="text/css" href="{% static 'css/login.css' %} ">
+
+{% endblock %}
+{% block body %}
+<div id='hamegi2' class="wid-1500-px mar-aut m1366-wid-1366-px m1024-wid-1024-px m768-wid-768-px m640-wid-640-px m360-wid-360-px">
+		<div id='vorood' class="wid-410-px mar-aut m360-wid-340-px ">
+			<div id='door' class="wid-100 hei-100 mar-top-70 ">
+				<div id='charchoob' class="wid-100 hei-590-px bor-167785 bac-col-whi bor-rad-10-px m360-wid-100 m360-bor-rad-15-px ">
+					<form id='popy' class="mar-aut wid-90 dir-rtl " method="post" action="{% url 'video:login_register' %}">
+                    {% csrf_token %}
+						<input class="wid-100 mar-top-20 hei-50-px bor-rad-20-px bor-167785 pad-rig-10 out-non " type='text' name="username" placeholder='نام کاربری'>
+						<input class="wid-100 mar-top-20 hei-50-px bor-rad-20-px bor-167785 pad-rig-10 out-non " type='password' name="password" placeholder='رمز عبور'>
+						<section id='popcheck' class="dis-inl-blo ver-ali-top wid-50 mar-top-0 wid-100 hei-40-px "><input class="wid-15-px mar-top-20 hei-15-px bor-rad-20-px bor-167785 pad-rig-10 out-non flo-rig " type='checkbox' id='check'> <span style='margin:15px 10px 0px 0px;float:right;direction:rtl;width:15px;height:15px;'> مرا به خاطر نگه دار </span></section>
+						<a href="{% url 'video:resetpassword_send' %}" style='text-decoration: underline;'> <p id='faramoosh' class='tex-ali-cen wid-100 tex-ali-cen mar-10-aut tex-ali-cen '> رمز عبور خود را فراموش کرده اید؟ </p> </a>
+						<input class="wid-100 mar-top-20 hei-50-px bor-rad-20-px bor-167785 pad-rig-10 out-non cur-poi " type='submit' value=' ورود 'id='popsub'>
+						<a href='#' style='text-decoration: underline;'> <p id='sabt-e-nam' class='tex-ali-cen mar-15-aut tex-ali-cen '> برای ثبت نام کلیک کنید </p> </a>
+					</form>
+					<!-- django code for login form errors -->
+					{% if err %}
+					<div class="error_message bac-col-fff9fa bor-ffc1c5 col-ef5662 wid-80 lin-hei-30 bor-rad-5-px tex-ali-cen mar-aut pad-10-5 dir-rtl mar-bot-10 ">
+						{{err}}	
+					</div>
+					{% endif %}
+					<form id='popy2' class="mar-aut wid-90 dir-rtl " method="post" action="{% url 'video:login_register' %}" style='display : none;'>
+                    {% csrf_token %}
+						{% comment %} <input class="wid-100 mar-top-20 hei-50-px bor-rad-20-px bor-167785 pad-rig-10 out-non " type='text' name="first_name" placeholder='نام' >
+						<input class="wid-100 mar-top-20 hei-50-px bor-rad-20-px bor-167785 pad-rig-10 out-non " type='text' name="last_name" placeholder='نام خانوادگی' > {% endcomment %}
+						<input class="wid-100 mar-top-20 hei-50-px bor-rad-20-px bor-167785 pad-rig-10 out-non " type='text' name="phone_number" placeholder='شماره تلفن' required pattern="09(0[1-9]|1[0-9]|3[0-9]|2[0-9]|9[0-9])-?[0-9]{3}-?[0-9]{4}">
+						<input class="wid-100 mar-top-20 hei-50-px bor-rad-20-px bor-167785 pad-rig-10 out-non " type='text' name="username" placeholder='نام کاربری' >
+						<input class="wid-100 mar-top-20 hei-50-px bor-rad-20-px bor-167785 pad-rig-10 out-non " type='password' name="password1" placeholder='رمز عبور' required>
+						<input class="wid-100 mar-top-20 hei-50-px bor-rad-20-px bor-167785 pad-rig-10 out-non " type='password' name="password2" placeholder='تکرار رمز عبور' required>
+						<input class="wid-100 mar-top-20 hei-50-px bor-rad-20-px bor-167785 pad-rig-10 out-non cur-poi " type='submit' value='ثبت نام' id='popsub'>
+						<a href='#' style='text-decoration: underline;'> <p id='vo-rood' class='tex-ali-cen tex-ali-cen '> ثبت نام کرده اید؟ </p> </a>
+					</form>
+					<!-- django code for phone number errors -->
+					{% if p_error %}
+					<div class="error_message bac-col-fff9fa bor-ffc1c5 col-ef5662 wid-80 lin-hei-30 bor-rad-5-px tex-ali-cen mar-aut pad-10-5 dir-rtl mar-bot-10 ">
+						{{p_error}}	
+					</div>
+					{% endif %}
+					<!-- django code for register form errors -->        
+					{% if form.errors %}
+						{% for field in form %}
+							{% for error in field.errors %}
+								<div class="error_message bac-col-fff9fa bor-ffc1c5 col-ef5662 wid-80 lin-hei-30 bor-rad-5-px tex-ali-cen mar-aut pad-10-5 dir-rtl mar-bot-10 " style="font-size:12px">
+									<strong>{{ error|escape }}</strong>
+								</div>
+							{% endfor %}
+						{% endfor %}
+						{% for error in form.non_field_errors %}
+							<div class="error_message bac-col-fff9fa bor-ffc1c5 col-ef5662 wid-80 lin-hei-30 bor-rad-5-px tex-ali-cen mar-aut pad-10-5 dir-rtl mar-bot-10 ">
+								<strong>{{ error|escape }}</strong>
+							</div>
+						{% endfor %}
+					{% endif %}
+				
+				</div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript" src = "{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src = "{% static 'js/scripts.js' %}"></script> 
+
+		{% if form.errors or p_error %}
+            <script>
+        $('#popy').css('display','none');
+			$('#popy2').css('display','block');
+            </script>
+		{% endif %}
+        <script src="{% static 'js/login.js' %}"></script>
+
+
+{% endblock %}

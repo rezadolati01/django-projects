@@ -1,0 +1,439 @@
+#category-8 section:hover{
+    background-color: #2d9cac;
+    box-shadow: 0px 0px 10px #2d9cac;
+}
+/*--------------slider-bottom----------------*/
+#slidshow{
+    width: 46.5%;
+    height: 300px;
+    margin: 30px 20px 25px 10px;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    display: inline-block;
+    box-shadow: 0px 0px 7px #999;
+}
+#next{
+    position: absolute;
+    right: 0px;
+    margin: 150px 0px 0px 0px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0.6;
+}
+#next img{
+    width: 30px;
+    height: auto;
+}
+#back{
+    position: absolute;
+    left: 0px;
+    margin: 150px 0px 0px 0px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0.6;
+}
+#back img{
+    width: 30px;
+    height: auto;
+}
+#slidshow section{
+    display : none;
+    z-index : 2;
+}
+.slideimage{
+    width : 100%;
+    height : 390px;
+    position : absolute;
+}
+.smaller-slide{
+    display: none;
+}
+
+/*________________________________مدیا کوئری______________________*/
+  
+@media screen and (min-width : 360px) and (max-width : 639px){
+    #oll{
+        width: 360px;
+    }
+    #slid-box{
+        width: 100%;
+    }
+    #one-sec{
+        width: 95%;
+        margin: 10px 10px 10px 0px;
+    }
+    #twothree-div{
+        position: inherit;
+        width: 95%;
+        margin: 10px;
+    }
+    #two-sec{
+        width: 100%;
+        position: inherit;
+    }
+    #three-sec{
+        position: inherit;
+        width: 46%;
+    }
+    #four-sec{
+        width: 46%;
+        position: inherit;
+    }
+    #five-sec{
+        position: inherit;
+        width: 95%;
+        margin: 20px 10px;
+    }
+    #one-line{
+        margin: 10px 35px;
+    }
+    #two-line{
+        margin: 10px 70px;
+    }
+    #three-line{
+        margin: 10px 90px;
+    }
+    #category-8{
+        margin-top: 1070px;
+    }
+    #category-8 section{
+        width: 70%;
+        margin: 10px;
+        margin-right: 50px;
+    }
+    #span1{
+        left: 13px;
+    }
+    #span2{
+        left: 15px;
+        font-size: 17px;
+        top: 70px;
+    }
+    #span3{
+        left: 16px;
+        font-size: 17px;
+        top: 70px;
+    }
+    #span4{
+        left: 16px;
+        font-size: 17px;
+        top: 65px; 
+    }
+    #radif{
+        margin: 15px;
+        width: 90%;
+    }
+    #radif-1{
+        margin: 15px;
+        width: 90%;
+    }
+    #radif-2{
+        margin: 15px;
+        width: 90%;
+    }
+    .cats section{
+        width: 90%;
+    }
+    .cats section h4{
+        font-size: 15px;
+    }
+    #slidshow{
+        width: 96%;
+        height: 250px;
+        margin: 25px 5px 0px 0px;
+    }
+    #bottom-tem{
+        width: 96%;
+        margin: 25px 5px 0px 0px;
+    }
+}
+@media screen and (min-width : 640px) and (max-width : 767px){
+    #oll{
+        width: 640px;
+    }
+    #slid-box{
+        width: 100%;
+    }
+    #one-sec{
+        width: 85%;
+        margin: 10px 43px;
+    }
+    #twothree-div{
+        position: inherit;
+        width: 95%;
+        margin: 10px;
+    }
+    #two-sec{
+        width: 90%;
+        position: inherit;
+        margin: 0px 30px;
+    }
+    #three-sec{
+        position: inherit;
+        width: 42%;
+        margin: 20px 27px 0px 0px;
+    }
+    #four-sec{
+        position: inherit;
+        width: 42%;
+        margin: 20px 31px 0px 0px;
+    }
+    #five-sec{
+        position: inherit;
+        width: 85%;
+        margin: 30px 35px 10px 10px;
+    }
+    #one-line{
+        margin: 10px 53px;
+    }
+    #two-line{
+        margin: 10px 105px;
+    }
+    #three-line{
+        margin: 10px 130px;
+    }
+    #category-8{
+        margin-top: 1070px;
+    }
+    #category-8 section{
+        width: 45%;
+        margin: 10px;
+    }
+    #category-8 section img{
+        right: 15px;
+    }
+    #span1{
+        left: 25px;
+    }
+    #span2{
+        left: 20px;
+        font-size: 18px;
+        top: 45px;
+    }
+    #span3{
+        left: 20px;
+        font-size: 18px;
+        top: 55px;
+    }
+    #span4{
+        left: 25px;
+        font-size: 20px;
+        top: 55px; 
+    }
+    #radif{
+        margin: 25px;
+        width: 90%;
+    }
+    #radif-1{
+        margin: 25px;
+        width: 90%;
+    }
+    #radif-2{
+        margin: 25px;
+        width: 90%;
+    }
+    .cats section{
+        width: 43%;
+    }
+    .cats section h4{
+        font-size: 15px;
+    }
+    #slidshow{
+        width: 90%;
+        margin: 25px 24px;
+    }
+    #bottom-tem{
+        width: 90%;
+        margin: 20px 25px;;
+    }
+}
+@media screen and (min-width : 768px) and (max-width : 1023px){
+    #oll{
+        width: 768px;
+    }
+    #slid-box{
+        width: 100%;
+    }
+    #one-sec{
+        width: 85%;
+        margin: 10px 55px;
+    }
+    #twothree-div{
+        position: inherit;
+        width: 45%;
+        margin: 10px 53px;
+    }
+    #two-sec{
+        width: 100%;
+        position: inherit;
+    }
+    #three-sec{
+        width: 46%;
+    }
+    #four-sec{
+        width: 46%;
+    }
+    #five-sec{
+        top: 496px;
+        width: 35%;
+        left: 60px;
+    }
+    #one-line{
+        margin: 25px 73px 10px 0px;;
+    }
+    #two-line{
+        margin: 10px 145px;
+    }
+    #three-line{
+        margin: 10px 185px;
+    }
+    #category-8{
+        margin-top: 600px;
+    }
+    #category-8 section{
+        width: 40%;
+        margin: 10px 33px;
+    }
+    #radif{
+        margin: 25px;
+        width: 90%;
+    }
+    #radif-1{
+        margin: 25px;
+        width: 90%;
+    }
+    #radif-2{
+        margin: 25px;
+        width: 90%;
+    }
+    .cats section{
+        width: 43%;
+    }
+    .cats section h4{
+        font-size: 17px;
+    }
+    #slidshow{
+        width: 90%;
+        margin: 30px 20px;
+    }
+    #bottom-tem{
+        width: 90%;
+        margin: 20px 20px;;
+    }
+}	
+@media screen and (min-width : 1024px) and (max-width : 1365px){
+    #oll{
+        width: 1024px;
+    }
+    #slid-box{
+        width: 100%;
+    }
+    #one-sec{
+        width: 35%;
+        margin: 10px 40px 0px 0px;
+    }
+    #twothree-div{
+        width: 33%;
+        top: 10px;
+        margin: 0px 20px 0px 0px;
+    }
+    #two-sec{
+        width: 100%;
+    }
+    #three-sec{
+        width: 45.5%;
+    }
+    #four-sec{
+        width: 45.5%;
+    }
+    #five-sec{
+        top: 10px;
+    }
+    #one-line{
+        margin: 25px 110px 10px 0px;;
+    }
+    #two-line{
+        margin: 10px 220px;
+    }
+    #three-line{
+        margin: 10px 270px;
+    }
+    #category-8{
+        margin-top: 110px;
+    }
+    #category-8 section{
+        width: 22%;
+        margin: 13px;
+    }
+    #category-8 section img{
+       right: 7px;
+    }
+    #span0{
+        left: 17px;
+    }
+    #span01{
+        left: 17px;
+    }
+    #span011{
+        left: 17px;
+    }
+    #span0111{
+        left: 17px;
+    }
+    #span1{
+        left: 8px;
+        font-size: 17px;
+    }
+    #span2{
+        left: 7px;
+        font-size: 16px;
+        top: 70px;
+    }
+    #span3{
+        left: 10px;
+        font-size: 16px;
+        top: 70px;
+    }
+    #span4{
+        left: 14px;
+        font-size: 17px;
+        top: 55px; 
+    }
+    
+    #radif{
+        margin: 25px 50;
+        width: 90%;
+    }
+    #radif-1{
+        margin: 25px 50;
+        width: 90%;
+    }
+    #radif-2{
+        margin: 25px 50;
+        width: 90%;
+    }
+    .cats section{
+        width: 23%;
+        margin: 20px 10px 0px 5px;
+    }
+    .cats section h4{
+        font-size: 13px;
+    }
+    #slidshow{
+        width: 46%;
+        margin: 30px 20px;
+    }
+    #bottom-tem{
+        width: 46%;
+        margin: 30px 20px;;
+    }
+}
+@media screen and (min-width : 1366px) and (max-width : 1499px){
+    #oll{
+        width: 1366px;
+    }
+}

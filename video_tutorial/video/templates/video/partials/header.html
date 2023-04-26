@@ -1,0 +1,16 @@
+{% load static %}
+
+<div id="khoone-big wid-100 bac-col-f2f2f2 ">
+<div id='khoone' class="wid-1500-px dis-tab mar-aut dir-rtl m1366-wid-1366-px m1024-wid-1024-px m768-wid-768-px m640-wid-640-px m360-wid-360-px ">
+    <section id='loglog' class="dis-inl-blo ver-ali-top m360-dis-non ">
+        <a href='#'><img id='logo' src="{% static 'images/header/logo.png' %}" width='80px'/></a>
+    </section>
+    <section id='sirchsec' class="dis-inl-blo ver-ali-top m360-dis-non">
+        <form id='sirchdiv' class="bor-rad-25-px mar-17-50-0-0 ove-hid bac-col-rgb-235235235 box-sha-2-2-4-gra bac-col-fafafa " method="get" action="{% url 'video:video_search' %}">
+            <input type='search' name="query" id='sirch' class='flo-rig inpt wid-400-px hei-40-px bac-col-rgb-235235235 bor-non bor-rad-0-5-5-0 pad-rig-20 bac-col-fafafa' placeholder=' دربین محصولات جست و جو کنید...'/>
+            <input type='submit' value='جستجو' id='sirchbut' class="wid-85-px hei-40-px bac-col-167785 bor-rad-25-px tra-25 bor-non out-sty-non cur-poi col-whi ">
+        </form>
+    </section>
+     <a href='#'><section id='name' class="flo-lef m360-dis-tab m360-mar-aut m360-flo-non "><img src="{% static 'images/header/khunebazar_name.png' %}" class="hei-50-px mar-15-0-0-50 360-mar-lef-0 "></section></a>
+</div>
+</div>

@@ -1,0 +1,102 @@
+{% extends 'video/parent/base.html' %}
+{% load static %}
+{% block head %}
+        <title>صفحه تماس با ما</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7;IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width" initial-scale="1">
+{% endblock %}
+{% block body %}
+
+    <div id='hamasho_mikham' class="wid-1500-px mar-aut m1366-wid-1366-px m1024-wid-1024-px m768-wid-768-px m640-wid-640-px m360-wid-360-px">
+        <div class="fall mar-top-32 pad-40 pad-40-10"> <section class='m360-wid-100'></section>
+            <div class="form-o wid-59_8 dis-inl-blo ver-ali-top m1024-dis-tab m1024-wid-100 m768-dis-tab m768-wid-100 m640-dis-tab m640-wid-100 m360-dis-tab m360-wid-100">
+                {% if not sent %}
+                <p style="font-size:25px; text-align:center; font-weight: bold; color:#57606f; margin-bottom: 15px; font-family:iransan-normal; width : 100%;">در تماس باش</p>
+                <p style="font-size:14px; text-align:center; color:#747d8c; margin-bottom:30px; font-family:iransan-normal; width : 100%;">لطفا فرم زیر را پر کنید.  با سرعت صاعقه در تماس خواهیم بود.</p>
+                {% else %}
+                <p style="font-size:25px; text-align:center; font-weight: bold; color:#57606f; margin-bottom: 15px; font-family:iransan-normal; width : 100%;">ممنونیم!</p>
+                <p style="font-size:14px; text-align:center; color:#747d8c; margin-bottom:30px; font-family:iransan-normal; width : 100%;">پیام شما با موفقیت به مدیریت ارسال شد.</p>
+                {% endif %}
+                <form class="table-name" method="post">
+                    {% csrf_token %}
+                    <section class="form-o-sec1 dis-inl-blo ver-ali-top wid-49_5 m360-wid-100">
+                        <p class="form-naz col-393737 fon-siz-18 wid-100 pad-0-5">
+                            <label>نام شما</label>
+                        </p>
+                        <div class="boxos wid-100">
+                            <input type="text" name="name" class="boxis wid-96 out-non hei-30-px bor-747d8c opa-6 mar-5-0 bor-rad-5-px pad-7" required>
+                        </div>
+                    </section>
+                    <section class="form-o-sec1 dis-inl-blo ver-ali-top wid-49_5 m360-wid-100">
+                        <p class="form-naz col-393737 fon-siz-18 wid-100 pad-0-5">
+                            <label>ایمیل شما</label>
+                        </p>
+                        <div class="boxos wid-100">
+                            <input type="email" name="email" class="boxis wid-96 out-non hei-30-px bor-747d8c opa-6 mar-5-0 bor-rad-5-px pad-7" required>
+                        </div>
+                    </section>
+                    <section class="form-o-sec2 dis-tab wid-100 m360-wid-100">
+                        <p class="form-naz col-393737 fon-siz-18 wid-100 pad-0-5">
+                            <label>پیام شما</label>
+                        </p>
+                        <div class="boxos-1 wid-99_5">
+                            <textarea class="txt-a wid-98 hei-220-px out-non mar-bot-20 bor-747d8c opa-6 mar-5-0 bor-rad-5-5-5-0 pad-7" name="message"></textarea>
+                        </div>
+                    </section>
+                    <div class="boxos-1 wid-99_5">
+                        <input type="submit" value="ارسال پیام" class="button-1-1 wid-98 bac-col-167785 bor-non pad-6 cur-poi col-whi fon-siz-16 mar-top-7 bor-rad-5-px tra-25 bor-whi">
+                    </div>
+                </form>
+            </div>
+            <div class="massage wid-39_8 dis-inl-blo ver-ali-top tex-ali-cen m1024-dis-tab m1024-wid-100 m768-dis-tab m768-wid-100 m640-dis-tab m640-wid-100 m360-dis-tab m360-wid-100">
+            <p class="bolden col-57606f fon-siz-40 mar-bot-35 ">به ما پیام دهید</p>
+            <div id="message-div">
+                <img src="{% static 'images/contact_us/no-doubt.png' %}" class="dis-inl-blo ver-ali-top"><span style="font-size:21px;margin:0 12px;font-family:iransan-normal;">روزهایی که قادر به پاسخگویی نیستیم:</span>
+            </div>
+            <ul class="style-2 tex-ali-rig dis-tab mar-65-aut-45-aut fon-siz-15 col-747d8c lis-sty-pos-ins">
+                <li>روزهای تعطیلی که به صورت رسمی اعلام می شود.</li>
+                <li>یکم تا پنجم فروردین</li>
+                <li>13فروردین</li>
+                <li>17 خرداد</li>
+                <li>روزهایی که بدلیل مشکلات فنی قادر نخواهیم بود.</li>
+                <li>22بهمن</li>
+            </ul>
+
+           <div>
+               <img src="{% static 'images/contact_us/customer-service.png' %}">
+           </div>
+        </div>
+        </div>
+	</div>
+
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{field.label}}{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+<script type="text/javascript" src = "{% static 'js/index/jquery.js' %}"></script>
+<script type="text/javascript" src = "{% static 'js/index/scripts.js' %}"></script>
+        <script>
+        var user = "{{suc}}";
+        var usermsg=user+' عزیز ، پیام شما به مدیریت سایت ارسال شد';
+        if (user) {
+         setTimeout(alertFunc, 3000);
+        }
+
+        function alertFunc() {
+          alert(usermsg);
+        }
+  </script>
+    <script type="text/javascript" src = "{% static 'js/index/jquery.js' %}"></script>
+    <script type="text/javascript" src = "{% static 'js/index/scripts.js' %}"></script>
+{% endblock %}

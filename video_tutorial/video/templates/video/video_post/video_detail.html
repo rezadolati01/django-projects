@@ -1,0 +1,173 @@
+{% extends 'video/parent/base.html' %}
+{% load static %}
+{% load video_tags %}
+
+{% block head %}
+           <title>products</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width" initial-scale="1">
+        <link  rel="stylesheet" type="text/css" href="{% static 'css/video-detail/detail-video.css' %}">
+        <link  rel="stylesheet" type="text/css" href="{% static 'css/base1.css' %}">
+        <script type="text/javascript" src="{% static 'js/video-detail/jquery.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/video-detail/detail-video.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+
+        <div id="oll" class="wid-1500-px dis-tab dir-rtl mar-aut">
+            <div id="div-o1" class="wid-70 flo-righ ">
+                <section id="section-1" class="wid-96 bor-rad-10-px box-sha-0-0-5-ccc mar-40-18-0-0 bac-col-whi">
+                    <img src="{% static 'images/video-detail/001-play-button-arrowhead.png' %}" class="mar-10-20-0-0 dis-inl-blo">
+                    <h3 class="padi-3 dis-inl-blo">{{ video.title}}</h3>
+                    <video id="befo-video" controls poster="{{ video.preview_image.url }}" preload="none" class=" bor-rad-10-px mar-15-47-0-20 wid-90 out-non">
+                    <source src="{{video.video_file.first.videofile.url}}" type="video/mp4">
+                    film
+                    </video>
+                    <button id="buton-vidsave" class="mar-righ-770 mar-10-3 bor-non cur-poi out-non bac-col-whi"><img src="{% static 'images/video-detail/save-button.png' %}"></button>
+                    <button class="mar-10-3 bor-non cur-poi out-non bac-col-whi"><img src="{% static 'images/video-detail/001-share.png' %}"></button>
+                    <a href="#" data-id="{{ video.id }}" data-action="{% if request.user in video.users_like.all %}un{% endif %}like"
+                    class="vid-like">
+                        {% if request.user in video.users_like.all %}
+                       <button  class="mar-10-3 bor-non cur-poi out-non bac-col-whi"><img id="like-img" src="{% static 'images/video-detail/heart-full.png' %}"></button>
+                        {% else %}
+                        <button  class="mar-10-3 bor-non cur-poi out-non bac-col-whi"><img id="like-img" src="{% static 'images/video-detail/001-heart.png' %}"></button>
+                        {% endif %}
+                    </a>
+                    <div class="count-like" style="display:inline;width: 10px;"> {{ video.users_like.count }}</div>
+                </section>
+                <section id="section-2" class="wid-96 bor-rad-10-px box-sha-0-0-5-ccc mar-40-18-0-0 bac-col-whi">
+                    <img src="{% static 'images/video-detail/order list6.png' %}" class="mar-10-20-0-0 dis-inl-blo">
+                    <h4 class="padi-3 dis-inl-blo">توضیحات</h4>
+                    <p id="p-vide" class="line-30 mar-aut wid-90 tex-ali-jus">{{ video.caption }}<br><br></p>
+                </section>
+                <section id="section-3" class="wid-96 bor-rad-10-px box-sha-0-0-5-ccc mar-40-18-0-0 bac-col-whi">
+                    <img src="{% static 'images/video-detail/order list7.png' %}" class="mar-10-20-0-0 dis-inl-blo">
+                    <h4 class="padi-3 dis-inl-blo">سرفصل های دوره</h4>
+                    <br>
+                    <div class="relative box-sha-0-0-3-167785 bor-rad-5-px wid-90 mar-righ-50 border-167785-2px mar-15-50 mar360-15-18 mar640-15-25">
+                        <h5 class="dis-inl-blo padi-10">رنگ شناسی&nbsp;|&nbsp;00:15:25&nbsp;|&nbsp;7,000 تومان</h5>
+                        <a href="#" class="absol lef-10 top8"><img src="{% static 'images/video-detail/004-download-2.png' %}"></a>
+                        <a href="#" class="absol lef-45 top8"><img src="{% static 'images/video-detail/005-play.png' %}"></a>
+                    </div>
+                    <div class="relative box-sha-0-0-3-167785 bor-rad-5-px wid-90 mar-righ-50 border-167785-2px mar-15-50 mar360-15-18 mar640-15-25">
+                        <h5 class="dis-inl-blo padi-10">لوازم نقاشی&nbsp;|&nbsp;00:30:25&nbsp;|&nbsp;12,000 تومان</h5>
+                        <a href="#" class="absol lef-10 top8"><img src="{% static 'images/video-detail/004-download-2.png' %}"></a>
+                        <a href="#" class="absol lef-45 top8"><img src="{% static 'images/video-detail/005-play.png' %}"></a>
+                    </div>
+                    <div class="relative box-sha-0-0-3-167785 bor-rad-5-px wid-90 mar-righ-50 border-167785-2px mar-15-50 mar360-15-18 mar640-15-25">
+                        <h5 class="dis-inl-blo padi-10">طراحی طبیعت&nbsp;|&nbsp;01:00:00&nbsp;|&nbsp;25,000 تومان</h5>
+                        <a href="#" class="absol lef-10 top8"><img src="{% static 'images/video-detail/004-download-2.png' %}"></a>
+                        <a href="#" class="absol lef-45 top8"><img src="{% static 'images/video-detail/005-play.png' %}"></a>
+                    </div>
+                    <br>
+                </section>
+            </div>
+            <!---------------left-side------------>
+            <div id="div-o2" class="wid-30 flo-righ">
+                 <section id="section-4" class="wid-93 bor-rad-10-px box-sha-0-0-5-ccc mar-40-18-0-0 bac-col-whi">
+                     <img src="{% static 'images/video-detail/orderlist2.png' %}" class="mar-10-20-0-0 dis-inl-blo">
+                    <h4 class="padi-3 dis-inl-blo">آموزش نقاشی با رنگ روغن</h4>
+                     <ul class="list-style-t-none top60">
+                         <li class="padi-6-25 padi-top-30"><span class="fon-bold col-167785"> کد دوره:</span> {{ video.id}}</li>
+                         <li class="padi-6-25"><span class="fon-bold col-167785">مدرس :</span> {{ video.teacher}}</li>
+                         <li class="padi-6-25"><span class="fon-bold col-167785">سابقه :</span> مدرس رسمی نقاشی در کانون هنرمندان</li>
+                         <li class="padi-6-25"><span class="fon-bold col-167785">تاریخ انتشار :</span> {{ video.publish}}</li>
+                         <li class="padi-6-25"><span class="fon-bold col-167785">تعداد ویدئوها :</span> {{ video.video_file.count }}</li>
+                         <li class="padi-6-25"><span class="fon-bold col-167785">سطح دوره :</span> {{ video.video_level|val }}</li>
+                         <li class="padi-6-25"><span class="fon-bold col-167785">مدت زمان دوره :</span>{{video.video_time}}</li>
+                         <li class="padi-6-25"><span class="fon-bold col-167785">تعداد دانلود ها :</span> 120</li>
+                         <li class="padi-6-25"><span class="fon-bold col-167785">تعداد بازدید ها :</span> 187</li>
+{#                         <li class="padi-6-25 padi-bot-30"><span class="fon-bold col-167785">قیمت :</span> {{ video.price}}</li>#}
+                 </ul>
+                </section>
+                <section id="section-5" class="wid-93 bor-rad-10-px box-sha-0-0-5-ccc mar-40-18-0-0 bac-col-whi">
+                    <a href="#" class="dis-inl-blo wid-70 "><h4 class="mar-20-15-20-0 padi-3 col-167785" id="h4-down">دانلود یکجا&nbsp;&nbsp;&nbsp;&nbsp;<span class="col-bla">حجم : 1.1 گیگا بایت</span></h4></a>
+                    <a href="#"><img id="img-downl" src="{% static 'images/video-detail/001-direct-download.png' %}" class="mar-righ-65"></a>
+                </section>
+                <section id="section-6" class="wid-93 bor-rad-10-px box-sha-0-0-5-ccc mar-40-18-0-0 bac-col-whi">
+                    <img src="{% static 'images/video-detail/taraconesh2.png' %}" class="mar-10-20-0-0 dis-inl-blo">
+                    <h4 class="padi-3 dis-inl-blo">برچسب ها</h4>
+                    <br>
+                    {% for tag in video.tags.all %}
+                    <a href="#"><p class="mar-5 padi-6 dis-inl-blo fon-siz-15 bac-col-eaeaea back-hov hover-fff bor-rad-5-px mar360-10">{{ tag.name }}</p></a>
+                    {% endfor %}
+{#                 {{ video.tags.all|join:", " }}#}
+                    <br><br>
+                </section>
+                <section id="section-7" class="wid-93 bor-rad-10-px box-sha-0-0-5-ccc mar-40-18-0-0 bac-col-whi">
+                    <img src="{% static 'images/video-detail/004-conversation.png' %}" class="mar-10-20-0-0 dis-inl-blo">
+                    <h4 class="padi-3 dis-inl-blo">
+                            نظرات ({% with comments.count as totaL_comments %}
+                        {{ totaL_comments }}
+{#                        comment{{ totaL_comments|pluralize }}#}
+                            {% endwith %})
+                    </h4>
+                    <div class="bor-rad-5-px wid-93 mar-righ-12 bac-col-ff9933">
+                        {% if new_comment %}
+                         <p class="fon-siz-15 mar-5 padi-3 col-whi">کامنت شما ارسال شد :</p>
+                        {% else %}
+                        <p class="fon-siz-15 mar-5 padi-3 col-whi">نظر خود را وارد کنید :</p>
+                        {% endif %}
+                         <form method="post">
+                         {% csrf_token %}
+{#                         {{ comment_form.as_p }}#}
+                         <textarea name="body" id="text-comen" class="bor-rad-5-px padi-3 wid-90 hei-80-px mar-righ-18 out-non">
+                        </textarea>
+                        <input type="submit" id="buto-coment" class="bac-col-167785 col-whi bor-rad-5-px mar-righ-215 mar-15 padi-3-35 out-non bor-non cur-poi" value="ارسال نظر">
+                         </form>
+                    </div>
+                    {% for comment in comments %}
+                    <div class="mar-25-42-0-0 wid-80 bor-bot-167785">
+                        <img src="{% static 'images/video-detail/nag1.jpg' %}" class="dis-inl-blo wid-40-px hei-40-px bor-rad-50">
+                        <p class="dis-inl-blo mar-10 fon-lalezar">{{ comment.created }}-{{ comment.name }}</p>
+{#                        <p class="fon-siz-13 mar-10">{{ comment.body|linebreaks }} </p>#}
+                        <p class="fon-siz-13 mar-10">{{ comment.body| markdown }} </p>
+                        {% empty %}
+{#                       There  yet is no comments#}
+                        {% endfor %}
+
+                    </div>
+                        <p>
+                        </p>
+                    <br>
+                </section>
+            </div>
+        </div>
+
+
+    <h2>مطالب مرتبط : </h2>
+    {% for video in similar_videos %}
+    <p><a href="{{ video.get_absolute_url }}">{{ video.title }}</a> </p>
+        {% empty %}
+        Tere are no videos
+    {% endfor %}
+    <script type="text/javascript" src = "{% static 'js/index/jquery.js' %}"></script>
+    <script type="text/javascript" src = "{% static 'js/index/scripts.js' %}"></script>
+
+{% endblock %}
+
+    {% block domready %}
+        $(document).ready(function(){
+            $('.vid-like').click(function(e){
+            e.preventDefault();
+            $.post('{% url "video:video_like" %}',
+                {
+                id: $(this).data('id'),
+                action: $(this).data('action')
+                },
+                function(data){
+                    if (data['status'] == 'ok'){
+                        var previous_action = $('.vid-like').data('action');
+                        // toggle data-action
+                        $('.vid-like').data('action', previous_action == 'like' ? 'unlike' : 'like');
+                        // toggle link image
+                        document.getElementById('like-img').src=previous_action == "like" ? "{% static 'images/video-detail/heart-full.png' %}" : "{% static 'images/video-detail/001-heart.png' %}";
+                        // update total likes
+                        var previous_likes = parseInt($('.count-like').text());
+                        $('.count-like').text(previous_action === 'like' ? previous_likes + 1 : previous_likes - 1);
+                        }
+                    }
+                );
+})          ;
+        });
+    {% endblock %}
