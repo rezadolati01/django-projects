@@ -207,3 +207,8 @@ img {
   margin-right: auto;
   max-width: 100%;
 }
+
+.pagination{
+	width: 400px;
+	margin: 0 auto;
+}
