@@ -3,10 +3,13 @@
 {% block title %}post detail{% endblock %}
 
 {% block content %}
-    <h1>post detail</h1>
-    <h2>{{ post.title}} (by {{ post.author }})</h2>
-    <p>{{ post.description | linebreaks }}</p>
+    <h1 class="post-detail" >{{ post.title}}</h1>
+    <p class="author">author: {{ post.author }}</p>
+    <span class="pub-date">{{ post.publish|jformat:"%Y/%m/%d-%H:%M" }}</span>
+    <div class="des">
+    <p class="des-p">{{ post.description | linebreaks }}</p>
+    </div>
+
     <hr>
-    <p>{{ post.publish|jformat:"%Y/%m/%d-%H:%M" }}</p>
 
 {% endblock %}
