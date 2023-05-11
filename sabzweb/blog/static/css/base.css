@@ -1,4 +1,4 @@
-/*              list              */
+/*-----------------------list-----------------------*/
 
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
 
@@ -107,7 +107,7 @@ li::before {
 	}
 }
 
-/*              detail              */
+/*-----------------------detail-----------------------*/
 
 /*
  * This is an example built for a Thinkful office hour
@@ -208,7 +208,61 @@ img {
   max-width: 100%;
 }
 
+
+
+/*------------------Pagination--------------*/
 .pagination{
 	width: 400px;
-	margin: 0 auto;
+	margin: 40px auto;
+}
+.square{
+	padding: 2px 2px;
+	display: inline-block;
+	margin-right: 5px;
+	width: 35px;
+	height: 35px;
+	background-color: #941616;
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	font-size: 20px;
+}
+
+.square-red{
+	padding: 2px 2px;
+	display: inline-block;
+	margin-right: 5px;
+	width: 35px;
+	height: 35px;
+	background-color: #2e247e;
+	color: white;
+	text-align: center;
+	border-radius: 50%;
+	font-size: 20px;
+}
+.point{
+	display: inline-block;
+	margin-right: 5px;
+	width: 35px;
+	height: 35px;
+	color: #000000;
+	text-align: center;
+	font-size: 30px;
+}
+
+.page-a:active {
+  text-decoration: none;
+}
+
+.page-a:visited {
+	text-decoration: none;
+	color: white;
+}
+
+.page-a:link {
+  text-decoration: none;
+}
+
+.page-a:hover {
+  text-decoration: none;
 }

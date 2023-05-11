@@ -4,7 +4,7 @@
 
 <h1 class="post-list">post list</h1>
 
-<ol style="--length: {{ posts.paginator.num_pages }}" role="list">
+<ol style="--length: {{ posts|length }}" role="list">
     {% for post in posts %}
         <li style="--i: {{ forloop.counter }}">
         <h3 class="post-title">

@@ -1,31 +1,32 @@
 <div class="pagination">
 {% if page.has_previous %}
-  <a href="?page={{ page.previous_page_number }}">« Previous page</a>
+    <a class="page-a" href="?page={{ page.previous_page_number }}"><span class="point" >«</span></a>
+
 
   {% if page.number > 3 %}
-    <a href="?page=1">1</a>
+    <a class="page-a square" href="?page=1">1</a>
     {% if page.number > 4 %}
-      <span>...</span>
+      <span class="page-a point">...</span>
     {% endif %}
   {% endif %}
 {% endif %}
 
 {% for num in page.paginator.page_range %}
   {% if page.number == num %}
-    <a href="?page={{ num }}">{{ num }}</a>
+    <a class="page-a square-red" href="?page={{ num }}">{{ num }}</a>
   {% elif num > page.number|add:'-3' and num < page.number|add:'3' %}
-    <a href="?page={{ num }}">{{ num }}</a>
+    <a class="page-a square" href="?page={{ num }}">{{ num }}</a>
   {% endif %}
 {% endfor %}
 
 {% if page.has_next %}
   {% if page.number < page.paginator.num_pages|add:'-3' %}
-    <span>...</span>
-    <a href="?page={{ page.paginator.num_pages }}">{{ page.paginator.num_pages }}</a>
+    <span class="page-a point">...</span>
+    <a class="page-a square" href="?page={{ page.paginator.num_pages }}">{{ page.paginator.num_pages }}</a>
   {% elif page.number < page.paginator.num_pages|add:'-2' %}
-    <a href="?page={{ page.paginator.num_pages }}">{{ page.paginator.num_pages }}</a>
+    <a class="page-a square" href="?page={{ page.paginator.num_pages }}">{{ page.paginator.num_pages }}</a>
   {% endif %}
 
-  <a href="?page={{ page.next_page_number }}">Next Page »</a>
+    <a class="page-a" href="?page={{ page.next_page_number }}"><span class="point" >»</span></a>
 {% endif %}
 </div>
