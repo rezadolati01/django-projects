@@ -1,8 +1,6 @@
 <div class="pagination">
 {% if page.has_previous %}
     <a class="page-a" href="?page={{ page.previous_page_number }}"><span class="point" >«</span></a>
-
-
   {% if page.number > 3 %}
     <a class="page-a square" href="?page=1">1</a>
     {% if page.number > 4 %}
