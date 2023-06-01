@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, Http404
-from .models import Post
+from .models import *
+from .forms import *
 # from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView, DetailView
 
@@ -46,3 +47,16 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
     template_name = "blog/detail.html"
+
+
+def ticket(request):
+    if request.method == "POST":
+        form = TicketForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            Ticket.objects.create(message=cd['message'], name=cd['name'], email=cd['email'],
+                                  phone=cd['phone'], subject=cd['subject'])
+            return redirect("blog:index")
+    else:
+        form = TicketForm()
+    return render(request, "forms/ticket.html", {'form': form})
