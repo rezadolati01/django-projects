@@ -9,7 +9,26 @@
     <div class="des">
     <p class="des-p">{{ post.description | linebreaks }}</p>
     </div>
-
     <hr>
 
+    <div>
+    {% with comments.count as cm_count%}
+    {{ cm_count }} comment{{ cm_count|pluralize }}
+    </div>
+
+     <div>
+     {% for cm in comments %}
+         {{ cm.body|linebreaks}}
+         <br>
+         {{ cm.name }}
+     {% empty %}
+         کامنتی وجود ندارد!
+     {% endfor %}
+     </div>
+    {% endwith %}
+    <form method="post" action="{% url 'blog:post_comment' post.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="افزودن کامنت">
+    </form>
 {% endblock %}

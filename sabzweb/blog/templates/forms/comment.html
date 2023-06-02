@@ -1,0 +1,17 @@
+{% extends 'parent/base.html' %}
+{% load jformat %}
+{% block title %}post comment{% endblock %}
+
+{% block content %}
+
+    {% if comment %}
+        کامنت شما ثبت شد.
+        <a href="{{ post.get_absolute_url }}"> بازگشت به پست</a>
+    {% else %}
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="افزودن کامنت">
+    </form>
+    {% endif %}
+{% endblock %}

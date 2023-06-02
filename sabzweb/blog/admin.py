@@ -25,3 +25,11 @@ class PostAdmin(admin.ModelAdmin):
 @admin.register(Ticket)
 class TicketAdmin(admin.ModelAdmin):
     list_display = ['name', 'subject', 'phone']
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['post', 'name', 'created', 'active']
+    list_filter = ['active', ('created', JDateFieldListFilter), ('updated', JDateFieldListFilter), ]
+    search_fields = ['name', 'body']
+    list_editable = ['active']
