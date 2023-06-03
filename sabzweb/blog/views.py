@@ -11,7 +11,8 @@ from django.views.decorators.http import require_POST
 
 
 def index(request):
-    return HttpResponse("index")
+
+    return render(request, "blog/index.html")
 
 
 # def post_list(request):
