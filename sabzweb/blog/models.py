@@ -30,6 +30,7 @@ class Post(models.Model):
     updated = jmodels.jDateTimeField(auto_now=True)
     # choice fields
     status = models.CharField(max_length=2, choices=Status.choices, default=Status.DRAFT, verbose_name="وضعیت")
+    reading_time = models.PositiveIntegerField(verbose_name="زمان مطالعه")
 
     # objects = models.Manager()
     objects = jmodels.jManager()
