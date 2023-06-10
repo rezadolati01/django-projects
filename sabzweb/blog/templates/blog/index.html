@@ -9,4 +9,11 @@
 
     {% latest_posts 5 %}
 
+    <h2>محبوب ترین پست ها</h2>
+    {% most_popular_posts 3 as pop_posts %}
+    {% for post in pop_posts %}
+        <br>
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}: with {{ post.comments_count }} comments</a>
+    {% endfor %}
+
 {% endblock %}
