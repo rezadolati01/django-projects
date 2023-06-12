@@ -1,5 +1,6 @@
 {% extends 'parent/base.html' %}
 {% load jformat %}
+{% load blog_tags %}
 {% block title %}post detail{% endblock %}
 
 {% block content %}
@@ -7,7 +8,7 @@
     <p class="author">author: {{ post.author }}</p>
     <span class="pub-date">{{ post.publish|jformat:"%Y/%m/%d-%H:%M" }}</span>
     <div class="des">
-    <p class="des-p">{{ post.description | linebreaks }}</p>
+    <p class="des-p">{{ post.description | markdown }}</p>
     </div>
     <hr>
 
