@@ -19,6 +19,7 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ['title']}
     list_editable = ['status']
     # list_display_links = ['author']
+    # autocomplete_fields = ['author']
 
 
 
@@ -33,3 +34,4 @@ class CommentAdmin(admin.ModelAdmin):
     list_filter = ['active', ('created', JDateFieldListFilter), ('updated', JDateFieldListFilter), ]
     search_fields = ['name', 'body']
     list_editable = ['active']
+    # autocomplete_fields = ['post']

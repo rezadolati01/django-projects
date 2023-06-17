@@ -45,3 +45,6 @@ class CommentForm(forms.ModelForm):
                 'class': 'cm-name'
             })
         }
+
+class SearchForm(forms.Form):
+    query = forms.CharField()
