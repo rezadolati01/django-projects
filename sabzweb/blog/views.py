@@ -5,8 +5,8 @@ from .forms import *
 # from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView, DetailView
 from django.views.decorators.http import require_POST
-
-
+from django.db.models import Q
+from django.contrib.postgres.search import TrigramSimilarity
 # Create your views here.
 
 
@@ -92,9 +92,13 @@ def post_search(request):
         form = SearchForm(data=request.GET)
         if form.is_valid():
             query=form.cleaned_data['query']
-            results1=Post.published.filter(title__icontains=query)
-            results2=Post.published.filter(description__icontains=query)
-            results = results1 | results2
+            results1=Post.published.annotate(similarity=TrigramSimilarity('title', query))\
+                .filter(similarity__gt=0.1)
+            results2 = Post.published.annotate(similarity=TrigramSimilarity('description', query)) \
+                .filter(similarity__gt=0.1)
+            results = (results1 | results2).order_by('-similarity')
+            print(results1)
+            print(results2)
             print(results)
     context={
         'query':query,
