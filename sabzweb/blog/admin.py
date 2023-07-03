@@ -35,3 +35,8 @@ class CommentAdmin(admin.ModelAdmin):
     search_fields = ['name', 'body']
     list_editable = ['active']
     # autocomplete_fields = ['post']
+
+
+@admin.register(Image)
+class ImageAdmin(admin.ModelAdmin):
+    list_display = ['post', 'title', 'created']
