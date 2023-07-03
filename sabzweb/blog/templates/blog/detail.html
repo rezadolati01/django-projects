@@ -9,7 +9,7 @@
     <span class="pub-date">{{ post.publish|jformat:"%Y/%m/%d-%H:%M" }}</span>
     <div>
         {% for img in post.images.all %}
-            <img width="300px" height="200px" src="{{ img.image_file.url }}" alt="{{ img.title }}">
+            <img width="300px" height="300px" src="{{ img.image_file.url }}" alt="{{ img.title }}">
         {% endfor %}
     </div>
     <div class="des">
