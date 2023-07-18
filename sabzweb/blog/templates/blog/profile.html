@@ -1,6 +1,9 @@
 {% extends 'parent/base.html' %}
 {% block title %}profile{% endblock %}
 {% block content %}
+
+    <p> <a href="{% url 'blog:create_post' %}"> ایجاد پست جدید</a></p>
+
 <table style="width: 80%; border: 2px solid black; text-align: right; direction: rtl;" >
     <tr>
         <th>ردیف</th>

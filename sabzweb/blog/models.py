@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django_jalali.db import models as jmodels
 from django.urls import reverse
 from django_resized import ResizedImageField
-
+from django.template.defaultfilters import slugify
 
 # Managers
 class PublishedManager(models.Manager):
@@ -51,6 +51,11 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('blog:post_detail', args=[self.id])
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
 
 class Ticket(models.Model):
     message = models.TextField(verbose_name="پیام")
@@ -85,6 +90,7 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"{self.name}: {self.post}"
+
 
 
 class Image(models.Model):
