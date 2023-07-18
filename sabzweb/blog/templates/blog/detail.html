@@ -1,13 +1,19 @@
 {% extends 'parent/base.html' %}
 {% load jformat %}
+{% load blog_tags %}
 {% block title %}post detail{% endblock %}
 
 {% block content %}
     <h1 class="post-detail" >{{ post.title}}</h1>
     <p class="author">author: {{ post.author }}</p>
     <span class="pub-date">{{ post.publish|jformat:"%Y/%m/%d-%H:%M" }}</span>
+    <div>
+        {% for img in post.images.all %}
+            <img width="300px" height="300px" src="{{ img.image_file.url }}" alt="{{ img.title }}">
+        {% endfor %}
+    </div> 
     <div class="des">
-    <p class="des-p">{{ post.description | linebreaks }}</p>
+    <p class="des-p">{{ post.description | markdown  }}</p>
     </div>
     <hr>
 

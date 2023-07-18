@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import os.path
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'django_jalali',
+    'django.contrib.postgres'
 ]
 
 MIDDLEWARE = [
@@ -76,12 +77,23 @@ WSGI_APPLICATION = 'sabzweb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blog',
+        'USER': 'blog_admin',
+        'PASSWORD': '12345678',
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation
@@ -120,7 +132,21 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+MEDIA_URL = '/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# django-resized
+# DJANGORESIZED_DEFAULT_SIZE = [1920, 1080]
+# DJANGORESIZED_DEFAULT_SCALE = 0.5
+# DJANGORESIZED_DEFAULT_QUALITY = 75
+# DJANGORESIZED_DEFAULT_KEEP_META = True
+# DJANGORESIZED_DEFAULT_FORCE_FORMAT = 'JPEG'
+# DJANGORESIZED_DEFAULT_FORMAT_EXTENSIONS = {'JPEG': ".jpg"}
+DJANGORESIZED_DEFAULT_NORMALIZE_ROTATION = False

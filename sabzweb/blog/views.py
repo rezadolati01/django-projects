@@ -5,13 +5,12 @@ from .forms import *
 # from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView, DetailView
 from django.views.decorators.http import require_POST
-
-
+from django.db.models import Q
+from django.contrib.postgres.search import TrigramSimilarity
 # Create your views here.
 
 
 def index(request):
-
     return render(request, "blog/index.html")
 
 
@@ -84,3 +83,47 @@ def post_comment(request, post_id):
         'comment': comment
     }
     return render(request, "forms/comment.html", context)
+
+
+def post_search(request):
+    query=None
+    results=[]
+    if 'query' in request.GET:
+        form = SearchForm(data=request.GET)
+        if form.is_valid():
+            query=form.cleaned_data['query']
+            results1=Post.published.annotate(similarity=TrigramSimilarity('title', query))\
+                .filter(similarity__gt=0.1)
+            results2 = Post.published.annotate(similarity=TrigramSimilarity('description', query)) \
+                .filter(similarity__gt=0.1)
+            results = (results1 | results2).order_by('-similarity')
+            print(results1)
+            print(results2)
+            print(results)
+    context={
+        'query':query,
+        'results':results
+    }
+    return render(request,'blog/search.html',context)
+
+
+def profile(request):
+    user = request.user
+    posts= Post.published.filter(author=user)
+
+    return render(request, 'blog/profile.html', {'posts':posts})
+
+
+def create_post(request):
+    if request.method == "POST":
+        form = CreatePostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            Image.objects.create(image_file=form.cleaned_data['image1'], post= post)
+            Image.objects.create(image_file=form.cleaned_data['image2'], post=post)
+            return redirect('blog:profile')
+    else:
+        form = CreatePostForm()
+    return render(request, 'forms/create_post.html', {'form': form})
