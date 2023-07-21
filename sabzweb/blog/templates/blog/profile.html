@@ -16,7 +16,7 @@
             <td>{{ forloop.counter}}</td>
             <td><a href="{{ post.get_absolute_url }}"> {{ post.title }}</a></td>
             <td><a href="#"> ویرایش</a></td>
-            <td><a href="#"> حذف</a></td>
+            <td><a href="{% url 'blog:delete_post' post.id %}"> حذف</a></td>
         </tr>
     {% endfor %}
 </table>
