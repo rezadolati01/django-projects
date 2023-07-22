@@ -114,6 +114,11 @@ class Image(models.Model):
         ]
         verbose_name = "تصویر"
         verbose_name_plural = "تصویر ها"
+
+    def delete(self, *args, **kwargs):
+        storage, path = self.image_file.storage , self.image_file.path
+        storage.delete(path)
+        super().delete(*args, **kwargs)
     def __str__(self):
         return self.title if self.title else "None"
 
