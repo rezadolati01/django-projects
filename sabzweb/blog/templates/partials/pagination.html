@@ -1,30 +1,40 @@
-<div class="pagination">
+<nav class="my-5" aria-label="navigation">
+    <ul class="pagination d-inline-block d-md-flex justify-content-center">
+
 {% if page.has_previous %}
-    <a class="page-a" href="?page={{ page.previous_page_number }}"><span class="point" >«</span></a>
+    <li class="page-item">
+    	<a class="page-link" href="?page={{ page.previous_page_number }}" tabindex="-1" aria-disabled="true">قبل</a>
+    </li>
+
   {% if page.number > 3 %}
-    <a class="page-a square" href="?page=1">1</a>
+    <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
     {% if page.number > 4 %}
-      <span class="page-a point">...</span>
+      <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
     {% endif %}
   {% endif %}
+
 {% endif %}
 
 {% for num in page.paginator.page_range %}
   {% if page.number == num %}
-    <a class="page-a square-red" href="?page={{ num }}">{{ num }}</a>
+    <li class="page-item"><a class="page-link active" href="?page={{ num }}">{{ num }}</a></li>
   {% elif num > page.number|add:'-3' and num < page.number|add:'3' %}
-    <a class="page-a square" href="?page={{ num }}">{{ num }}</a>
+    <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
   {% endif %}
 {% endfor %}
 
 {% if page.has_next %}
   {% if page.number < page.paginator.num_pages|add:'-3' %}
-    <span class="page-a point">...</span>
-    <a class="page-a square" href="?page={{ page.paginator.num_pages }}">{{ page.paginator.num_pages }}</a>
+    <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+      <li class="page-item"><a class="page-link" href="?page={{ page.paginator.num_pages }}">{{ page.paginator.num_pages }}</a></li>
   {% elif page.number < page.paginator.num_pages|add:'-2' %}
-    <a class="page-a square" href="?page={{ page.paginator.num_pages }}">{{ page.paginator.num_pages }}</a>
-  {% endif %}
+      <li class="page-item"><a class="page-link" href="?page={{ page.paginator.num_pages }}">{{ page.paginator.num_pages }}</a></li>
 
-    <a class="page-a" href="?page={{ page.next_page_number }}"><span class="point" >»</span></a>
+  {% endif %}
+    <li class="page-item">
+    	<a class="page-link" href="?page={{ page.next_page_number }}">بعد</a>
+    </li>
 {% endif %}
-</div>
+
+	</ul>
+</nav>
