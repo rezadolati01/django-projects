@@ -57,3 +57,8 @@ class CreatePostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'description', 'reading_time']
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=250, required=True)
+    password = forms.CharField(max_length=250, required=True, widget=forms.PasswordInput)
