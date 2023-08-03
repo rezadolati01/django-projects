@@ -1,40 +1,252 @@
 {% extends 'parent/base.html' %}
-{% load jformat %}
+{% block title %}post list{% endblock %}
+{% load static %}
 {% load blog_tags %}
-{% block title %}post detail{% endblock %}
+{% load jformat %}
+{% block head %} {% endblock %}
 
 {% block content %}
-    <h1 class="post-detail" >{{ post.title}}</h1>
-    <p class="author">author: {{ post.author }}</p>
-    <span class="pub-date">{{ post.publish|jformat:"%Y/%m/%d-%H:%M" }}</span>
-    <div>
-        {% for img in post.images.all %}
-            <img width="300px" height="300px" src="{{ img.image_file.url }}" alt="{{ img.title }}">
-        {% endfor %}
-    </div> 
-    <div class="des">
-    <p class="des-p">{{ post.description | markdown  }}</p>
-    </div>
-    <hr>
 
-    <div>
-    {% with comments.count as cm_count%}
-    {{ cm_count }} comment{{ cm_count|pluralize }}
-    </div>
 
-     <div>
-     {% for cm in comments %}
-         {{ cm.body|linebreaks}}
-         <br>
-         {{ cm.name }}
-     {% empty %}
-         کامنتی وجود ندارد!
-     {% endfor %}
-     </div>
-    {% endwith %}
-    <form method="post" action="{% url 'blog:post_comment' post.id %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="افزودن کامنت">
-    </form>
+<body>
+<!-- Preloader START -->
+	<div class="preloader">
+		<div class="loader">
+			<div class="sh1"></div>
+			<div class="sh2"></div>
+		</div>
+	</div>
+<!-- Preloader END -->
+
+<main>
+
+<!-- =======================
+Inner intro START -->
+<section class="pt-2">
+	<div class="container">
+		<div class="row">
+      <div class="col-12">
+        <div class="card bg-dark-overlay-5 overflow-hidden card-bg-scale h-400 text-center" style="background-image:url({{ post.images.first.image_file.url }}); background-position: center left; background-size: cover;">
+          <!-- Card Image overlay -->
+          <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
+            <div class="w-100 my-auto">
+              <!-- Card category -->
+              <a href="#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>تکنولوژی</a>
+              <!-- Card title -->
+              <h2 class="text-white display-5">{{ post.title}}</h2>
+              <!-- Card info -->
+              <ul class="nav nav-divider text-white-force align-items-center justify-content-center">
+                <li class="nav-item">
+                  <div class="nav-link">
+                    <div class="d-flex align-items-center text-white position-relative">
+                      <div class="avatar avatar-sm">
+                        <img class="avatar-img rounded-circle" src="{% static 'images/avatar/02.jpg' %}" alt="avatar">
+                      </div>
+                      <span class="ms-3">با <a href="#" class="stretched-link text-reset btn-link">{{ post.author }}</a></span>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item">{{ post.publish|jformat:"%Y/%m/%d-%H:%M" }}</li>
+                <li class="nav-item">{{post.reading_time}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+</section>
+<!-- =======================
+Inner intro END -->
+
+<!-- =======================
+Main START -->
+<section class="pt-0">
+	<div class="container position-relative" data-sticky-container>
+		<div class="row">
+			<!-- Main Content START -->
+			<div class="col-lg-9 mb-5">
+      	<p><span class="dropcap bg-dark text-white px-2">I</span>{{ post.description | markdown  }}</p>
+
+				<!-- Images -->
+				<div class="row g-2 my-5">
+					{% for img in post.images.all %}
+					<div class="col-md-4">
+						<a href="{{ img.image_file.url }}" data-glightbox data-gallery="image-popup">
+			      	<img class="rounded" src="{{ img.image_file.url }}" alt="{{ img.title }}">
+			       </a>
+					</div>
+					{%endfor %}
+				</div>
+
+				<!-- Divider -->
+				<div class="text-center h5 mb-4">. . .</div>
+
+				<!-- Author info START -->
+				<div class="d-flex p-2 p-md-4 my-3 bg-primary bg-opacity-10 rounded">
+					<!-- Avatar -->
+					<a href="#">
+						<div class="avatar avatar-xxl me-2 me-md-4">
+							<img class="avatar-img rounded-circle" src="{% static 'images/avatar/02.jpg' %}" alt="avatar">
+						</div>
+					</a>
+					<!-- Info -->
+					<div>
+						<div class="d-sm-flex align-items-center justify-content-between">
+							<div>
+					<h4 class="m-0"><a href="#" class="text-reset">{{ post.author }}</a></h4>
+								<small>روزنامه نگار سایت Blogzine</small>
+							</div>
+							<a href="#" class="btn btn-xs btn-primary-soft">مشاهده اخبار</a>
+						</div>
+						<p class="my-2">مریم حسینی سردبیر ارشد این وبلاگ است و همچنین اخبار فوری مستقر در لندن را گزارش می دهد. او از سال 2015 درباره دولت، عدالت کیفری و نقش پول در سیاست نوشته است.</p>
+						<!-- Social icons -->
+						<ul class="nav">
+							<li class="nav-item">
+								<a class="nav-link ps-0 pe-2 fs-5" href="#"><i class="fab fa-facebook-square"></i></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link px-2 fs-5" href="#"><i class="fab fa-twitter-square"></i></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link px-2 fs-5" href="#"><i class="fab fa-linkedin"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- Author info END -->
+
+				<!-- Comments START -->
+				<div class="mt-5">
+					{% with comments.count as cm_count%}
+					<h3>دیدگاه{{ cm_count }} </h3>
+                	{% endwith %}
+					<!-- Comment level 1-->
+					{% for cm in comments %}
+					<div class="my-4 d-flex">
+					  <img class="avatar avatar-md rounded-circle float-start me-3" src="{% static 'images/avatar/03.jpg' %}" alt="avatar">
+					  <div>
+					    <div class="mb-2">
+					    	<h5 class="m-0">{{ cm.name }}</h5>
+					    	<span class="me-3 small">{{ post.created|jformat:"%Y/%m/%d-%H:%M" }} </span>
+					    </div>
+					    <p>{{ cm.body|linebreaks}}</p>
+					  </div>
+					</div>
+					{% empty %}
+					<p>کامنتی وجود ندارد!</p>
+					 {% endfor %}
+				</div>
+				<!-- Comments END -->
+
+
+				<!-- Reply START -->
+				<div>
+					<h3>ثبت دیدگاه</h3>
+					<small>آدرس ایمیل شما منتشر نخواهد شد. فیلدهای الزامی علامت گذاری شده اند *</small>
+					<form class="row g-3 mt-2" method="post" action="{% url 'blog:post_comment' post.id %}" >
+						{% csrf_token %}
+						{{ form.as_div }}
+					  <div class="col-12">
+					    <button type="submit" class="btn btn-primary">ثبت</button>
+					  </div>
+					</form>
+				</div>
+				<!-- Reply END -->
+			</div>
+			<!-- Main Content END -->
+
+			<!-- Right sidebar START -->
+			<div class="col-lg-3">
+				<div data-sticky data-margin-top="80" data-sticky-for="991">
+          <!-- Categories -->
+	      	<div class="row g-2">
+						<h5>دسته بندی ها</h5>
+						<div class="d-flex justify-content-between align-items-center bg-warning bg-opacity-15 rounded p-2 position-relative">
+							<h6 class="m-0 text-warning">رسانه و هنر</h6>
+							<a href="#" class="badge bg-warning text-dark stretched-link">09</a>
+						</div>
+						<div class="d-flex justify-content-between align-items-center bg-info bg-opacity-10 rounded p-2 position-relative">
+							<h6 class="m-0 text-info">گردشگری</h6>
+							<a href="#" class="badge bg-info stretched-link">25</a>
+						</div>
+						<div class="d-flex justify-content-between align-items-center bg-danger bg-opacity-10 rounded p-2 position-relative">
+							<h6 class="m-0 text-danger">سیاست</h6>
+							<a href="#" class="badge bg-danger stretched-link">75</a>
+						</div>
+						<div class="d-flex justify-content-between align-items-center bg-primary bg-opacity-10 rounded p-2 position-relative">
+							<h6 class="m-0 text-primary">اقتصاد</h6>
+							<a href="#" class="badge bg-primary stretched-link">19</a>
+						</div>
+						<div class="d-flex justify-content-between align-items-center bg-success bg-opacity-10 rounded p-2 position-relative">
+							<h6 class="m-0 text-success">بین الملل</h6>
+							<a href="#" class="badge bg-success stretched-link">35</a>
+						</div>
+					</div>
+
+					<!-- Newsletter START -->
+					<div class="bg-light p-4 mt-4 rounded-3 text-center">
+						<h4>عضویت در خبرنامه</h4>
+						<form>
+							<div class="mb-3">
+								<input type="email" class="form-control" placeholder="ایمیل">
+							</div>
+							<button type="submit" class="btn btn-primary">عضویت</button>
+							<div class="form-text">ربات نیستم</div>
+						</form>
+					</div>
+					<!-- Newsletter END -->
+
+					<!-- Advertisement -->
+					<div class="mt-4">
+						<a href="#" class="d-block card-img-flash">
+							<img src="assets/images/adv.png" alt="">
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- Right sidebar END -->
+		</div>
+	</div>
+</section>
+<!-- =======================
+Main END -->
+
+<!-- =======================
+Sticky post START -->
+<div class="sticky-post bg-light border p-4 mb-5 text-sm-end rounded d-none d-xxl-block">
+	<div class="d-flex align-items-center">
+	    <!-- image -->
+		<div class="col-4 d-none d-md-block">
+			<img src="assets/images/blog/4by3/05.jpg" alt="Image">
+		</div>
+		<!-- Title -->
+		<div class="ms-3 text-start">
+			<span>خبر بعدی<i class="bi bi-arrow-right ms-3 rtl-flip"></i></span>
+			<h6 class="m-0"> <a href="javascript:void(0)" class="stretched-link btn-link text-reset">تداوم تنفس هوای ناسالم در تهران</a></h6>
+		</div>
+	</div>
+</div>
+<!-- =======================
+Sticky post END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- Back to top -->
+<div class="back-top"><i class="bi bi-arrow-up-short"></i></div>
+
+<!-- =======================
+JS libraries, plugins and custom scripts -->
+
+<!-- Bootstrap JS -->
+<script src="{% static 'vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+
+<!-- Vendors -->
+<script src="{% static 'vendor/sticky-js/sticky.min.js' %}"></script>
+<script src="{% static 'vendor/glightbox/js/glightbox.js' %}"></script>
+
+<!-- Template Functions -->
+<script src="{% static 'js/functions.js' %}"></script>
+
 {% endblock %}

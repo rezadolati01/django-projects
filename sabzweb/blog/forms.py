@@ -40,11 +40,11 @@ class CommentForm(forms.ModelForm):
         widgets={
             'body': forms.TextInput(attrs={
                 'placeholder': 'متن',
-                'class':'cm-body'
+                'class':'form-control'
             }),
             'name': forms.TextInput(attrs={
                 'placeholder': 'نام',
-                'class': 'cm-name'
+                'class': 'form-control'
             })
         }
 
@@ -59,6 +59,6 @@ class CreatePostForm(forms.ModelForm):
         fields = ['title', 'description', 'reading_time']
 
 
-class LoginForm(forms.Form):
-    username = forms.CharField(max_length=250, required=True)
-    password = forms.CharField(max_length=250, required=True, widget=forms.PasswordInput)
+# class LoginForm(forms.Form):
+#     username = forms.CharField(max_length=250, required=True)
+#     password = forms.CharField(max_length=250, required=True, widget=forms.PasswordInput)
