@@ -20,5 +20,10 @@
         </tr>
     {% endfor %}
 </table>
+	<br>
+    <a href="{% url 'blog:password_change' %}">تغییر پسورد</a>
+    <br>
+    <a href="{% url 'blog:logout' %}">خروج</a>
+    <br>
 
 {% endblock %}
