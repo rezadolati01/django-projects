@@ -1,8 +1,31 @@
+{% load static %}
+{% load blog_tags %}
 {% load jformat %}
-<div>
-    <h2>اخرین پست ها</h2>
-    {% for post in l_posts %}
-        <p><a href="{{ post.get_absolute_url }}">{{ post.title }}: {{ post.publish|jformat:"%Y/%m/%d-%H:%M" }}</a></p>
 
-    {% endfor %}
-</div>
+{% for post in l_posts %}
+    <div class="col-sm-6 col-lg-4">
+    <!-- Card item START -->
+    <div class="card">
+    <!-- Card img -->
+    <div class="position-relative">
+    <img class="card-img rounded-0" src="{{ post.images.first.image_file.url }}" alt="Card image">
+    <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+      <!-- Card overlay bottom -->
+      <div class="w-100 mt-auto">
+        <a href="#" class="badge text-bg-dark mb-2">برنامه نویسی</a>
+      </div>
+    </div>
+    </div>
+    <div class="card-body px-0 pt-3">
+    <h4 class="card-title"><a href="{{ post.get_absolute_url }}" class="btn-link text-reset stretched-link">{{ post.title }}</a></h4>
+    <!-- Card info -->
+    <p>{{ post.description | markdown | truncatewords:50 }}</p>
+    <!-- Card info -->
+    <ul class="nav nav-divider align-items-center">
+      <li class="nav-item">{{ post.publish|jformat:"%Y/%m/%d-%H:%M" }}</li>
+    </ul>
+    </div>
+    </div>
+    </div>
+{% endfor %}
+

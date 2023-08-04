@@ -13,7 +13,8 @@ from django.contrib.auth.decorators import login_required
 
 
 def index(request):
-    return render(request, "blog/index.html")
+    last_post = Post.published.all().order_by('-publish')[0]
+    return render(request, "blog/index.html", {"last_post": last_post})
 
 
 # def post_list(request):
