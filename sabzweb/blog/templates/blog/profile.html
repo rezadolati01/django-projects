@@ -1,29 +1,141 @@
 {% extends 'parent/base.html' %}
 {% block title %}profile{% endblock %}
+{% load static %}
+{% load blog_tags %}
+{% load jformat %}
+{% block head %} {% endblock %}
+
 {% block content %}
 
-    <p> <a href="{% url 'blog:create_post' %}"> ایجاد پست جدید</a></p>
+<!-- Preloader START -->
+	<div class="preloader">
+		<div class="loader">
+			<div class="sh1"></div>
+			<div class="sh2"></div>
+		</div>
+	</div>
+<!-- Preloader END -->
 
-<table style="width: 80%; border: 2px solid black; text-align: right; direction: rtl;" >
-    <tr>
-        <th>ردیف</th>
-        <th>مشاهده</th>
-        <th>ویرایش</th>
-        <th>حذف</th>
-    </tr>
-    {% for post in posts %}
-        <tr>
-            <td>{{ forloop.counter}}</td>
-            <td><a href="{{ post.get_absolute_url }}"> {{ post.title }}</a></td>
-            <td><a href="{% url 'blog:edit_post' post.id%}"> ویرایش</a></td>
-            <td><a href="{% url 'blog:delete_post' post.id %}"> حذف</a></td>
-        </tr>
-    {% endfor %}
-</table>
-	<br>
-    <a href="{% url 'blog:password_change' %}">تغییر پسورد</a>
-    <br>
-    <a href="{% url 'blog:logout' %}">خروج</a>
-    <br>
+<section class="py-4">
+	<div class="container">
+    <div class="row pb-4">
+			<div class="col-12">
+        <!-- Title -->
+				<div class="d-sm-flex justify-content-sm-between align-items-center">
+					<h1 class="mb-2 mb-sm-0 h3">منوی کاربری</h1>
+					<a href="{% url 'blog:create_post' %}" class="btn btn-sm btn-primary mb-0"><i class="fas fa-plus me-2"></i>ایجاد پست جدید</a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+
+          <div class="row g-4 mb-4">
+            <div class="col-sm-4 col-lg-2">
+              <!-- Card START -->
+              <div class="card card-body border h-120">
+                <!-- Icon -->
+                <div class="fs-5 text-start text-success">
+                  <a class="dropdown-item" href="{% url 'blog:password_change' %}"><i class="bi bi-gear fa-fw me-2"></i>تغییر پسورد</a>
+                </div>
+                <!-- Content -->
+              </div>
+              <!-- Card END -->
+            </div>
+
+                          <div class="col-sm-4 col-lg-2">
+              <!-- Card START -->
+              <div class="card card-body border h-120">
+                <!-- Icon -->
+                <div class="fs-5 text-start text-success">
+                  <a class="dropdown-item" href="{% url 'blog:logout' %}"><i class="bi bi-power fa-fw me-2"></i>خروج</a>
+                </div>
+                <!-- Content -->
+              </div>
+              <!-- Card END -->
+            </div>
+
+
+            </div>
+          </div>
+          <!-- Post list table START -->
+          <div class="card border bg-transparent rounded-3">
+
+              <!-- Post list table START -->
+              <div class="table-responsive border-0">
+                <table class="table align-middle p-4 mb-0 table-hover table-shrink">
+                  <!-- Table head -->
+                  <thead class="table-dark">
+                    <tr>
+                      <th scope="col" class="border-0">ردیف</th>
+                      <th scope="col" class="border-0">عنوان</th>
+                      <th scope="col" class="border-0">تاریخ انتشار</th>
+                      <th scope="col" class="border-0">وضعیت</th>
+                      <th scope="col" class="border-0 rounded-end">عملیات</th>
+                    </tr>
+                  </thead>
+
+                  <!-- Table body START -->
+                  <tbody class="border-top-0">
+                    <!-- Table item -->
+                    {% for post in posts %}
+                    <tr>
+                      <!-- Table data -->
+                      <td>
+                        <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">{{ forloop.counter}}</a></h6>
+                      </td>
+                       <!-- Table data -->
+                      <td>
+                        <a href="{{ post.get_absolute_url }}" class="badge text-bg-info mb-2">{{ post.title }}</a>
+                      </td>
+                      <!-- Table data -->
+                      <td>{{ post.publish|jformat:"%Y/%m/%d-%H:%M" }}</td>
+
+                      <!-- Table data -->
+                      <td>
+                        <span class="badge bg-warning bg-opacity-15 text-warning mb-2">{{ post.status}}</span>
+                      </td>
+                      <!-- Table data -->
+                      <td>
+                        <div class="d-flex gap-2">
+                          <a href="{% url 'blog:delete_post' post.id %}" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="حذف"><i class="bi bi-trash"></i></a>
+                          <a href="{% url 'blog:edit_post' post.id%}" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش"><i class="bi bi-pencil-square"></i></a>
+                        </div>
+                      </td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                  <!-- Table body END -->
+                </table>
+              </div>
+              <!-- Post list table END -->
+            </div>
+          </div>
+          <!-- Post list table END -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- =======================
+Main contain END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- Back to top -->
+<div class="back-top"><i class="bi bi-arrow-up-short"></i></div>
+<!-- =======================
+JS libraries, plugins and custom scripts -->
+
+<!-- Bootstrap JS -->
+<script src="{% static 'vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+
+<!-- Vendors -->
+<script src="{% static 'vendor/apexcharts/js/apexcharts.min.js' %}"></script>
+<script src="{% static 'vendor/quill/js/quill.min.js' %}"></script>
+
+<!-- Template Functions -->
+<script src="{% static 'js/functions.js' %}"></script>
+
 
 {% endblock %}
