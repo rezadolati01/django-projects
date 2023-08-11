@@ -1,0 +1,33 @@
+{% extends 'parent/base.html' %}
+{% block title %}edit account{% endblock %}
+
+{% block content %}
+    <section class="py-4">
+	<div class="container">
+    <div class="row pb-4">
+			<div class="col-12">
+        <!-- Title -->
+        <h1 class="mb-0 h3">ویرایش اطلاعات شخصی</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<!-- Chart START -->
+				<div class="card border h-100">
+					<!-- Card body -->
+					<div class="card-body">
+            <!-- Form START -->
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ account_form.as_p }}
+    {{ user_form.as_p }}
+    <button class="btn btn-primary" type="submit">ذخیره</button>
+    </form>
+                         <!-- Form END -->
+        </div>
+    </div><!-- Chart END -->
+</div>
+    </div>
+	</div>
+</section>
+{% endblock %}

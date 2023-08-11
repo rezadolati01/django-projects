@@ -2,12 +2,34 @@
 {% block title %}login{% endblock %}
 
 {% block content %}
-<h1>ورود</h1>
-<p>لطفا اطلاعات خود را وارد کنید:</p>
+    <section class="py-4">
+	<div class="container">
+    <div class="row pb-4">
+			<div class="col-12">
+        <!-- Title -->
+        <h1 class="mb-0 h3">ورود</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<!-- Chart START -->
+				<div class="card border h-100">
+					<!-- Card body -->
+					<div class="card-body">
+            <!-- Form START -->
     <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
         <input type="hidden" name="next", value="{{ next }}">
-    <input type="submit" value="ورود">
+     <button class="btn btn-primary" type="submit">ورود</button>
     </form>
+    <p> <a href="{% url 'blog:password_reset' %}">آیا رمز خود را فراموش کرده اید؟</a> </p>
+
+                        <!-- Form END -->
+        </div>
+    </div><!-- Chart END -->
+</div>
+    </div>
+	</div>
+</section>
 {% endblock %}

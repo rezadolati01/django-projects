@@ -25,7 +25,11 @@
 		<div class="row">
       <div class="col-12">
 				<div class="border p-4 text-center rounded-3">
-					<h1><a href="{% url 'blog:post_list' %}" >لیست پست ها</a></h1>
+                    {% if category %}
+                        <h1><a href="{% url 'blog:post_list' %}" > لیست پست های {{ category }}</a></h1>
+                    {% else %}
+                        <h1><a href="{% url 'blog:post_list' %}" >لیست پست ها</a></h1>
+                    {% endif %}
 					<nav class="d-flex justify-content-center" aria-label="breadcrumb">
 					</nav>
 				</div>
@@ -47,7 +51,7 @@
 							<img class="rounded-3" src="{{ post.images.first.image_file.url }}" alt="{{ post.images.first.title }}">
 						</div>
 						<div class="col-md-7 mt-3 mt-md-0">
-							<a href="#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>برنامه نویسی</a>
+							<a href="#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>{{ post.category}}</a>
 							<h4><a href="{{post.get_absolute_url}}" class="btn-link stretched-link text-reset">{{ post.title}}</a></h4>
 							<p>{{ post.description | markdown | truncatewords:40 }} </p>
 							<!-- Card info -->
@@ -56,7 +60,7 @@
 									<div class="nav-link">
 										<div class="d-flex align-items-center position-relative">
 											<div class="avatar avatar-xs">
-												<img class="avatar-img rounded-circle" src="{% static 'images/avatar/02.jpg'%}" alt="avatar">
+												<img class="avatar-img rounded-circle" src="{{ post.author.account.photo.url }}" alt="avatar">
 											</div>
 											<span class="ms-3">توسط <a href="#" class="stretched-link text-reset btn-link">{{ post.author }}</a></span>
 										</div>
@@ -80,38 +84,38 @@
 					<div>
 						<h4 class="mb-3">دسته بندی</h4>
 						<!-- Category item -->
-						<div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded" style="background-image:url(assets/images/blog/4by3/01.jpg); background-position: center left; background-size: cover;">
+						<div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded" style="background-image:url("#"); background-position: center left; background-size: cover;">
 							<div class="bg-dark-overlay-4 p-3">
-								<a href="#" class="stretched-link btn-link text-white h5">گردشگری</a>
+								<a href="{% url 'blog:post_list_category' 'تکنولوژِی' %}" class="stretched-link btn-link text-white h5">تکنولوژِی</a>
 							</div>
 						</div>
 						<!-- Category item -->
 						<div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded" style="background-image:url(assets/images/blog/4by3/02.jpg); background-position: center left; background-size: cover;">
 							<div class="bg-dark-overlay-4 p-3">
-								<a href="#" class="stretched-link btn-link text-white h5">فناوری اطلاعات</a>
+								<a href="{% url 'blog:post_list_category' 'هوش مصنوعی' %}" class="stretched-link btn-link text-white h5">هوش مصنوعی</a>
 							</div>
 						</div>
 						<!-- Category item -->
 						<div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded" style="background-image:url(assets/images/blog/4by3/03.jpg); background-position: center left; background-size: cover;">
 							<div class="bg-dark-overlay-4 p-3">
-								<a href="#" class="stretched-link btn-link text-white h5">فرهنگ</a>
+								<a href="{% url 'blog:post_list_category' 'زبان برنامه نویسی' %}" class="stretched-link btn-link text-white h5">زبان برنامه نویسی</a>
 							</div>
 						</div>
 						<!-- Category item -->
 						<div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded" style="background-image:url(assets/images/blog/4by3/04.jpg); background-position: center left; background-size: cover;">
 							<div class="bg-dark-overlay-4 p-3">
-								<a href="#" class="stretched-link btn-link text-white h5">سیاست</a>
+								<a href="{% url 'blog:post_list_category' 'بلاکچین' %}" class="stretched-link btn-link text-white h5">بلاکچین</a>
 							</div>
 						</div>
 						<!-- Category item -->
 						<div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded" style="background-image:url(assets/images/blog/4by3/05.jpg); background-position: center left; background-size: cover;">
 							<div class="bg-dark-overlay-4 p-3">
-								<a href="#" class="stretched-link btn-link text-white h5">ورزش</a>
+								<a href="{% url 'blog:post_list_category' 'سایر' %}" class="stretched-link btn-link text-white h5">سایر</a>
 							</div>
 						</div>
 						<!-- View All Category button -->
 						<div class="text-center mt-3">
-							<a href="#" class="text-muted text-primary-hover"><u>مشاهده همه</u></a>
+							<a href="{% url 'blog:post_list' %}" class="text-muted text-primary-hover"><u>مشاهده همه</u></a>
 						</div>
 					</div>
 					<!-- Trending topics widget END -->
@@ -138,14 +142,6 @@
 						</div>
 						<!--  post widget END -->
 
-						<!-- ADV widget START -->
-						<div class="col-12 col-sm-6 col-lg-12 my-4">
-							<a href="#" class="d-block card-img-flash">
-								<img src="{% static 'images/adv.png' %}" alt="">
-							</a>
-							<div class="smaller text-end mt-2">تبلیغ در سایت <a href="#" class="text-muted"><u>انتخاب</u></a></div>
-						</div>
-						<!-- ADV widget END -->
 					</div>
 				</div>
 			</div>
@@ -159,5 +155,6 @@
     <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
 	<script src="{% static 'vendor/sticky-js/sticky.min.js' %}"></script>
 	<script src="{% static 'js/functions.js' %}"></script>
-    {% include "partials/pagination.html" with page=page_obj%}
+{#    {% include "partials/pagination.html" with page=page_obj%}#}
+    {% include "partials/pagination.html" with page=posts%}
 {% endblock %}

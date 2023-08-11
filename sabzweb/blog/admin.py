@@ -20,7 +20,7 @@ class CommentInline(admin.TabularInline):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'author', 'publish', 'status']
+    list_display = ['title', 'author','category', 'publish', 'status']
     ordering = ['title', 'publish']
     list_filter = ['status', ('publish', JDateFieldListFilter), 'author']
     search_fields = ['title', 'description']
@@ -51,3 +51,7 @@ class CommentAdmin(admin.ModelAdmin):
 @admin.register(Image)
 class ImageAdmin(admin.ModelAdmin):
     list_display = ['post', 'title', 'created']
+
+@admin.register(Account)
+class AccountAdmin(admin.ModelAdmin):
+    list_display = ['user', 'date_of_birth', 'bio', 'job', 'photo']

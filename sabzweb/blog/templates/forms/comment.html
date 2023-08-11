@@ -1,12 +1,17 @@
 {% extends 'parent/base.html' %}
 {% load jformat %}
+{% load static %}
 {% block title %}post comment{% endblock %}
 
 {% block content %}
 
     {% if comment %}
-        کامنت شما ثبت شد.
-        <a href="{{ post.get_absolute_url }}"> بازگشت به پست</a>
+      <div class="centered mb-4 text-center">
+        <h2 class="h1 m-0">کامنت شما ثبت شد.</h2>
+          <br>
+      <a href="{{ post.get_absolute_url }}" class="btn btn-dark mb-0"> بازگشت به پست</a>
+      </div>
+
     {% else %}
     <form method="post">
     {% csrf_token %}
@@ -14,4 +19,11 @@
     <input type="submit" value="افزودن کامنت">
     </form>
     {% endif %}
+
+
+        <!-- Bootstrap JS -->
+<script src="{% static 'vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+
+<!-- Template Functions -->
+<script src="{% static 'js/functions.js' %}"></script>
 {% endblock %}

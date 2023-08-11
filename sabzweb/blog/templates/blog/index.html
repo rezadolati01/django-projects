@@ -22,7 +22,8 @@
 
 <!-- =======================
 Main hero START -->
-<section class="py-2 h-400 overflow-hidden position-relative" style="background-image: url({{ last_post.images.first.image_file.url }}); background-position: center center;">
+<section class="py-2 h-400 overflow-hidden position-relative"
+         style="background-image: url({% static 'images/cover/cv1.jpg'  %}); background-position: center center;">
 	<div class="container-fluid h-100 p-0">
     <div class="row align-items-center h-100 text-center">
       <div class="col-12">
@@ -30,24 +31,6 @@ Main hero START -->
         <h1 class="text-white display-4">تکنولوژی و برنامه نویسی</h1>
       </div>
     </div>
-    <!-- Rounded circle text START -->
-    <div class="rotating-text-badge d-none d-lg-block text-uppercase">
-      <!-- SVG START -->
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
-        <defs>
-            <path id="circlePath" d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
-        </defs>
-        <circle cx="150" cy="100" r="75" fill="none"/>
-        <g>
-          <use xlink:href="#circlePath" fill="none"/>
-          <text fill="#fff">
-              <textPath xlink:href="#circlePath">*دنیای تکنولوژی*برنامه نویسی*هوش مصنوعی</textPath>
-          </text>
-        </g>
-      </svg>
-      <!-- SVG START -->
-    </div>
-    <!-- Rounded circle text END -->
   </div>
 </section>
     <!-- =======================
@@ -67,65 +50,14 @@ Latest articles START -->
 		{% latest_posts 3 %}
       <!-- Card item END -->
     </div>
+        <a href="{% url 'blog:post_list' %}" class="btn btn-dark mb-0">مشاهده همه</a>
   </div>
 </section>
+
+
 <!-- =======================
 Latest articles END -->
 
-<!-- =======================
-Call to action and Newsletter START -->
-<section class="pt-0 pb-0 pb-sm-0">
-  <div class="container-fluid px-sm-5">
-    <div class="row g-sm-5">
-      <div class="col-lg-6">
-        <!-- Call to action START -->
-        <div class="bg-dark-overlay-4 p-3 p-sm-5 position-relative overflow-hidden h-100"  style="background-image: url(assets/images/blog/16by9/big/05.jpg); background-size: cover; background-position: center center;">
-					<div class="row">
-						<div class="col-xl-8 mx-auto text-center py-4 py-sm-5 position-relative">
-							<!-- Title -->
-							<h2 class="display-6 text-white">دریافت اخبار مهم</h2>
-							<p class="text-white">جدیدترین اخبار و به‌روزرسانی‌های جهان را بدون وقفه در ایمیل خود دریافت کنید.</p>
-							<!-- Form -->
-							<a href="#" class="btn btn-white mt-4">درباره ما</a>
-						</div>
-					</div>
-				</div>
-        <!-- Call to action END -->
-      </div>
-      <div class="col-lg-6">
-        <!-- Newsletter START -->
-        <div class="bg-light position-relative overflow-hidden h-100">
-					<div class="row h-100">
-            <div class="col-md-4" style="background-image: url(assets/images/blog/4by3/23.jpg); background-size: cover; background-position: center center;">
-            </div>
-						<div class="col-md-8">
-              <div class="p-4 p-sm-5">
-                <!-- Title -->
-                <h2 class="display-6">خبری را از دست ندهید!</h2>
-                <p>جدیدترین اخبار و به‌روزرسانی‌های جهان را بدون وقفه در ایمیل خود دریافت کنید.</p>
-                <!-- Form -->
-                <form class="row row-cols-sm-auto g-2 align-items-center mt-3">
-                  <div class="col-12">
-                    <input type="email" class="form-control form-control-lg" placeholder="ایمیل">
-                  </div>
-                  <div class="col-12">
-                    <button type="submit" class="btn btn-dark btn-lg m-0">عضویت</button>
-                  </div>
-                  <div class="form-text opacity-6 mt-2">با عضویت در خبرنامه
-                    <a href="#" class="text-decoration-underline text-reset">شرایط و قوانین</a> را پذیرفته اید.
-                  </div>
-                </form>
-              </div>
-						</div>
-					</div>
-				</div>
-        <!-- Newsletter END -->
-      </div>
-    </div>
-  </div>
-</section>
-<!-- =======================
-Call to action and Newsletter END -->
 
 <!-- =======================
 Last week highlights START -->
@@ -134,7 +66,7 @@ Last week highlights START -->
 		<div class="row">
 			<!-- Title -->
       <div class="mb-4 text-center">
-        <h2 class="h1 m-0">محبوب ترین اخبار</h2>
+        <h2 class="h1 m-0">محبوب ترین مقالات</h2>
       </div>
 		</div>
     <div class="row g-4 g-sm-5">
@@ -149,12 +81,12 @@ Last week highlights START -->
             <div class="card-img-overlay d-flex align-items-start flex-column p-3">
               <!-- Card overlay bottom -->
               <div class="w-100 mt-auto">
-                <a href="#" class="badge text-bg-dark mb-2">ورزش</a>
+                <a href="#" class="badge text-bg-dark mb-2">{{ post.category }}</a>
               </div>
             </div>
           </div>
           <div class="card-body px-0 pt-3">
-            <h4 class="card-title"><a href="post-single-6.html" class="btn-link text-reset stretched-link">{{ post.title }}</a></h4>
+            <h4 class="card-title"><a href="{{ post.get_absolute_url }} " class="btn-link text-reset stretched-link">{{ post.title }}</a></h4>
             <p>{{ post.description | markdown | truncatewords:50  }}</p>
             <!-- Card info -->
             <ul class="nav nav-divider align-items-center">

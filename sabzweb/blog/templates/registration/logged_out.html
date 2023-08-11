@@ -2,6 +2,9 @@
 {% block title %}logout{% endblock %}
 
 {% block content %}
-<h1>خارج شدید</h1>
-<a href="{% url 'blog:login' %}">ورود مجدد</a>
+          <div class="centered mb-4 text-center">
+        <h2 class="h1 m-0">خارج شدید</h2>
+          <br>
+      <a href="{% url 'blog:login' %}" class="btn btn-dark mb-0">ورود مجدد</a>
+      </div>
 {% endblock %}

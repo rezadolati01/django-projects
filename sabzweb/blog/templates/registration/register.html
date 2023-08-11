@@ -1,0 +1,32 @@
+{% extends 'parent/base.html' %}
+{% block title %}register{% endblock %}
+
+{% block content %}
+    <section class="py-4">
+	<div class="container">
+    <div class="row pb-4">
+			<div class="col-12">
+        <!-- Title -->
+        <h1 class="mb-0 h3">ثبت نام</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<!-- Chart START -->
+				<div class="card border h-100">
+					<!-- Card body -->
+					<div class="card-body">
+            <!-- Form START -->
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary" type="submit">ثبت نام</button>
+    </form>                        <!-- Form END -->
+        </div>
+    </div><!-- Chart END -->
+</div>
+    </div>
+	</div>
+</section>
+
+{% endblock %}
