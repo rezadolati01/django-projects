@@ -31,7 +31,7 @@ Inner intro START -->
           <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
             <div class="w-100 my-auto">
               <!-- Card category -->
-              <a href="#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>تکنولوژی</a>
+              <a href="#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>{{ post.category }}</a>
               <!-- Card title -->
               <h2 class="text-white display-5">{{ post.title}}</h2>
               <!-- Card info -->
@@ -40,14 +40,14 @@ Inner intro START -->
                   <div class="nav-link">
                     <div class="d-flex align-items-center text-white position-relative">
                       <div class="avatar avatar-sm">
-                        <img class="avatar-img rounded-circle" src="{% static 'images/avatar/02.jpg' %}" alt="avatar">
+                        <img class="avatar-img rounded-circle" src="{{post.author.account.photo.url}}" alt="avatar">
                       </div>
                       <span class="ms-3">با <a href="#" class="stretched-link text-reset btn-link">{{ post.author }}</a></span>
                     </div>
                   </div>
                 </li>
                 <li class="nav-item">{{ post.publish|jformat:"%Y/%m/%d-%H:%M" }}</li>
-                <li class="nav-item">{{post.reading_time}}</li>
+                <li class="nav-item">{{post.reading_time}} دقیقه </li>
               </ul>
             </div>
           </div>
@@ -87,7 +87,7 @@ Main START -->
 					<!-- Avatar -->
 					<a href="#">
 						<div class="avatar avatar-xxl me-2 me-md-4">
-							<img class="avatar-img rounded-circle" src="{% static 'images/avatar/02.jpg' %}" alt="avatar">
+							<img class="avatar-img rounded-circle" src="{{post.author.account.photo.url}}" alt="avatar">
 						</div>
 					</a>
 					<!-- Info -->
@@ -95,23 +95,10 @@ Main START -->
 						<div class="d-sm-flex align-items-center justify-content-between">
 							<div>
 					<h4 class="m-0"><a href="#" class="text-reset">{{ post.author }}</a></h4>
-								<small>روزنامه نگار سایت Blogzine</small>
+								<small>{{ post.author.account.job}}</small>
 							</div>
-							<a href="#" class="btn btn-xs btn-primary-soft">مشاهده اخبار</a>
 						</div>
-						<p class="my-2">مریم حسینی سردبیر ارشد این وبلاگ است و همچنین اخبار فوری مستقر در لندن را گزارش می دهد. او از سال 2015 درباره دولت، عدالت کیفری و نقش پول در سیاست نوشته است.</p>
-						<!-- Social icons -->
-						<ul class="nav">
-							<li class="nav-item">
-								<a class="nav-link ps-0 pe-2 fs-5" href="#"><i class="fab fa-facebook-square"></i></a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link px-2 fs-5" href="#"><i class="fab fa-twitter-square"></i></a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link px-2 fs-5" href="#"><i class="fab fa-linkedin"></i></a>
-							</li>
-						</ul>
+						<p class="my-2">{{ post.author.account.bio }}</p>
 					</div>
 				</div>
 				<!-- Author info END -->
@@ -119,12 +106,12 @@ Main START -->
 				<!-- Comments START -->
 				<div class="mt-5">
 					{% with comments.count as cm_count%}
-					<h3>دیدگاه{{ cm_count }} </h3>
+					<h3> {{ cm_count }} دیدگاه </h3>
                 	{% endwith %}
 					<!-- Comment level 1-->
 					{% for cm in comments %}
 					<div class="my-4 d-flex">
-					  <img class="avatar avatar-md rounded-circle float-start me-3" src="{% static 'images/avatar/03.jpg' %}" alt="avatar">
+					  <img class="avatar avatar-md rounded-circle float-start me-3" src="{% static 'images/avatar/av1.png' %}" alt="avatar">
 					  <div>
 					    <div class="mb-2">
 					    	<h5 class="m-0">{{ cm.name }}</h5>
@@ -143,7 +130,7 @@ Main START -->
 				<!-- Reply START -->
 				<div>
 					<h3>ثبت دیدگاه</h3>
-					<small>آدرس ایمیل شما منتشر نخواهد شد. فیلدهای الزامی علامت گذاری شده اند *</small>
+					<small>آدرس ایمیل شما منتشر نخواهد شد.</small>
 					<form class="row g-3 mt-2" method="post" action="{% url 'blog:post_comment' post.id %}" >
 						{% csrf_token %}
 						{{ form.as_div }}
@@ -163,41 +150,23 @@ Main START -->
 	      	<div class="row g-2">
 						<h5>دسته بندی ها</h5>
 						<div class="d-flex justify-content-between align-items-center bg-warning bg-opacity-15 rounded p-2 position-relative">
-							<h6 class="m-0 text-warning">رسانه و هنر</h6>
-							<a href="#" class="badge bg-warning text-dark stretched-link">09</a>
+							<h6 class="m-0 text-warning"><a href="{% url 'blog:post_list_category' 'تکنولوژی' %}">تکنولوژی</a></h6>
 						</div>
 						<div class="d-flex justify-content-between align-items-center bg-info bg-opacity-10 rounded p-2 position-relative">
-							<h6 class="m-0 text-info">گردشگری</h6>
-							<a href="#" class="badge bg-info stretched-link">25</a>
+							<h6 class="m-0 text-info"><a href="{% url 'blog:post_list_category' 'زبان برنامه نویسی' %}">زبان برنامه نویسی</a></h6>
 						</div>
 						<div class="d-flex justify-content-between align-items-center bg-danger bg-opacity-10 rounded p-2 position-relative">
-							<h6 class="m-0 text-danger">سیاست</h6>
-							<a href="#" class="badge bg-danger stretched-link">75</a>
+							<h6 class="m-0 text-danger"><a href="{% url 'blog:post_list_category' 'هوش مصنوعی' %}">هوش مصنوعی</a></h6>
 						</div>
 						<div class="d-flex justify-content-between align-items-center bg-primary bg-opacity-10 rounded p-2 position-relative">
-							<h6 class="m-0 text-primary">اقتصاد</h6>
-							<a href="#" class="badge bg-primary stretched-link">19</a>
+							<h6 class="m-0 text-primary"><a href="{% url 'blog:post_list_category' 'بلاکچین' %}">بلاکچین</a></h6>
 						</div>
 						<div class="d-flex justify-content-between align-items-center bg-success bg-opacity-10 rounded p-2 position-relative">
-							<h6 class="m-0 text-success">بین الملل</h6>
-							<a href="#" class="badge bg-success stretched-link">35</a>
+							<h6 class="m-0 text-success"><a href="{% url 'blog:post_list_category' 'سایر' %}">سایر</a></h6>
 						</div>
 					</div>
 
-					<!-- Newsletter START -->
-					<div class="bg-light p-4 mt-4 rounded-3 text-center">
-						<h4>عضویت در خبرنامه</h4>
-						<form>
-							<div class="mb-3">
-								<input type="email" class="form-control" placeholder="ایمیل">
-							</div>
-							<button type="submit" class="btn btn-primary">عضویت</button>
-							<div class="form-text">ربات نیستم</div>
-						</form>
-					</div>
-					<!-- Newsletter END -->
 
-					<!-- Advertisement -->
 					<div class="mt-4">
 						<a href="#" class="d-block card-img-flash">
 							<img src="assets/images/adv.png" alt="">
@@ -214,19 +183,7 @@ Main END -->
 
 <!-- =======================
 Sticky post START -->
-<div class="sticky-post bg-light border p-4 mb-5 text-sm-end rounded d-none d-xxl-block">
-	<div class="d-flex align-items-center">
-	    <!-- image -->
-		<div class="col-4 d-none d-md-block">
-			<img src="assets/images/blog/4by3/05.jpg" alt="Image">
-		</div>
-		<!-- Title -->
-		<div class="ms-3 text-start">
-			<span>خبر بعدی<i class="bi bi-arrow-right ms-3 rtl-flip"></i></span>
-			<h6 class="m-0"> <a href="javascript:void(0)" class="stretched-link btn-link text-reset">تداوم تنفس هوای ناسالم در تهران</a></h6>
-		</div>
-	</div>
-</div>
+
 <!-- =======================
 Sticky post END -->
 

@@ -19,6 +19,14 @@ class Post(models.Model):
         PUBLISHED = 'PB', 'Published'
         REJECTED = 'RJ', 'Rejected'
 
+    CATEGORY_CHOICES = (
+        ('تکنولوژی', 'تکنولوی'),
+        ('زبان برنامه نویسی', 'زبان برنامه نویسی'),
+        ('هوش مصنوعی', 'هوش مصنوعی'),
+        ('بلاکچین', 'بلاکچین'),
+        ('سایر', 'سایر'),
+    )
+
     # relations
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_posts", verbose_name="نویسنده")
     # data fields
@@ -32,6 +40,7 @@ class Post(models.Model):
     # choice fields
     status = models.CharField(max_length=2, choices=Status.choices, default=Status.DRAFT, verbose_name="وضعیت")
     reading_time = models.PositiveIntegerField(verbose_name="زمان مطالعه")
+    category = models.CharField( verbose_name="دسته بندی", max_length=20, choices=CATEGORY_CHOICES, default='سایر')
 
     # objects = models.Manager()
     objects = jmodels.jManager()
@@ -122,3 +131,16 @@ class Image(models.Model):
     def __str__(self):
         return self.title if self.title else "None"
 
+
+class Account(models.Model):
+    user = models.OneToOneField(User, related_name="account", on_delete=models.CASCADE)
+    date_of_birth = jmodels.jDateField(verbose_name="تاریخ تولد", blank=True, null=True)
+    bio = models.TextField(verbose_name="بایو", null=True, blank=True)
+    photo = ResizedImageField(verbose_name="تصویر", upload_to="account_images/", size=[500, 500], quality=60, crop=['middle', 'center'], blank=True, null=True)
+    job = models.CharField(max_length=250, verbose_name="شغل", null=True, blank=True)
+
+    def __str__(self):
+        return self.user.username
+    class Meta:
+        verbose_name = "اکانت"
+        verbose_name_plural = "اکانت ها"

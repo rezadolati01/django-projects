@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, Http404
 from .models import *
@@ -17,28 +18,31 @@ def index(request):
     return render(request, "blog/index.html", {"last_post": last_post})
 
 
-# def post_list(request):
-#     posts = Post.published.all()
-#     print(posts, type(posts))
-#     paginator = Paginator(posts, 2)
-#     page_number = request.GET.get('page', 1)
-#     try:
-#         posts = paginator.page(page_number)
-#     except EmptyPage:
-#         posts = paginator.page(paginator.num_pages)
-#     except PageNotAnInteger:
-#         posts = paginator.page(1)
-#     print(posts, type(posts))
-#     context = {
-#         'posts': posts,
-#     }
-#     return render(request, "blog/list.html", context)
+def post_list(request, category=None):
+    if category is not None:
+        posts = Post.published.filter(category=category)
+    else:
+        posts = Post.published.all()
+    paginator = Paginator(posts, 3)
+    page_number = request.GET.get('page', 1)
+    try:
+        posts = paginator.page(page_number)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    print(posts, type(posts))
+    context = {
+        'posts': posts,
+        'category': category
+    }
+    return render(request, "blog/list.html", context)
 
-class PostListView(ListView):
-    queryset = Post.published.all()
-    context_object_name = "posts"
-    paginate_by = 4
-    template_name = "blog/list.html"
+# class PostListView(ListView):
+#     queryset = Post.published.all()
+#     context_object_name = "posts"
+#     paginate_by = 4
+#     template_name = "blog/list.html"
 
 
 def post_detail(request, pk):
@@ -48,7 +52,7 @@ def post_detail(request, pk):
     context = {
         'post': post,
         'form': form,
-        'comments': comments
+        'comments': comments,
     }
     return render(request, "blog/detail.html", context)
 
@@ -100,9 +104,6 @@ def post_search(request):
             results2 = Post.published.annotate(similarity=TrigramSimilarity('description', query)) \
                 .filter(similarity__gt=0.1)
             results = (results1 | results2).order_by('-similarity')
-            print(results1)
-            print(results2)
-            print(results)
     context={
         'query':query,
         'results':results
@@ -183,3 +184,35 @@ def edit_post(request, post_id):
 def log_out(request):
     logout(request)
     return redirect(request.META.get('HTTP_REFERER'))
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password'])
+            user.save()
+            Account.objects.create(user=user)
+            return  render(request, 'registration/register_done.html', {'user': user})
+    else:
+        form = UserRegisterForm()
+    return render(request, 'registration/register.html', {'form': form})
+
+
+@login_required
+def edit_account(request):
+    if request.method == 'POST':
+        user_form = UserEditForm(request.POST, instance=request.user)
+        account_form = AccountEditForm(request.POST, instance=request.user.account, files=request.FILES)
+        if account_form.is_valid() and user_form.is_valid():
+            account_form.save()
+            user_form.save()
+    else:
+        user_form = UserEditForm(instance=request.user)
+        account_form = AccountEditForm(instance=request.user.account)
+    context ={
+        'account_form': account_form,
+        'user_form': user_form
+    }
+    return render(request, 'registration/edit_account.html', context)

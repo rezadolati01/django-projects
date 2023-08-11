@@ -6,13 +6,24 @@
 		<div class="container">
 			<!-- Logo START -->
 			<a class="navbar-brand" href="{% url 'blog:index' %}">
-				<img class="navbar-brand-item light-mode-item" style="width: 50px; height: 50px" src="{% static 'images/blog-logo.png' %}" alt="logo">
-				<img class="navbar-brand-item dark-mode-item" style="width: 50px; height: 50px" src="{% static 'images/blog-logo.png' %}" alt="logo">
+				<img class="navbar-brand-item light-mode-item" style="width: 120px; height: 60px" src="{% static 'images/icon/blog-logo.png' %}" alt="logo">
+				<img class="navbar-brand-item dark-mode-item" style="width: 160px; height: 80px" src="{% static 'images/icon/blog-logo.png' %}" alt="logo">
 			</a>
 			<!-- Logo END -->
 
 			<!-- Nav right START -->
 			<div class="nav ms-sm-3 flex-nowrap align-items-center">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="homeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">صفحات</a>
+                    <ul class="dropdown-menu" aria-labelledby="homeMenu">
+                        <li> <a class="dropdown-item" href="{% url 'blog:index' %}">صفحه اصلی</a></li>
+                        <li> <a class="dropdown-item" href="{% url 'blog:profile' %}">داشبورد</a></li>
+                        <li> <a class="dropdown-item" href="{% url 'blog:post_list' %}">لیست مقالات</a></li>
+                    </ul>
+                </li>
+            </ul>
+
 				<!-- Dark mode options START -->
 					<div class="nav-item dropdown ms-3">
 						<!-- Switch button -->
@@ -48,6 +59,7 @@
 							</li>
 						</ul>
 					</div>
+
 					<!-- Dark mode options END -->
 				{% if request.user.is_authenticated %}
 				<div class="nav-item d-none d-md-block">
@@ -55,6 +67,7 @@
 				</div>
                 {% else %}
                     <a href="{% url 'blog:login' %}" class="btn btn-sm btn-danger mb-0 mx-2">ورود</a>
+                     <a href="{% url 'blog:register' %}" class="btn btn-sm btn-outline-info mb-0 mx-2">ثبت نام</a>
 				{% endif %}
 
 				<!-- Nav Search -->
