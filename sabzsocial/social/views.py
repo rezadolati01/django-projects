@@ -5,6 +5,10 @@ from django.http import HttpResponse
 from .forms import *
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
+from .models import Post
+from taggit.models import Tag
+
+
 # Create your views here.
 
 
@@ -15,6 +19,7 @@ def log_out(request):
 
 def profile(request):
     return HttpResponse("شما وارد شدید.")
+
 
 def register(request):
     if request.method == 'POST':
@@ -37,7 +42,7 @@ def edit_user(request):
             user_form.save()
     else:
         user_form = UserEditForm(instance=request.user)
-    context ={
+    context = {
         'user_form': user_form
     }
     return redirect('social:profile')
@@ -50,8 +55,22 @@ def ticket(request):
         if form.is_valid():
             cd = form.cleaned_data
             message = f"{cd['name']}\n{cd['email']}\n{cd['phone']}\n\n{cd['message']}"
-            send_mail(cd['subject'], message, 'pythonsabzlearn@gmail.com', ['rezadolati.py@gmail.com'], fail_silently=False)
+            send_mail(cd['subject'], message, 'pythonsabzlearn@gmail.com', ['rezadolati.py@gmail.com'],
+                      fail_silently=False)
             sent = True
     else:
         form = TicketForm()
     return render(request, "forms/ticket.html", {'form': form, 'sent': sent})
+
+
+def post_list(request, tag_slug=None):
+    posts = Post.objects.all()
+    tag = None
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        posts = Post.objects.filter(tags__in=[tag])
+    context = {
+        'posts': posts,
+        'tag': tag,
+    }
+    return render(request, "social/list.html", context)
