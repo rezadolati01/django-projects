@@ -12,7 +12,6 @@ from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 from django.contrib.auth.decorators import login_required
 
-
 def index(request):
     last_post = Post.published.all().order_by('-publish')[0]
     return render(request, "blog/index.html", {"last_post": last_post})
@@ -41,7 +40,7 @@ def post_list(request, category=None):
 # class PostListView(ListView):
 #     queryset = Post.published.all()
 #     context_object_name = "posts"
-#     paginate_by = 4
+#     paginate_by = 4f
 #     template_name = "blog/list.html"
 
 
