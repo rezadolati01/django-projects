@@ -3,8 +3,12 @@
 {% endif %}
 
 {% for post in posts %}
-	{{ post.description |truncatewords:20|linebreaks }}
+    <a href="{{ post.get_absolute_url }}">
+    	{{ post.description |truncatewords:20|linebreaks }}
+    </a>
     Published at {{ post.created}} by {{ post.author}}
+
+
     <br>
     {% for tag in post.tags.all %}
         <a href="{% url 'social:post_list_by_tag' tag.slug %}"> {{ tag.name }}</a>
