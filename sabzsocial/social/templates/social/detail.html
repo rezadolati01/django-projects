@@ -1,5 +1,18 @@
-{{ post.description |linebreaks }}
-Published at {{ post.created}} by {{ post.author}}
+
+<div class="post" data-post-id="{{ post.id }}">
+    {{ post.description |linebreaks }}
+	Published at {{ post.created}} by {{ post.author}}
+	<br><br>
+    <button class="like-button">
+        {% if request.user in post.likes.all%}
+            UnLike
+        {% else %}
+            Like
+        {% endif %}
+    </button>
+	<span class="likes-count">{{ post.likes.count }}</span> Likes
+</div>
+
 <br>
 {% for tag in post.tags.all %}
     <a href="{% url 'social:post_list_by_tag' tag.slug %}"> {{ tag.name }}</a>
@@ -15,3 +28,28 @@ Published at {{ post.created}} by {{ post.author}}
 {% empty %}
     There are no similar posts
 {% endfor %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function() {
+        $('.like-button').click(function() {
+			var post_id = $(this).closest('.post').data('post-id');
+            var  button = $(this);
+
+            $.ajax({
+                type: 'POST',
+                url: '{% url 'social:like_post' %}',
+                data: {'post_id': post_id, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                success: function(data) {
+                    if (data.liked){
+                        button.text('UnLike');
+                    } else {
+                        button.text('Like');
+                    }
+                    $('.likes-count').text(data.likes_count);
+                },
+            });
+        });
+    });
+
+</script>

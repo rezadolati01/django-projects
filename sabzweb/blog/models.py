@@ -28,7 +28,7 @@ class Post(models.Model):
     )
 
     # relations
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_posts", verbose_name="نویسنده")
+    z = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_posts", verbose_name="نویسنده")
     # data fields
     title = models.CharField(max_length=250, verbose_name="عنوان")
     description = models.TextField(verbose_name="توضیحات")
