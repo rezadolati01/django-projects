@@ -13,6 +13,14 @@
 	<span class="likes-count">{{ post.likes.count }}</span> Likes
 </div>
 
+<button class="save-post">
+    {% if user in post.saved_by.all %}
+        Unsave
+    {% else %}
+        Save
+    {% endif %}
+</button>
+
 <br>
 {% for tag in post.tags.all %}
     <a href="{% url 'social:post_list_by_tag' tag.slug %}"> {{ tag.name }}</a>
@@ -50,6 +58,25 @@
                 },
             });
         });
-    });
 
+        $(".save-post").click(function () {
+            var button = $(this);
+            $.ajax({
+                type: "POST",
+                url: "/save-post/",
+                data: { 'csrfmiddlewaretoken': '{{ csrf_token }}', 'post_id': {{post.id}} },
+                success: function (data) {
+                    if (data.saved) {
+                        button.text("Unsave");
+                    } else {
+                        button.text("Save");
+                    }
+                },
+                error: function (error) {
+                    console.log("خطا در ارسال درخواست Ajax: " + error);
+                }
+            });
+        });
+
+    });
 </script>
