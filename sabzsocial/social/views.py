@@ -9,6 +9,7 @@ from .models import Post
 from taggit.models import Tag
 from django.db.models import Count
 from django.views.decorators.http import require_POST
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 # Create your views here.
@@ -71,6 +72,18 @@ def post_list(request, tag_slug=None):
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
         posts = Post.objects.filter(tags__in=[tag])
+
+    page = request.GET.get('page')
+    paginator = Paginator(posts, 2)
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = []
+
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        return render(request, 'social/list_ajax.html', {'posts': posts})
     context = {
         'posts': posts,
         'tag': tag,
