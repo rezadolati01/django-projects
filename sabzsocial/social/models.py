@@ -3,7 +3,6 @@ from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
 from taggit.managers import TaggableManager
 
-# Create your models here.
 
 class User(AbstractUser):
     date_of_birth = models.DateField(blank=True, null=True)
@@ -11,6 +10,7 @@ class User(AbstractUser):
     photo = models.ImageField(upload_to="account_images/", blank=True, null=True)
     job = models.CharField(max_length=250, null=True, blank=True)
     phone = models.CharField(max_length=11, null=True, blank=True)
+    following = models.ManyToManyField('self', through='Contact', related_name="followers", symmetrical=False)
 
 
 class Post(models.Model):
@@ -36,3 +36,17 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('social:post_detail', args=[self.id])
 
+
+class Contact(models.Model):
+    user_from = models.ForeignKey(User, related_name='rel_from_set', on_delete=models.CASCADE)
+    user_to = models.ForeignKey(User, related_name='rel_to_set', on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=['-created'])
+        ]
+        ordering = ('-created',)
+
+    def __str__(self):
+        return f"{self.user_from} follows {self.user_to}"
