@@ -1,9 +1,26 @@
 {% load thumbnail %}
 {% load static %}
 
+
 <p>{{ user.get_full_name }}</p>
 
-<button>Follow/Unfollow</button>
+{% if request.user == user %}
+    <button disabled>
+        {% if request.user in user.followers.all%}
+            UnFollow
+        {% else %}
+            Follow
+        {% endif %}
+    </button>
+{% else %}
+      <button class="follow-button">
+        {% if request.user in user.followers.all%}
+            UnFollow
+        {% else %}
+            Follow
+        {% endif %}
+    </button>
+{% endif %}
 
 {% if user.photo %}
     <a href="{{ user.photo.url }}">
@@ -18,7 +35,33 @@
     <p>Date of birth: {{ user.date_of_birth|default:'---' }}</p>
 
 {% with total_followers=user.followers.count total_followings=user.following.count  %}
-	<p>{{total_followers}} Follower{{ total_followers|pluralize }}</p>
-    <p>{{total_followings}} Following{{ total_followings|pluralize }}</p>
+    <span class="followers-count">{{total_followers}} Follower{{ total_followers|pluralize }}</span>
+    <span class="following-count">{{total_following}} Following</span>
 
 {% endwith %}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function() {
+        $('.follow-button').click(function() {
+            var button = $(this);
+
+            $.ajax({
+                type: 'POST',
+                url: '{% url 'social:user_follow' %}',
+                data: {'id': '{{user.id}}', 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                success: function(data) {
+                    if (data.follow){
+                        button.text('UnFollow');
+                    } else {
+                        button.text('Follow');
+                    }
+                    $('.followers-count').text(data.followers_count + 'Follower{{ total_followers|pluralize }}');
+                    $('.following-count').text(data.following_count +'Following');
+                },
+            });
+        });
+
+    });
+</script>
