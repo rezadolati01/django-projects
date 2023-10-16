@@ -45,12 +45,13 @@ def edit_user(request):
         user_form = UserEditForm(request.POST, instance=request.user, files=request.FILES)
         if user_form.is_valid():
             user_form.save()
+        return redirect('social:profile')
     else:
         user_form = UserEditForm(instance=request.user)
     context = {
         'user_form': user_form
     }
-    return redirect('social:profile')
+    return render(request, 'registration/edit_user.html', context=context)
 
 
 def ticket(request):
