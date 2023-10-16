@@ -12,6 +12,11 @@ class User(AbstractUser):
     phone = models.CharField(max_length=11, null=True, blank=True)
     following = models.ManyToManyField('self', through='Contact', related_name="followers", symmetrical=False)
 
+    def get_absolute_url(self):
+        return reverse('social:user_detail', args=[self.username])
+
+
+
 
 class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_posts", verbose_name="نویسنده")

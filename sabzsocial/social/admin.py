@@ -19,3 +19,5 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ['author', 'created']
     ordering = ['created']
     search_fields = ['description']
+
+admin.site.register(Contact)

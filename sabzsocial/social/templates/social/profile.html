@@ -1,3 +1,17 @@
+{% load thumbnail %}
+{% load static %}
+{% with user=request.user %}
+<p>{{ user.get_full_name }}</p>
+
+{% if user.photo %}
+    <a href="{{ user.photo.url }}">
+    <img src="{% thumbnail user.photo 150x0 quality=90 %}">
+    </a>
+{% else %}
+<img src="{% static 'images/profile/Avatar.png' %}" style="width: 200px;">
+{% endif %}
+
+{% endwith %}
 <h2>پست‌های سیو شده توسط شما</h2>
 <ul>
     {% for post in saved_posts %}
