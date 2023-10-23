@@ -73,6 +73,8 @@ class TicketForm(forms.Form):
                 return phone
 
 class CreatePostForm(forms.ModelForm):
+    image1 = forms.ImageField(label="تصویر اول", widget=forms.FileInput(attrs={'class': 'form-control'}))
+    image2 = forms.ImageField(label="تصویر دوم", widget=forms.FileInput(attrs={'class': 'form-control'}))
     class Meta:
         model = Post
         fields = ['description', 'tags']

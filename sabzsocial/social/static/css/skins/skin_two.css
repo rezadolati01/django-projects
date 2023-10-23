@@ -1,0 +1,241 @@
+/* ------------------------------------------------------------------- */
+/* Links
+---------------------------------------------------------------------- */
+a { 
+  color: #fff; 
+  text-decoration: none; 
+  outline: 0; 
+  -webkit-transition:0.5s all ease;
+  -moz-transition:0.5s all ease;
+  -o-transition:0.5s all ease;
+  -ms-transition:0.5s all ease;
+  transition:0.5s all ease; 
+}
+
+a:hover,
+a:focus,
+a:active,
+a.active {
+  text-decoration: none;
+  outline: 0;
+  color: #1abc9c !important;
+  -webkit-transition:0.5s all ease;
+  -moz-transition:0.5s all ease;
+  -o-transition:0.5s all ease;
+  -ms-transition:0.5s all ease;
+  transition:0.5s all ease;
+}
+
+
+/* ------------------------------------------------------------------- */
+/* Kafe Button Styles
+---------------------------------------------------------------------- */
+
+.kafe-btn{
+  display: inline-block;
+  margin-bottom: 0;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.4;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+ 
+  border-radius: 4px;
+ 
+  khtml-user-select: none;
+  webkit-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+ 
+  -moz-transition: background, 0.3s;
+  -0-transition: background, 0.3s;
+  webkit-transition: background, 0.3s;
+  transition: background, 0.3s;
+}
+
+.kafe-btn-default{
+  color: #fff;
+  border-width: 1px;
+  border-style: solid;
+  background-color: transparent;
+  border-color: #fff;
+  margin-top: 10px;
+  padding: 13px 31px;
+}
+
+.kafe-btn-default-new{
+  color: #fff;
+  border-width: 1px;
+  border-style: solid;
+  background-color: transparent;
+  border-color: #fff;
+  padding: 5px 10px;
+}
+.kafe-btn-default-mint{
+  color: #00C4CF;
+  border-width: 1px;
+  border-style: solid;
+  background-color: transparent;
+  border-color: #00C4CF;
+  padding: 13px 31px;
+}
+.kafe-btn-default-mint:hover {
+  background-color: #00C4CF;
+  color: #fff !important;
+  text-decoration: none;
+}
+
+.kafe-btn-mint{
+  font-size: 14px;
+  padding: 13px 31px;
+  color: #fff !important;
+  background: #0fc19e; 
+}
+
+
+.kafe-btn-mint-small{
+  font-size: 12px;
+  padding: 4px;
+  color: #ffffff !important;
+  background: #05cb95; 
+}
+
+.kafe-btn-danger{
+  font-size: 14px;
+  padding: 13px 31px;
+  color: #fff !important;
+  background: #FA5050; 
+}
+
+.kafe-btn-danger-small{
+  font-size: 12px;
+  padding: 6px 11px;
+  color: #fff;
+  background: #FA5050; 
+}
+
+.kafe-btn-default:hover, .kafe-btn-default-new:hover {
+  background-color: #fff;
+  color: #2C3E50 !important;
+  text-decoration: none;
+}
+.kafe-btn-danger:hover, .kafe-btn-danger-small:hover {
+  color: #fff !important;
+  background: #ba3434; 
+  text-decoration: none;
+}
+
+.kafe-btn-mint:hover {
+  color: #fff !important;
+  background: #1ea88d; 
+  text-decoration: none;
+}
+
+.kafe-btn-mint-small:hover {
+  color: #fff !important;
+  background: #1fa881; 
+  text-decoration: none;
+}
+
+.kafe-btn-red{
+  font-size: 12px;
+    padding: 7px 15px;
+  color: #ffffff !important;
+  background: #cc3939;
+}
+.kafe-btn-red:hover{
+  color: #ffffff !important;
+  background: #a82b2b;
+}
+
+body.greybg {
+  overflow-x: hidden;
+  background-color:#EEEEEE;
+}
+
+.col-lg-8.white-2{
+  display: block;
+  max-width: 100%;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #fff;
+  box-shadow: 0 0 0 1 rgba(0, 0, 0, 0.6);
+}
+
+.white-blogpage,
+.col-lg-8.white{
+  position: relative;
+  display: block;
+  max-width: 100%;
+  margin-top: -80px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 0 0 1 rgba(0, 0, 0, 0.6);
+}
+
+.full-width{
+  width: 100%;
+}
+
+/* ------------------------------------------------------------------- */
+/* Common Section
+---------------------------------------------------------------------- */
+.section-padding {
+    padding: 80px 0;
+}
+.section-padding-small {
+    padding: 30px 0;
+}
+.section-margin {
+    margin: 0px 100px;
+}
+.section-title h1 {
+    font-size: 20px;
+    color: #505050;
+    text-align: center;
+    margin: 0 0 45px;
+}
+.section-title-bold h1 {
+    font-size: 20px;
+    color: #505050;
+    text-align: center;
+    margin: 0 0 15px;
+}
+.section-title-bold-home h1 {
+    font-size: 20px;
+    color: #505050;
+    text-align: center;
+    margin: 0px;
+}
+.section-title-pacifico h1 {
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    margin: 0 0 45px;
+}
+.section-title-pacifico-black h1 {
+    font-size: 20px;
+    color: #505050;
+    text-align: center;
+    margin: 0 0 45px;
+}
+.section-title-new h1 {
+    font-size: 20px;
+    color: #505050;
+    text-align: center;
+    margin: 30px 0 5px 0px;
+}
+.section-title-left h2 {
+    font-size: 20px;
+    color: #505050;
+    text-align: left;
+    margin: 30px 0 5px 0px;
+}

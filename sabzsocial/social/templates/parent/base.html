@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+	<meta charset="UTF-8">
+    <title>social | {% block title %}{% endblock %}</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta property="og:title" content="" />
+	<meta property="og:url" content="" />
+	<meta property="og:description" content="" />
+
+	<link rel="icon" href="{% static 'img/logo.html' %}">
+	<link rel="apple-touch-icon" href="{% static 'img/favicons/apple-touch-icon.html' %}">
+	<link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/favicons/apple-touch-icon-72x72.html' %}">
+	<link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/favicons/apple-touch-icon-114x114.html' %}">
+
+	<link type="text/css" href="{% static 'css/demos/photo.css' %}" rel="stylesheet" />
+	<link type="text/css" href="{% static 'css/font.css' %}" rel="stylesheet" />
+
+	<script src="{% static 'js/modernizr-custom.html' %}"></script>
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    {% block head %} {% endblock %}
+</head>
+<body>
+{% include 'partials/header.html' %}
+{% include 'partials/navigation.html' %}
+{% block content %} {% endblock %}
+{% include 'partials/footer.html' %}
+</body>
+</html>

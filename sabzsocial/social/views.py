@@ -5,7 +5,7 @@ from django.http import HttpResponse, JsonResponse
 from .forms import *
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
-from .models import Post, Contact
+from .models import Post, Contact, Image
 from taggit.models import Tag
 from django.db.models import Count
 from django.views.decorators.http import require_POST
@@ -21,9 +21,10 @@ def log_out(request):
 
 
 def profile(request):
-    user = request.user
-    saved_posts = user.saved_posts.all()
-    return render(request, 'social/profile.html', {'saved_posts': saved_posts})
+    user = User.objects.prefetch_related('followers', 'following').get(id=request.user.id)
+    saved_posts = user.saved_posts.all()[:7]
+    my_posts = user.user_posts.all()[:8]
+    return render(request, 'social/profile.html', {'saved_posts': saved_posts, 'my_posts': my_posts, 'user': user})
 
 
 def register(request):
@@ -70,7 +71,7 @@ def ticket(request):
 
 
 def post_list(request, tag_slug=None):
-    posts = Post.objects.all()
+    posts = Post.objects.select_related('author').all()
     tag = None
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
@@ -97,12 +98,14 @@ def post_list(request, tag_slug=None):
 @login_required
 def create_post(request):
     if request.method == "POST":
-        form = CreatePostForm(request.POST)
+        form = CreatePostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
             post.save()
             form.save_m2m()
+            Image.objects.create(image_file=form.cleaned_data['image1'], post=post)
+            Image.objects.create(image_file=form.cleaned_data['image2'], post=post)
             return redirect('social:profile')
     else:
         form = CreatePostForm()
@@ -201,3 +204,5 @@ def user_follow(request):
             return JsonResponse({'error': 'User does not exist.'})
 
     return JsonResponse({'error': 'Invalid request.'})
+
+

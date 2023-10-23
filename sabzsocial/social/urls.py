@@ -14,7 +14,7 @@ urlpatterns = [
 
     path('register/', views.register, name="register"),
     path('user/edit', views.edit_user, name="edit_account"),
-    path('ticket', views.ticket, name="ticket"),
+    path('ticket/', views.ticket, name="ticket"),
 
     path('password-change/', auth_views.PasswordChangeView.as_view(success_url='done'), name="password_change"),
     path('password-change/done/', auth_views.PasswordChangeDoneView.as_view(), name="password_change_done"),

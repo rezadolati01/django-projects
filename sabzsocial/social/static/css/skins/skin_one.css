@@ -1,0 +1,355 @@
+
+/* ------------------------------------------------------------------- */
+/* Table of Contents
+---------------------------------------------------------------------- 
+1. Reset & Basics                   - Line 28
+2. Base Styles                      
+    - Typogrphy Section             - Line 85
+	- Links Section                 - Line 127
+	- Lists Section                 - Line 157
+	- Kafe Button Section           - Line 176
+3. Job List 
+    - Category List Section         - Line 297
+	- Search Section                - Line 336
+	- Job Section                   - Line 394
+	- Pagination Section            - Line 526
+	- Media Queries                 - Line 576
+4. Sidebar - Affix Section          - Line 638
+5. Form Signup                      - Line 669
+
+---------------------------------------------------------------------- */ 
+
+/* #Reset & Basics (Inspired by E. Meyers)
+================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, fieldset, form, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; 
+}
+	
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+blockquote, q {
+  quotes: none; 
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; 
+}
+
+.no-select {
+  user-select: none;
+  -o-user-select:none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none; 
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+html, body {
+  overflow-x: hidden;
+  text-align: left;
+  -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+ -webkit-text-size-adjust: 100%;
+}
+
+/* ------------------------------------------------------------------- */
+/* Typography
+---------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  color: #2C3E50;
+}
+
+h1 { font-size: 30px; line-height: 54px; }
+h2 { font-size: 24px; line-height: 48px; }
+h3 { font-size: 22px; line-height: 44px; }
+h4 { font-size: 18px; line-height: 36px; }
+h5 { font-size: 16px; line-height: 28px; }
+h6 { font-size: 14px; line-height: 24px; }
+
+p { 
+  line-height: 24px;
+  margin: 0;
+  font-size: 14px;
+}
+p img { margin: 0; }
+p.lead { font-size: 21px; line-height: 27px; color: #555;  }
+
+em { font-style: italic; }
+strong { color: #333; }
+small { font-size: 80%; }
+
+hr.mint { 
+  background: #16A085;
+  border: 0;
+  width: 100px;
+  height: 3px;
+  clear: both;
+}
+
+/* ------------------------------------------------------------------- */
+/* Links
+---------------------------------------------------------------------- */
+a { 
+  color: #fff; 
+  text-decoration: none; 
+  outline: 0; 
+  -webkit-transition:0.5s all ease;
+  -moz-transition:0.5s all ease;
+  -o-transition:0.5s all ease;
+  -ms-transition:0.5s all ease;
+  transition:0.5s all ease; 
+}
+
+a:hover,
+a:focus,
+a:active,
+a.active {
+  text-decoration: none;
+  outline: 0;
+  color: #00C4CF !important;
+  -webkit-transition:0.5s all ease;
+  -moz-transition:0.5s all ease;
+  -o-transition:0.5s all ease;
+  -ms-transition:0.5s all ease;
+  transition:0.5s all ease;
+}
+
+p a, p a:visited { line-height: inherit; }
+
+/* ------------------------------------------------------------------- */
+/* Lists
+---------------------------------------------------------------------- */
+ul, ol { margin: 0; }
+ul { list-style: none outside; }
+ol { list-style: decimal; }
+ol, ul.square, ul.circle, ul.disc { margin-left: 10px; }
+ul.square { list-style: square outside; color: #3d464d;}
+ul.circle { list-style: circle outside; color: #3d464d; }
+ul.disc { list-style: disc outside; color: #3d464d;}
+ul ul, ul ol,
+ol ol, ol ul {}
+ul ul li, ul ol li,
+ol ol li, ol ul li { line-height: 24px;}
+li { line-height: 24px; }
+ul.large li { line-height: 21px; }
+li p { line-height: 24px; }
+
+/* ------------------------------------------------------------------- */
+/* Kafe Button Styles
+---------------------------------------------------------------------- */
+
+.kafe-btn{
+  display: inline-block;
+  margin-bottom: 0;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.4;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+ 
+  border-radius: 4px;
+ 
+  khtml-user-select: none;
+  webkit-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -moz-transition: background, 0.3s;
+  -0-transition: background, 0.3s;
+  webkit-transition: background, 0.3s;
+  transition: background, 0.3s;
+}
+
+.kafe-btn-default{
+  color: #fff;
+  border-width: 1px;
+  border-style: solid;
+  background-color: transparent;
+  border-color: #fff;
+  margin-top: 10px;
+  padding: 13px 31px;
+}
+
+.kafe-btn-default-new{
+  color: #fff;
+  border-width: 1px;
+  border-style: solid;
+  background-color: transparent;
+  border-color: #fff;
+  padding: 5px 10px;
+}
+.kafe-btn-default-mint{
+  color: #00C4CF;
+  border-width: 1px;
+  border-style: solid;
+  background-color: transparent;
+  border-color: #00C4CF;
+  padding: 13px 31px;
+}
+.kafe-btn-default-mint:hover {
+  background-color: #00C4CF;
+  color: #fff !important;
+  text-decoration: none;
+}
+
+.kafe-btn-mint{
+  font-size: 14px;
+  padding: 13px 31px;
+  color: #fff !important;
+  background: #00C4CF; 
+}
+
+
+.kafe-btn-mint-small{
+  font-size: 12px;
+  padding: 6px 11px;
+  color: #fff;
+  background: #00C4CF;
+}
+
+.kafe-btn-danger{
+  font-size: 14px;
+  padding: 13px 31px;
+  color: #fff !important;
+  background: #FA5050; 
+}
+
+.kafe-btn-danger-small{
+  font-size: 12px;
+  padding: 6px 11px;
+  color: #fff;
+  background: #FA5050; 
+}
+
+.kafe-btn-default:hover, .kafe-btn-default-new:hover {
+  background-color: #fff;
+  color: #2C3E50 !important;
+  text-decoration: none;
+}
+.kafe-btn-danger:hover, .kafe-btn-danger-small:hover {
+  color: #fff !important;
+  background: #ba3434; 
+  text-decoration: none;
+}
+
+.kafe-btn-mint:hover {
+  color: #fff !important;
+  background: #019da5; 
+  text-decoration: none;
+}
+
+.kafe-btn-mint-small:hover {
+  color: #fff !important;
+  background: #019da5; 
+  text-decoration: none;
+}
+
+body.greybg {
+  overflow-x: hidden;
+  background-color:#EEEEEE;
+}
+
+.col-lg-8.white-2{
+  display: block;
+  max-width: 100%;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #fff;
+  box-shadow: 0 0 0 1 rgba(0, 0, 0, 0.6);
+}
+
+.white-blogpage,
+.col-lg-8.white{
+  position: relative;
+  display: block;
+  max-width: 100%;
+  margin-top: -80px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 0 0 1 rgba(0, 0, 0, 0.6);
+}
+
+.full-width{
+  width: 100%;
+}
+
+/* ------------------------------------------------------------------- */
+/* Common Section
+---------------------------------------------------------------------- */
+.section-padding {
+    padding: 80px 0;
+}
+.section-padding-small {
+    padding: 30px 0;
+}
+.section-margin {
+    margin: 0px 100px;
+}
+.section-title h1 {
+    font-size: 20px;
+    color: #505050;
+    text-align: center;
+    margin: 0 0 45px;
+}
+.section-title-bold h1 {
+    font-size: 20px;
+    color: #505050;
+    text-align: center;
+    margin: 0 0 15px;
+}
+.section-title-bold-home h1 {
+    font-size: 20px;
+    color: #505050;
+    text-align: center;
+    margin: 0px;
+}
+.section-title-pacifico h1 {
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    margin: 0 0 45px;
+}
+.section-title-pacifico-black h1 {
+    font-size: 20px;
+    color: #505050;
+    text-align: center;
+    margin: 0 0 45px;
+}
+.section-title-new h1 {
+    font-size: 20px;
+    color: #505050;
+    text-align: center;
+    margin: 30px 0 5px 0px;
+}
+.section-title-left h2 {
+    font-size: 20px;
+    color: #505050;
+    text-align: left;
+    margin: 30px 0 5px 0px;
+}

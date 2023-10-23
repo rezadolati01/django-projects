@@ -5,6 +5,9 @@ from django.contrib.auth.admin import UserAdmin
 
 # Register your models here.
 
+class ImageInline(admin.TabularInline):
+    model = Image
+    extra = 0
 
 @admin.register(User)
 class UserAdmin(UserAdmin):
@@ -19,5 +22,6 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ['author', 'created']
     ordering = ['created']
     search_fields = ['description']
+    inlines = [ImageInline]
 
 admin.site.register(Contact)
