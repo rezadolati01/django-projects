@@ -25,3 +25,5 @@ class PostAdmin(admin.ModelAdmin):
     inlines = [ImageInline]
 
 admin.site.register(Contact)
+
+admin.site.register(Image)
