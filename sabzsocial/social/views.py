@@ -10,7 +10,7 @@ from taggit.models import Tag
 from django.db.models import Count
 from django.views.decorators.http import require_POST
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.contrib import messages
 
 # Create your views here.
 
@@ -56,7 +56,6 @@ def edit_user(request):
 
 
 def ticket(request):
-    sent = False
     if request.method == "POST":
         form = TicketForm(request.POST)
         if form.is_valid():
@@ -64,10 +63,10 @@ def ticket(request):
             message = f"{cd['name']}\n{cd['email']}\n{cd['phone']}\n\n{cd['message']}"
             send_mail(cd['subject'], message, 'pythonsabzlearn@gmail.com', ['rezadolati.py@gmail.com'],
                       fail_silently=False)
-            sent = True
+            messages.success(request, 'مواظب باش')
     else:
         form = TicketForm()
-    return render(request, "forms/ticket.html", {'form': form, 'sent': sent})
+    return render(request, "forms/ticket.html", {'form': form})
 
 
 def post_list(request, tag_slug=None):

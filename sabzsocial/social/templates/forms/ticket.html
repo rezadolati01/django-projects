@@ -1,11 +1,36 @@
+<style>
+    .messages .success {
+        color: #000000;
+        background-color: #16A085;
+    }
+    .messages .error {
+        color: #000000;
+        background-color: #b91010;
+    }
+    .messages .info {
+        color: #000000;
+        background-color: #115c83;
+    }
+    .messages .warning {
+        color: #000000;
+        background-color: #bd7913;
+    }
+</style>
+
 
 <section class="py-4">
 	<div class="container">
     <div class="row pb-4">
 			<div class="col-12">
-        <!-- Title -->
-                {% if sent %}
-                    <h1 class="mb-0 h3">ایمیل شما به پشتیبانی ارسال شد</h1>
+
+                {% if messages %}
+                    <ul class="messages">
+                    {% for message in messages %}
+                        <li class="{% if message.tags %}{{ message.tags }}{% endif %}">
+                        	{{ message }}
+                        </li>
+                    {% endfor %}
+                    </ul>
                 {% endif  %}
         <h1 class="mb-0 h3">ارسال تیکت به پشتیبانی</h1>
 			</div>
