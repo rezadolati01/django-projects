@@ -39,10 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'taggit',
     'easy_thumbnails',
+    'debug_toolbar',
 
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -149,3 +151,8 @@ THUMBNAIL_DEBUG = True
 # ABSOLUTE_URL_OVERRIDES = {
 #     'social.user': lambda u: reverse_lazy('social:user_detail', args=[u.username])
 # }
+
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]

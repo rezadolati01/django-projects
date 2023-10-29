@@ -17,12 +17,23 @@ class UserAdmin(UserAdmin):
     )
 
 
+def make_deactivation(modeladmin, request, queryset):
+    reusult = queryset.update(active = False)
+    modeladmin.message_user(request, f"{reusult} Posts were rejected" )
+make_deactivation.short_description ='رد پست'
+
+def make_activation(modeladmin, request, queryset):
+    reusult = queryset.update(active = True)
+    modeladmin.message_user(request, f"{reusult} Posts were accepted" )
+make_activation.short_description ='تایید پست'
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['author', 'created']
+    list_display = ['author', 'created', 'description']
     ordering = ['created']
     search_fields = ['description']
     inlines = [ImageInline]
+    actions = [make_deactivation, make_activation ]
+
 
 admin.site.register(Contact)
 

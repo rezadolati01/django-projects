@@ -63,7 +63,7 @@ def ticket(request):
             message = f"{cd['name']}\n{cd['email']}\n{cd['phone']}\n\n{cd['message']}"
             send_mail(cd['subject'], message, 'pythonsabzlearn@gmail.com', ['rezadolati.py@gmail.com'],
                       fail_silently=False)
-            messages.success(request, 'مواظب باش')
+            messages.success(request, 'پیام شما به پشتبانی')
     else:
         form = TicketForm()
     return render(request, "forms/ticket.html", {'form': form})
