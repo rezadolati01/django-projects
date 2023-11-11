@@ -1,0 +1,90 @@
+{% load static %}
+<!--/ profile -->
+	<div id="myModal-{{ post_id }}" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+
+					<div class="row">
+
+						<div class="col-md-8 modal-image">
+							<img class="img-responsive" src="{{my_post.images.first.image_file.url}}" alt="Image" />
+						</div>
+						<!--/ col-md-8 -->
+						<div class="col-md-4 modal-meta">
+							<div class="modal-meta-top">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									<span aria-hidden="true">×</span><span class="sr-only">بستن</span>
+								</button>
+								<!--/ button -->
+								<div class="img-poster clearfix">
+									<a href="#"><img class="img-responsive img-circle" src="{{ user.photo.url}}"
+											alt="Image" /></a>
+									<strong><a href="#">{{ user.get_full_name }}</a></strong>
+{#									<span>12 دقیقه پیش</span><br />#}
+{#									<a href="#" class="kafe kafe-btn-mint-small"><i class="fa fa-check-square"></i>#}
+{#										دنبال کردن</a>#}
+								</div>
+								<!--/ img-poster -->
+
+								<ul class="img-comment-list">
+                                    {% for comment in my_post.comments.all %}
+									<!--/ li -->
+									<li>
+										<div class="comment-img">
+											<img src="{% static 'images/profile/avatar2.png' %}" class="img-responsive img-circle"
+												alt="Image" />
+										</div>
+										<div class="comment-text">
+											<strong><a href="#">{{ comment.name }}</a></strong>
+											<p class="">{{ comment.body }}</p> <span class="date sub-text"> در {{ comment.created }} </span>
+										</div>
+									</li>
+									<!--/ li -->
+                                    {% endfor %}
+								</ul>
+								<!--/ comment-list -->
+
+								<div class="modal-meta-bottom">
+									<ul>
+										<li><a class="modal-like" href="#"><i class="fa fa-heart"></i></a><span
+												class="modal-one"> {{ my_post.total_likes }}</span> |
+											<a class="modal-comment" href="#"><i class="fa fa-comments"></i></a><span>
+												{{ my_post.comments.count}}</span>
+										</li>
+										<li>
+											<span class="thumb-xs">
+												<img class="img-responsive img-circle" src="{% static 'images/profile/avatar2.webp' %}"
+													alt="Image">
+											</span>
+											<div class="comment-body">
+                                                <form method="post" action="{% url 'social:post_comment' my_post.id %}" >
+                                                    {% csrf_token %}
+                                                    {{ form.as_div }}
+                                                  <div class="col-12">
+                                                    <button type="submit" class="btn btn-dark">ثبت</button>
+                                                  </div>
+                                                </form>
+											</div>
+											<!--/ comment-body -->
+										</li>
+									</ul>
+								</div>
+								<!--/ modal-meta-bottom -->
+
+							</div>
+							<!--/ modal-meta-top -->
+						</div>
+						<!--/ col-md-4 -->
+
+					</div>
+					<!--/ row -->
+				</div>
+				<!--/ modal-body -->
+
+			</div>
+			<!--/ modal-content -->
+		</div>
+		<!--/ modal-dialog -->
+	</div>
+	<!--/ modal -->

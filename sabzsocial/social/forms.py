@@ -1,5 +1,5 @@
 from django import forms
-from .models import User, Post
+from .models import User, Post, Comment
 from django.contrib.auth.forms import AuthenticationForm
 
 
@@ -78,3 +78,15 @@ class CreatePostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['description', 'tags']
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['body']
+        widgets={
+            'body': forms.TextInput(attrs={
+                'placeholder': 'کامنت بزارید...',
+                'class':'form-control input-sm'
+            }),
+        }

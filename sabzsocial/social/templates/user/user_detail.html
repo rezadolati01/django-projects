@@ -34,7 +34,7 @@
     <p>Job: {{ user.job|default:'---' }}</p>
     <p>Date of birth: {{ user.date_of_birth|default:'---' }}</p>
 
-{% with total_followers=user.followers.count total_followings=user.following.count  %}
+{% with total_followers=user.followers.count total_following=user.following.count  %}
     <span class="followers-count">{{total_followers}} Follower{{ total_followers|pluralize }}</span>
     <span class="following-count">{{total_following}} Following</span>
 

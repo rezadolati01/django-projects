@@ -1,47 +1,9 @@
 {% extends 'parent/base.html' %}
 {% load thumbnail %}
 {% load static %}
-
+{% block title %} profile {% endblock %}
 
 {% block content %}
-
-	<!-- ==============================================
-     Navigation Section
-     =============================================== -->
-
-
-	<!-- ==============================================
-	 Navbar Second Section
-	 =============================================== -->
-	<section class="nav-sec">
-		<div class="d-flex justify-content-between">
-			<div class="p-2 nav-icon-lg dark-black">
-				<a class="nav-icon" href="photo_home.html"><em class="fa fa-home"></em>
-					<span>خانه</span>
-				</a>
-			</div>
-			<div class="p-2 nav-icon-lg clean-black">
-				<a class="nav-icon" href="photo_explore.html"><em class="fa fa-crosshairs"></em>
-					<span>کاوش</span>
-				</a>
-			</div>
-			<div class="p-2 nav-icon-lg dark-black">
-				<a class="nav-icon" href="photo_upload.html"><em class="fab fa-instagram"></em>
-					<span>بارگذاری</span>
-				</a>
-			</div>
-			<div class="p-2 nav-icon-lg clean-black">
-				<a class="nav-icon" href="photo_stories.html"><em class="fa fa-align-left"></em>
-					<span>داستان ها</span>
-				</a>
-			</div>
-			<div class="p-2 nav-icon-lg mint-green">
-				<a class="nav-icon" href="photo_profile.html"><em class="fa fa-user"></em>
-					<span>پروفایل</span>
-				</a>
-			</div>
-		</div>
-	</section>
 
 	<!-- ==============================================
 	 News Feed Section
@@ -85,9 +47,9 @@
 							<li>
 								<small class="text-muted"><a href="photo_profile_two.html">{{ user.user_posts.count }} پست<em
 											class="fa fa-angle-left pull-left"></em></a> </small><br />
-								<small class="text-muted"><a href="photo_followers.html">{{ user.followers.count }} دنبال کننده<em
+								<small class="text-muted"><a href="{% url 'social:user_contact' user.username 'followers' %}">{{ user.followers.count }} دنبال کننده<em
 											class="fa fa-angle-left pull-left"></em></a> </small><br />
-								<small class="text-muted"><a href="photo_followers.html">{{ user.following.count }} نفر را دنبال می کند <em
+								<small class="text-muted"><a href="{% url 'social:user_contact' user.username 'following' %}">{{ user.following.count }} نفر را دنبال می کند <em
 											class="fa fa-angle-left pull-left"></em></a> </small>
 								<hr>
 								<small class="text-muted">درباره: </small>
@@ -110,9 +72,8 @@
 
 					<div class="row">
                     {% for my_post in my_posts %}
-                    {% if forloop.counter0|divisibleby:2 %}
 						<div class="col-lg-6">
-							<a href="#myModal" data-toggle="modal">
+							<a href="#myModal-{{ my_post.id }}" data-toggle="modal">
 								<div class="explorebox" style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url('{{my_post.images.first.image_file.url}}') no-repeat;
 					  background-size: cover;
 					  background-position: center center;
@@ -120,29 +81,15 @@
 					  -moz-background-size: cover;
 					  -o-background-size: cover;">
 									<div class="explore-top">
-										<div class="explore-like"><i class="fa fa-heart"></i> <span>12456</span></div>
-										<div class="explore-circle pull-left"><i class="far fa-bookmark"></i></div>
+										<div class="explore-like"><i class="fa fa-heart"></i> <span>{{ my_post.total_likes }}</span></div>
+										<div class="explore-circle pull-left"><span>{{ my_post.total_saves }}&nbsp;</span><i class="far fa-bookmark"></i></div>
 									</div>
 								</div>
 							</a>
 						</div>
-						{% else %}
-						<div class="col-lg-6">
-							<a href="#myModal" data-toggle="modal">
-								<div class="explorebox" style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url('{{my_post.images.first.image_file.url}}') no-repeat;
-					  background-size: cover;
-					  background-position: center center;
-					  -webkit-background-size: cover;
-					  -moz-background-size: cover;
-					  -o-background-size: cover;">
-									<div class="explore-top">
-										<div class="explore-like"><i class="fa fa-heart"></i> <span>10945</span></div>
-										<div class="explore-circle pull-left"><i class="far fa-bookmark"></i></div>
-									</div>
-								</div>
-							</a>
-						</div>
-                    {% endif %}
+                        {% with post_id=my_post.id %}
+                        {% include 'partials/my-modal.html' %}
+                        {% endwith %}
                     {% endfor %}
 					</div>
 					<!--/ row -->
@@ -158,7 +105,7 @@
 					</div>
 					<div class="suggestion-box full-width">
 						<div class="suggestions-list">
-                            {% for flw in user.following.all|slice:"0:5" %}
+                            {% for flw in following|slice:"0:5" %}
 							<div class="suggestion-body">
                             {% if flw.photo %}
 								<img class="img-responsive img-circle" src="{{ flw.photo.url}}" alt="">
@@ -185,7 +132,7 @@
 					</div>
 					<div class="suggestion-box full-width">
 						<div class="suggestions-list">
-                            {% for follower in user.followers.all|slice:"0:5" %}
+                            {% for follower in followers|slice:"0:5" %}
 							<div class="suggestion-body">
                             {% if follower.photo %}
 								<img class="img-responsive img-circle" src="{{ flw.photo.url}}" alt="">
@@ -232,136 +179,7 @@
 		</div>
         </div>
 	</section>
-	<!--/ profile -->
-	<div id="myModal" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body">
 
-					<div class="row">
-
-						<div class="col-md-8 modal-image">
-							<img class="img-responsive" src="assets/img/posts/9.jpg" alt="Image" />
-						</div>
-						<!--/ col-md-8 -->
-						<div class="col-md-4 modal-meta">
-							<div class="modal-meta-top">
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-									<span aria-hidden="true">×</span><span class="sr-only">بستن</span>
-								</button>
-								<!--/ button -->
-								<div class="img-poster clearfix">
-									<a href="#"><img class="img-responsive img-circle" src="assets/img/users/18.jpg"
-											alt="Image" /></a>
-									<strong><a href="#">بنجامین</a></strong>
-									<span>12 دقیقه پیش</span><br />
-									<a href="#" class="kafe kafe-btn-mint-small"><i class="fa fa-check-square"></i>
-										دنبال کردن</a>
-								</div>
-								<!--/ img-poster -->
-
-								<ul class="img-comment-list">
-									<li>
-										<div class="comment-img">
-											<img src="assets/img/users/17.jpg" class="img-responsive img-circle"
-												alt="Image" />
-										</div>
-										<div class="comment-text">
-											<strong><a href="#">آنتونی مک کارنتی</a></strong>
-											<p>سلام این یک متن تستی است .</p> <span class="date sub-text">در 5 آذر، 2019
-											</span>
-										</div>
-									</li>
-									<!--/ li -->
-									<li>
-										<div class="comment-img">
-											<img src="assets/img/users/15.jpg" class="img-responsive img-circle"
-												alt="Image" />
-										</div>
-										<div class="comment-text">
-											<strong><a href="#">ونسا ولز</a></strong>
-											<p> سلام این یک نظر آزمایشی است و این نظر به خصوص بسیار طولانی است و ادامه
-												دارد .</p> <span>در 5 آذر، 2019 </span>
-										</div>
-									</li>
-									<!--/ li -->
-									<li>
-										<div class="comment-img">
-											<img src="assets/img/users/14.jpg" class="img-responsive img-circle"
-												alt="Image" />
-										</div>
-										<div class="comment-text">
-											<strong><a href="#">الکس کلرمن</a></strong>
-											<p class="">سلام این یک متن تستی است .</p> <span class="date sub-text">در 5
-												آذر، 2019 </span>
-										</div>
-									</li>
-									<!--/ li -->
-									<li>
-										<div class="comment-img">
-											<img src="assets/img/users/13.jpg" class="img-responsive img-circle"
-												alt="Image" />
-										</div>
-										<div class="comment-text">
-											<strong><a href="#">آنا مورگان</a></strong>
-											<p class="">سلام این یک متن تستی است .</p> <span class="date sub-text">در 5
-												آذر، 2019 </span>
-										</div>
-									</li>
-									<!--/ li -->
-									<li>
-										<div class="comment-img">
-											<img src="assets/img/users/3.jpg" class="img-responsive img-circle"
-												alt="Image" />
-										</div>
-										<div class="comment-text">
-											<strong><a href="#">آلیسون فولر</a></strong>
-											<p class="">سلام این یک متن تستی است .</p> <span class="date sub-text">در 5
-												آذر، 2019 </span>
-										</div>
-									</li>
-									<!--/ li -->
-								</ul>
-								<!--/ comment-list -->
-
-								<div class="modal-meta-bottom">
-									<ul>
-										<li><a class="modal-like" href="#"><i class="fa fa-heart"></i></a><span
-												class="modal-one"> 786,286</span> |
-											<a class="modal-comment" href="#"><i class="fa fa-comments"></i></a><span>
-												786,286</span>
-										</li>
-										<li>
-											<span class="thumb-xs">
-												<img class="img-responsive img-circle" src="assets/img/users/13.jpg"
-													alt="Image">
-											</span>
-											<div class="comment-body">
-												<input class="form-control input-sm" type="text"
-													placeholder="نظر بگذارید ...">
-											</div>
-											<!--/ comment-body -->
-										</li>
-									</ul>
-								</div>
-								<!--/ modal-meta-bottom -->
-
-							</div>
-							<!--/ modal-meta-top -->
-						</div>
-						<!--/ col-md-4 -->
-
-					</div>
-					<!--/ row -->
-				</div>
-				<!--/ modal-body -->
-
-			</div>
-			<!--/ modal-content -->
-		</div>
-		<!--/ modal-dialog -->
-	</div>
-	<!--/ modal -->
 
 	<!-- ==============================================
 	 Scripts

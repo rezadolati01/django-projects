@@ -34,6 +34,13 @@ class PostAdmin(admin.ModelAdmin):
     inlines = [ImageInline]
     actions = [make_deactivation, make_activation ]
 
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['post', 'name', 'created', 'active']
+    list_filter = ['active', 'created','updated',]
+    search_fields = ['name', 'body']
+    list_editable = ['active']
+    # autocomplete_fields = ['post']
 
 admin.site.register(Contact)
 

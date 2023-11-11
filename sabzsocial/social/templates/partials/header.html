@@ -126,14 +126,14 @@
 								</span>
 							</a>
 							<div class="dropdown-menu w dropdown-menu-scale pull-right">
-								<a class="dropdown-item" href="#"><span>داستان جدید</span></a>
-								<a class="dropdown-item" href="#"><span>عضو شوید</span></a>
+								<a class="dropdown-item" href="{% url 'social:create_post' %}"><span>پست جدید</span></a>
+{#								<a class="dropdown-item" href="#"><span>عضو شوید</span></a>#}
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#"><span>پروفایل</span></a>
-								<a class="dropdown-item" href="#"><span>تنظیمات</span></a>
-								<a class="dropdown-item" href="#">به کمک احتیاج دارید ؟</a>
+								<a class="dropdown-item" href="{% url 'social:profile' %}"><span>پروفایل</span></a>
+								<a class="dropdown-item" href="{% url 'social:edit_account' %}"><span>تنظیمات</span></a>
+								<a class="dropdown-item" href="{% url 'social:ticket' %}">پشتیبانی</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">خروج</a>
+								<a class="dropdown-item" href="{% url 'social:logout' %}">خروج</a>
 							</div>
 						</li><!-- /navbar-item -->
 

@@ -12,6 +12,7 @@ from django.views.decorators.http import require_POST
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
 
+
 # Create your views here.
 
 
@@ -21,10 +22,23 @@ def log_out(request):
 
 
 def profile(request):
-    user = User.objects.prefetch_related('followers', 'following').get(id=request.user.id)
-    saved_posts = user.saved_posts.all()[:7]
-    my_posts = user.user_posts.all()[:8]
-    return render(request, 'social/profile.html', {'saved_posts': saved_posts, 'my_posts': my_posts, 'user': user})
+    try:
+        user = User.objects.prefetch_related('followers', 'following').get(id=request.user.id)
+        saved_posts = user.saved_posts.all()[:7]
+        my_posts = user.user_posts.all()[:8]
+        following = user.get_followings()
+        followers = user.get_followers()
+        conntext = {
+            'saved_posts': saved_posts,
+            'my_posts': my_posts,
+            'user': user,
+            'following': following,
+            'followers': followers,
+            'form': CommentForm()
+        }
+        return render(request, 'social/profile.html', conntext)
+    except:
+        return redirect('social:login')
 
 
 def register(request):
@@ -205,3 +219,22 @@ def user_follow(request):
     return JsonResponse({'error': 'Invalid request.'})
 
 
+@require_POST
+def post_comment(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    form = CommentForm(data=request.POST)
+    if form.is_valid():
+        comment = form.save(commit=False)
+        comment.post = post
+        comment.name = request.user.first_name
+        comment.save()
+    return redirect('social:profile')
+
+
+def contact(request, username, rel):
+    user = User.objects.get(username=username)
+    if rel == 'following':
+        users = user.get_followings()
+    else:
+        users = user.get_followers()
+    return render(request, 'user/user_list.html', {'users': users})
