@@ -1,28 +1,36 @@
+{% extends 'parent/base.html' %}
+{% block title %} edit user {% endblock %}
+{% load static %}
+{% block content %}
 
-    <section class="py-4">
-	<div class="container">
-    <div class="row pb-4">
-			<div class="col-12">
-        <!-- Title -->
-        <h1 class="mb-0 h3">ویرایش اطلاعات شخصی</h1>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12">
-				<!-- Chart START -->
-				<div class="card border h-100">
-					<!-- Card body -->
-					<div class="card-body">
-            <!-- Form START -->
-    <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ user_form.as_p }}
-    <button class="btn btn-primary" type="submit">ذخیره</button>
-    </form>
-                         <!-- Form END -->
-        </div>
-    </div><!-- Chart END -->
-</div>
-    </div>
-	</div>
-</section>
+ <section class="login bigsection">
+  <div class="container">
+   <div class="banner-content">
+      <form method="post" class="form-signin" enctype="multipart/form-data">
+           <div class="form-group">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+           </div>
+           <button class="kafe-btn kafe-btn-mint btn-block" type="submit">ذخیره تغییرات</button>
+           <br/>
+      </form>
+
+   </div><!--/. banner-content -->
+  </div><!-- /.container -->
+ </section>
+
+    	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/base.js' %}"></script>
+	<script src="{% static 'plugins/slimscroll/jquery.slimscroll.js' %}"></script>
+	<script>
+	$('#Slim,#Slim2').slimScroll({
+	        height:"auto",
+			position: 'right',
+			railVisible: true,
+			alwaysVisible: true,
+			size:"8px",
+		});
+	</script>
+
+{% endblock %}

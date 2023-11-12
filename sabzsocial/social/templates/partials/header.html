@@ -116,14 +116,14 @@
 										class="img-resonsive img-circle" width="25" height="25" alt="..."></span>
                             	{% endif %}
 								<!-- hidden-xs hides the username on small devices so only the image appears. -->
-								<span class="hidden-xs">
-									{% if request.user.is_authenticated %}
-                                        {{request.user.first_name|default:request.user.username }}
-                                    {% else %}
-                                        <a href="{% url 'social:login' %}" >ورود</a>
-                                         <a href="{% url 'social:register' %}" >ثبت نام</a>
-                                    {% endif %}
-								</span>
+{#								<span class="hidden-xs">#}
+{#									{% if request.user.is_authenticated %}#}
+{#                                        {{request.user.first_name|default:request.user.username }}#}
+{#                                    {% else %}#}
+{#                                        <a href="{% url 'social:login' %}" >ورود</a>#}
+{#                                         <a href="{% url 'social:register' %}" >ثبت نام</a>#}
+{#                                    {% endif %}#}
+{#								</span>#}
 							</a>
 							<div class="dropdown-menu w dropdown-menu-scale pull-right">
 								<a class="dropdown-item" href="{% url 'social:create_post' %}"><span>پست جدید</span></a>

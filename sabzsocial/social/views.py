@@ -24,21 +24,21 @@ def log_out(request):
 def profile(request):
     try:
         user = User.objects.prefetch_related('followers', 'following').get(id=request.user.id)
-        saved_posts = user.saved_posts.all()[:7]
-        my_posts = user.user_posts.all()[:8]
-        following = user.get_followings()
-        followers = user.get_followers()
-        conntext = {
-            'saved_posts': saved_posts,
-            'my_posts': my_posts,
-            'user': user,
-            'following': following,
-            'followers': followers,
-            'form': CommentForm()
-        }
-        return render(request, 'social/profile.html', conntext)
     except:
         return redirect('social:login')
+    saved_posts = user.saved_posts.all()[:7]
+    my_posts = user.user_posts.all()[:8]
+    following = user.get_followings()
+    followers = user.get_followers()
+    conntext = {
+        'saved_posts': saved_posts,
+        'my_posts': my_posts,
+        'user': user,
+        'following': following,
+        'followers': followers,
+        'form': CommentForm()
+    }
+    return render(request, 'social/profile.html', conntext)
 
 
 def register(request):
@@ -85,13 +85,14 @@ def ticket(request):
 
 def post_list(request, tag_slug=None):
     posts = Post.objects.select_related('author').order_by('-total_likes')
+    latest_users = User.objects.filter(is_active=True).order_by('-date_joined')[:4]
     tag = None
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
         posts = Post.objects.filter(tags__in=[tag])
 
     page = request.GET.get('page')
-    paginator = Paginator(posts, 2)
+    paginator = Paginator(posts, 3)
     try:
         posts = paginator.page(page)
     except PageNotAnInteger:
@@ -104,6 +105,7 @@ def post_list(request, tag_slug=None):
     context = {
         'posts': posts,
         'tag': tag,
+        'latest_users': latest_users,
     }
     return render(request, "social/list.html", context)
 
@@ -129,11 +131,11 @@ def post_detail(request, pk):
     post = get_object_or_404(Post, id=pk)
     post_tags_ids = post.tags.values_list('id', flat=True)
     similar_post = Post.objects.filter(tags__in=post_tags_ids).exclude(id=post.id)
-    similar_post = similar_post.annotate(same_tags=Count('tags')).order_by('-same_tags', '-created')[:2]
-
+    similar_post = similar_post.annotate(same_tags=Count('tags')).order_by('-same_tags', '-created')[:4]
     context = {
         'post': post,
-        'similar_post': similar_post
+        'similar_post': similar_post,
+        'form':CommentForm()
     }
     return render(request, "social/detail.html", context)
 

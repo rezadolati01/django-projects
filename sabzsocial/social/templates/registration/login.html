@@ -1,31 +1,26 @@
+{% extends 'parent/base.html' %}
+{% block title %} login {% endblock %}
+{% load static %}
+{% block content %}
 
-    <section class="py-4">
-	<div class="container">
-    <div class="row pb-4">
-			<div class="col-12">
-        <!-- Title -->
-        <h1 class="mb-0 h3">ورود</h1>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12">
-				<!-- Chart START -->
-				<div class="card border h-100">
-					<!-- Card body -->
-					<div class="card-body">
-            <!-- Form START -->
-    <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-        <input type="hidden" name="next", value="{{ next }}">
-     <button class="btn btn-primary" type="submit">ورود</button>
-    </form>
-{#    <p> <a href="{% url 'blog:password_reset' %}">آیا رمز خود را فراموش کرده اید؟</a> </p>#}
+ <section class="login">
+  <div class="container">
+   <div class="banner-content">
 
-                        <!-- Form END -->
-        </div>
-    </div><!-- Chart END -->
-</div>
-    </div>
-	</div>
-</section>
+      <form method="post" class="form-signin">
+           <h3 class="form-signin-heading"> شماره تلفن و پسورد را وارد کنید </h3>
+           <div class="form-group">
+            {% csrf_token %}
+            {{ form.as_p }}
+           </div>
+           <button class="kafe-btn kafe-btn-mint btn-block" type="hidden" name="next", value="{{ next }}">وارد شوید</button>
+           <br/>
+           <a class="btn btn-dark " href="{% url 'social:register' %}" role="button">هنوز حساب کاربری ندارید؟ اینجا ثبت نام کنید.</a>
+           <a class="btn btn-dark " href="{% url 'social:password_reset' %}" role="button">پسورد خود را فراموش کرده اید؟</a>
+      </form>
+
+   </div><!--/. banner-content -->
+  </div><!-- /.container -->
+ </section>
+
+{% endblock %}

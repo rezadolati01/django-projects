@@ -20,7 +20,7 @@
 									<div class="image">
 										<a href="#">
                                             {% if user.photo %}
-											<img src="{{ user.photo.url}}" class="img-responsive img-circle"
+											<img src="{% thumbnail user.photo 500x500 crop="0,0" %}" class="img-responsive img-circle"
 												alt="User">
                                             {% else %}
                                                 <img src="{% static 'images/profile/Avatar.png' %}" class="img-responsive img-circle"
@@ -59,7 +59,7 @@
 								<p>{{ user.job }} </p>
                                 <hr>
 								<small class="text-muted">تاریخ تولد : </small>
-								<p>{{ user.date_of_birth}} </p>
+								<p>{{ user.date_of_birth|date:"Y/m/d"}} </p>
 								<hr>
 							</li>
 						</ul>
@@ -135,7 +135,7 @@
                             {% for follower in followers|slice:"0:5" %}
 							<div class="suggestion-body">
                             {% if follower.photo %}
-								<img class="img-responsive img-circle" src="{{ flw.photo.url}}" alt="">
+								<img class="img-responsive img-circle" src="{{ follower.photo.url}}" alt="">
                             {% else %}
                                 <img class="img-responsive img-circle" src="{% static 'images/profile/Avatar.png' %}" alt="">
                             {% endif %}

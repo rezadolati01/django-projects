@@ -9,7 +9,22 @@
 
 						<div class="col-md-8 modal-image">
 							<img class="img-responsive" src="{{my_post.images.first.image_file.url}}" alt="Image" />
-						</div>
+								<br>
+                                <div class="text-center">
+                                           <p class="text-dark">
+                                               {{ my_post.description }}
+                                           </p>
+                                        </div>
+                                <br>
+                                    <div class="text-center">
+                                        {% for tag in my_post.tags.all %}
+                                           <a class="text-dark" href="{% url 'social:post_list_by_tag' tag.slug %}">
+                                               <button> {{ tag.name }}</button>
+                                           </a>
+                                            {% if not forloop.last %}, {% endif %}
+                                        {% endfor %}
+                                        </div>						</div>
+                    <br>
 						<!--/ col-md-8 -->
 						<div class="col-md-4 modal-meta">
 							<div class="modal-meta-top">
