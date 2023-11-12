@@ -1,50 +1,214 @@
+{% extends 'parent/base.html' %}
 {% load thumbnail %}
 {% load static %}
+{% block title %} profile {% endblock %}
+
+{% block content %}
 
 
-<p>{{ user.get_full_name }}</p>
 
-{% if request.user == user %}
-    <button disabled>
-        {% if request.user in user.followers.all%}
-            UnFollow
-        {% else %}
-            Follow
-        {% endif %}
-    </button>
-{% else %}
-      <button class="follow-button">
-        {% if request.user in user.followers.all%}
-            UnFollow
-        {% else %}
-            Follow
-        {% endif %}
-    </button>
-{% endif %}
+	<section class="profile">
+		<div class="container-fluid">
+			<div class="row">
 
-{% if user.photo %}
-    <a href="{{ user.photo.url }}">
-    <img src="{% thumbnail user.photo 150x0 quality=90 %}">
-    </a>
-{% else %}
-<img src="{% static 'images/profile/Avatar.png' %}" style="width: 200px;">
-{% endif %}
+				<div class="col-lg-3">
+					<div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url('{% static 'img/posts/4.jpg' %}') no-repeat;
+		          background-size: cover;
+                  background-position: center center;
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;">
+					</div>
+					<div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url('{% static 'img/posts/1.jpg' %}') no-repeat;
+		          background-size: cover;
+                  background-position: center center;
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;">
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="profilebox-large hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url('{% static 'img/posts/9.jpg' %}') no-repeat;
+		          background-size: cover;
+                  background-position: center center;
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;">
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url('{% static 'img/posts/11.jpg' %}') no-repeat;
+		          background-size: cover;
+                  background-position: center center;
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;">
+					</div>
+					<div class="profilebox" style="background: linear-gradient( rgba(34,34,34,0.6), rgba(34,34,34,0.6)), url('{% static 'img/posts/12.jpg' %}') no-repeat;
+		          background-size: cover;
+                  background-position: center center;
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;">
+					</div>
+				</div>
 
-    <p>Bio: {{ user.bio|default:'---' }}</p>
-    <p>Job: {{ user.job|default:'---' }}</p>
-    <p>Date of birth: {{ user.date_of_birth|default:'---' }}</p>
+			</div>
+			<!--/ row-->
+		</div>
+		<!--/ container -->
+	</section>
+	<!--/ profile -->
 
-{% with total_followers=user.followers.count total_following=user.following.count  %}
-    <span class="followers-count">{{total_followers}} Follower{{ total_followers|pluralize }}</span>
-    <span class="following-count">{{total_following}} Following</span>
+	<!-- ==============================================
+	 User Profile Section
+	 =============================================== -->
+	<section class="user-profile">
+		<div class="container-fluid">
+			<div class="row">
 
-{% endwith %}
+				<div class="col-lg-12">
+					<div class="post-content">
+						<div class="author-post text-center">
+							<a href="#"><img class="img-fluid img-circle" src="{{ user.photo.url}}" alt="Image"></a>
+						</div><!-- /author -->
+					</div><!-- /.post-content -->
+				</div><!-- /col-sm-12 -->
+
+			</div>
+			<!--/ row-->
+		</div>
+		<!--/ container -->
+	</section>
+	<!--/ profile -->
+
+	<!-- ==============================================
+	 User Profile Section
+	 =============================================== -->
+	<section class="details">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+
+					<div class="details-box row">
+						<div class="col-lg-9">
+							<div class="content-box">
+								<h4>{{ user.get_full_name}} <i class="fa fa-check"></i></h4>
+								<p>{{ user.bio |default:"این کاربر بایو ندارد."}}</p>
+								<p>{{ user.job |default:"این کاربر شغلی ندارد."}}</p>
+								<small><span>{{ user.username }}</span></small>
+
+							</div>
+							<!--/ media -->
+						</div>
+						<div class="col-lg-3">
+                            {% if request.user == user %}
+                                    {% if request.user in user.followers.all%}
+                                        <button class="kafe-btn kafe-btn-default-mint" > آنفالو </button>ton>
+                                    {% else %}
+                                        <button class="kafe-btn kafe-btn-default-mint" > فالو </button>
+                                    {% endif %}
+                            {% else %}
+                                    {% if request.user in user.followers.all%}
+                                        <button class="kafe-btn kafe-btn-danger" id="follow-button"> آنفالو </button>
+                                    {% else %}
+                                        <button class="kafe-btn kafe-btn-mint" id="follow-button"> فالو </button>
+                                    {% endif %}
+                            {% endif %}
+							<!--/ dropdown -->
+						</div>
+					</div>
+					<!--/ details-box -->
+
+				</div>
+			</div>
+		</div>
+		<!--/ container -->
+	</section>
+	<!--/ profile -->
+
+	<!-- ==============================================
+	 Home Menu Section
+	 =============================================== -->
+	<section class="home-menu">
+		<div class="container">
+			<div class="row">
+
+				<div class="menu-category">
+                    {% with total_followers=user.followers.count total_following=user.following.count total_post=user.user_posts.count %}
+					<ul class="menu">
+						<li class="current-menu-item"><a href="photo_profile.html">پست&nbsp;<span>&nbsp;{{total_post}}&nbsp;</span></a></li>
+						<li><a href="photo_followers.html">دنبال کننده&nbsp;<span class="followers-count">&nbsp;{{total_followers}}&nbsp;</span></a></li>
+						<li><a href="photo_followers.html">نفر را دنبال می کند&nbsp;<span class="following-count">&nbsp;{{total_following}}&nbsp;</span></a></li>
+					</ul>
+                    {% endwith %}
+				</div>
+
+			</div>
+			<!--/row -->
+		</div>
+		<!--/container -->
+	</section>
+	<!--/home-menu -->
+
+	<!-- ==============================================
+	 News Feed Section
+	 =============================================== -->
+	<section class="newsfeed">
+		<div class="container">
+
+			<div class="row">
+				{% for post in user.user_posts.all %}
+				<div class="col-lg-4">
+					<a href="{% url 'social:post_detail' post.id %}" data-toggle="modal">
+						<div class="explorebox" style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url('{{post.images.first.image_file.url}}') no-repeat;
+		          background-size: cover;
+                  background-position: center center;
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;">
+							<div class="explore-top">
+								<div class="explore-like"><i class="fa fa-heart"></i> <span>{{ post.total_likes}}</span></div>
+								<div class="explore-circle pull-left"></i> <span>{{ post.total_saves}}</span> <i class="far fa-bookmark"></i></div>
+							</div>
+						</div>
+					</a>
+				</div>
+                {% endfor %}
+
+
+			</div>
+			<!--/ row -->
+
+
+		</div>
+		<!--/ container -->
+	</section>
+	<!--/ newsfeed -->
+
+	<!-- ==============================================
+	 Scripts
+	 =============================================== -->
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/base.js' %}"></script>
+	<script src="{% static 'plugins/slimscroll/jquery.slimscroll.js' %}"></script>
+	<script>
+	$('#Slim,#Slim2').slimScroll({
+	        height:"auto",
+			position: 'right',
+			railVisible: true,
+			alwaysVisible: true,
+			size:"8px",
+		});
+	</script>
+
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     $(document).ready(function() {
-        $('.follow-button').click(function() {
+        $('#follow-button').click(function() {
             var button = $(this);
 
             $.ajax({
@@ -53,15 +217,22 @@
                 data: {'id': '{{user.id}}', 'csrfmiddlewaretoken': '{{ csrf_token }}'},
                 success: function(data) {
                     if (data.follow){
-                        button.text('UnFollow');
+                        button.removeClass('kafe-btn-mint');
+                        button.addClass('kafe-btn-danger');
+                        button.text('آنفالو');
                     } else {
-                        button.text('Follow');
+                        button.removeClass('kafe-btn-danger');
+                        button.addClass('kafe-btn-mint');
+                        button.text('فالو');
                     }
-                    $('.followers-count').text(data.followers_count + 'Follower{{ total_followers|pluralize }}');
-                    $('.following-count').text(data.following_count +'Following');
+                    $('.followers-count').text('  ' + data.followers_count + '  ');
+                    $('.following-count').text('  ' +data.following_count+ '  ');
                 },
             });
         });
 
     });
 </script>
+
+{% endblock %}
+

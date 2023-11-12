@@ -1,16 +1,38 @@
-{% for post in posts %}
-    <a href="{{ post.get_absolute_url }}">
-    	{{ post.description |truncatewords:20|linebreaks }}
-    </a>
-    Published at {{ post.created}} by {{ post.author}}
+<div class="row">
+{% if posts %}
+<br>
+<br>
+{% endif %}
+        {% for post in posts %}
+    <div class="col-lg-4 m-4">
+        <a href="{{ post.get_absolute_url }}" data-toggle="modal">
+            <div class="explorebox" style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url('{{post.images.first.image_file.url}}') no-repeat;
+      background-size: cover;
+      background-position: center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;">
+                <div class="explore-top">
+                    <div class="explore-like"><i class="fa fa-heart"></i> <span>{{ post.total_likes}}</span></div>
+                    <div class="explore-circle pull-left"><span>{{ post.total_saves}}&nbsp;</span><i class="far fa-bookmark"></i></div>
+                </div>
+                <div class="explore-body">
+                    <div class="">
+                        <img class="img-circle" src="{{ post.author.photo.url}}" alt="user">
+                    </div>
+                </div>
 
-
-    <br>
+            </div>
+        </a>
+    <h6 class="">{{ post.created|date:"Y/m/d-H:i"}}</h6>
     {% for tag in post.tags.all %}
-        <a href="{% url 'social:post_list_by_tag' tag.slug %}"> {{ tag.name }}</a>
+       <a class="text-dark" href="{% url 'social:post_list_by_tag' tag.slug %}">
+           <button> {{ tag.name }}</button>
+       </a>
         {% if not forloop.last %}, {% endif %}
     {% endfor %}
-    <br>
-    <br>
-    <hr>
-{% endfor %}
+    </div>
+
+    <!--/ col-lg-4 -->
+        {% endfor %}
+</div>

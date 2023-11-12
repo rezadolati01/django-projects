@@ -1,18 +1,86 @@
+{% extends 'parent/base.html' %}
 {% load thumbnail %}
 {% load static %}
-{% for user in users %}
-{% if user.photo %}
-    <a href="{{user.get_absolute_url}}">
-    <img src="{% thumbnail user.photo 150x0 quality=90 %}">
-    </a>
-{% else %}
-    <a href="{{user.get_absolute_url}}">
-		<img src="{% static 'images/profile/Avatar.png' %}" style="width: 200px;">
-	</a>
-{% endif %}
+{% block title %} users list {% endblock %}
 
-<a href="{{user.get_absolute_url}}">
-	{{ user.get_full_name }}
-</a>
+{% block content %}
 
-{% endfor %}
+	 <section class="followers">
+	  <div class="container-fluid">
+	   <div class="row">
+
+	    <div class="col-lg-8 col-lg-offset-2">
+
+         <div class="followers-box full-width">
+			<div class="followers-list">
+                {% for user in users %}
+					<div class="followers-body">
+                    <a href="{% url 'social:user_detail' user.username %}">
+                        <img class="img-responsive img-circle" src="{{ user.photo.url }}" alt="">
+                    </a>
+				 <div class="name-box">
+				  <h4>{{ user.get_full_name}}</h4>
+				  <span>{{ user.username }}</span>
+				  <div class="followers-base">
+                   <ul class="list-group">
+                    <li class="list-group-item full-width">
+					 <div class="pull-right" style="margin-left: 20px;">
+                         {% for follower in user.followers.all|slice:"0:4" %}
+                          <img src="{{ follower.photo.url}}" alt="" class="img-circle
+                      </a> max-w-40 ">
+                         {% endfor %}
+                     <a href="{% url 'social:user_contact' user.username 'followers' %}">
+					  <button class="btn btn-add-gray">
+                              <i class="fa fa-plus"></i>
+					  </button>
+                     </a>
+					  <span> {{ user.followers.count}} دنبال کننده </span>
+					 </div><!--/ pull-left -->
+					</li>
+                    <li class="list-group-item full-width">
+					 <div class="pull-right">
+                         {% for following in user.following.all|slice:"0:4" %}
+					  <img src="{{ following.photo.url }}" alt="" class="img-circle max-w-40 ">
+						{% endfor %}
+					  <a href="{% url 'social:user_contact' user.username 'following' %}">
+					  <button class="btn btn-add-gray">
+                              <i class="fa fa-plus"></i>
+					  </button>
+                     </a>
+					  <span> {{ user.following.count}} نفر را دنبال می کند</span>
+					 </div><!--/ pull-right -->
+                    </li><!--/ list-group-item -->
+                   </ul>
+				  </div><!--/ followers-base -->
+			     </div><!--/ name-box -->
+				 <span><a href="#" class="kafe-btn kafe-btn-mint-small">دنبال کردن</a></span>
+				</div><!--/ followers-body -->
+                {% endfor %}
+
+			</div><!--suggestions-list end-->
+		</div>
+
+		</div>
+
+       </div><!--/ row-->
+	  </div><!--/ container -->
+	 </section><!--/ profile -->
+
+     <!-- ==============================================
+	 Scripts
+	 =============================================== -->
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/base.js' %}"></script>
+	<script src="{% static 'plugins/slimscroll/jquery.slimscroll.js' %}"></script>
+	<script>
+	$('#Slim,#Slim2').slimScroll({
+	        height:"auto",
+			position: 'right',
+			railVisible: true,
+			alwaysVisible: true,
+			size:"8px",
+		});
+	</script>
+
+{% endblock %}
