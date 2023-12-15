@@ -5,19 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c91d6989-d724-4f24-98c1-ea8ff039c885" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/shop/signals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/static/css/base.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/templates/parent/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/templates/partials/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/templates/partials/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/templates/partials/navigation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/templates/shop/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/templates/shop/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabzshop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sabzshop/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -31,13 +45,16 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;development&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -80,6 +97,11 @@
       <workItem from="1701542059177" duration="88000" />
       <workItem from="1701610852231" duration="2266000" />
       <workItem from="1701633158686" duration="27000" />
+      <workItem from="1701768410363" duration="3929000" />
+      <workItem from="1701787055833" duration="62000" />
+      <workItem from="1702404582376" duration="1220000" />
+      <workItem from="1702568720651" duration="6374000" />
+      <workItem from="1702648099904" duration="408000" />
     </task>
     <servers />
   </component>

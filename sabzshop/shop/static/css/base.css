@@ -1,0 +1,53 @@
+.header{
+    text-align:center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+.container{
+    display: flex;
+}
+
+.small-div{
+    width: 100px;
+    height: 150px;
+    background-color: dimgray;
+    padding: 10px;
+}
+
+a:link, a:visited{
+    color: white;
+    text-decoration: none;
+}
+
+.large-div{
+    flex-grow: 1;
+    background-color: slategrey;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.product{
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.pic {
+    width: 90%;
+}
+
+.price{
+    position: relative;
+    margin-top: 10px;
+}
+
+.original-price{
+    text-decoration: line-through;
+    color: red;
+}
+.discounted-price{
+    color: white;
+}
