@@ -17,6 +17,7 @@ def product_list(request, category_slug=None):
         'categories': categories,
         'products': products
     }
+
     return render(request, 'shop/list.html', context)
 
 
@@ -25,4 +26,5 @@ def product_detail(request, id, slug):
     context = {
         'product': product,
     }
+
     return render(request, 'shop/detail.html', context)
