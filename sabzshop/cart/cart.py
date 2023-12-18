@@ -6,7 +6,7 @@ class Cart:
         self.session = request.session
         cart = self.session.get('cart')
         if not cart:
-            self.session['cart'] = {}
+            cart = self.session['cart'] = {}
         self.cart = cart
 
     def add(self, product):
@@ -59,5 +59,4 @@ class Cart:
             yield item
 
     def save(self):
-        self.session['cart'] = self.cart
         self.session.modified = True
