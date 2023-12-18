@@ -7,7 +7,6 @@
     <list default="true" id="c91d6989-d724-4f24-98c1-ea8ff039c885" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart/cart.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/cart.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +104,9 @@
       <workItem from="1702910246853" duration="176000" />
       <workItem from="1702917114123" duration="1205000" />
       <workItem from="1702918370088" duration="463000" />
+      <workItem from="1702923921136" duration="107000" />
+      <workItem from="1702924505267" duration="45000" />
+      <workItem from="1702924985803" duration="1051000" />
     </task>
     <servers />
   </component>
