@@ -17,6 +17,7 @@ def product_list(request, category_slug=None):
         'categories': categories,
         'products': products
     }
+    print('cart:', request.session.get('cart'))
     return render(request, 'shop/list.html', context)
 
 
