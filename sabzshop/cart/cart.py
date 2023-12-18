@@ -14,7 +14,8 @@ class Cart:
         if product_id not in self.cart:
             self.cart[product_id] = {'quantity': 1, 'price': product.new_price, 'weight': product.weight}
         else:
-            self.cart[product_id]['quantity'] += 1
+            if self.cart[product_id]['quantity'] < product.inventory:
+                self.cart[product_id]['quantity'] += 1
         self.save()
 
     def decrease(self, product):
