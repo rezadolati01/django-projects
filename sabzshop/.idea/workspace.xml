@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c91d6989-d724-4f24-98c1-ea8ff039c885" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/cart/templates/cart/detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart/cart.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/cart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/shop/static/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/templates/partials/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/templates/partials/header.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +24,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -48,6 +53,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\django-projects\sabzshop\cart\static\css" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="sabzshop" type="Python.DjangoServer" factoryName="Django server">
       <module name="sabzshop" />
@@ -107,6 +117,16 @@
       <workItem from="1702923921136" duration="107000" />
       <workItem from="1702924505267" duration="45000" />
       <workItem from="1702924985803" duration="1051000" />
+      <workItem from="1702932350731" duration="1962000" />
+      <workItem from="1702938339724" duration="86000" />
+      <workItem from="1702997277036" duration="107000" />
+      <workItem from="1703167920078" duration="610000" />
+      <workItem from="1703746154251" duration="11000" />
+      <workItem from="1703861466771" duration="2142000" />
+      <workItem from="1705397836703" duration="1259000" />
+      <workItem from="1705500567940" duration="10717000" />
+      <workItem from="1705513349196" duration="7000" />
+      <workItem from="1705513938763" duration="645000" />
     </task>
     <servers />
   </component>
