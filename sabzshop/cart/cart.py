@@ -20,7 +20,7 @@ class Cart:
 
     def decrease(self, product):
         product_id = str(product.id)
-        if self.cart[product_id]['quantity'] > 0:
+        if self.cart[product_id]['quantity'] > 1:
             self.cart[product_id]['quantity'] -= 1
         self.save()
 

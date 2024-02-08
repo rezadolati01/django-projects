@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c91d6989-d724-4f24-98c1-ea8ff039c885" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/cart/templates/cart/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/migrations/0002_remove_order_name_order_firs_name_order_last_name.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/migrations/0003_rename_firs_name_order_first_name.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/migrations/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart/cart.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/cart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart/templates/cart/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/cart/templates/cart/detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/shop/static/css/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/templates/partials/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/templates/partials/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabzshop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sabzshop/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +47,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;development&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/algorithm&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -127,6 +131,11 @@
       <workItem from="1705500567940" duration="10717000" />
       <workItem from="1705513349196" duration="7000" />
       <workItem from="1705513938763" duration="645000" />
+      <workItem from="1706282282256" duration="11256000" />
+      <workItem from="1707117685036" duration="177000" />
+      <workItem from="1707158781547" duration="2700000" />
+      <workItem from="1707388167295" duration="3853000" />
+      <workItem from="1707404030296" duration="2853000" />
     </task>
     <servers />
   </component>
