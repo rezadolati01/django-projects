@@ -1,6 +1,6 @@
 <div class="cart-container">
     {% with item_count=cart|length %}
-    <a href="#" class="cart-link">
+    <a href="{% url 'cart:cart_detail' %}" class="cart-link">
         <div class="cart-info-container">
             <span class="cart-icon">🛒</span>
             <span class="cart-info">
