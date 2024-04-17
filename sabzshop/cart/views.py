@@ -3,7 +3,7 @@ from django.views.decorators.http import require_POST
 from shop.models import Product
 from .cart import Cart
 from django.http import JsonResponse
-
+from .common.KaveSms import send_sms_normal, send_sms_with_template
 
 # Create your views here.
 
@@ -18,7 +18,6 @@ def add_to_cart(request, product_id):
             'total_price': cart.get_total_price(),
         }
         return JsonResponse(context)
-
     except:
         return JsonResponse({"error": "Invalid request."})
 
