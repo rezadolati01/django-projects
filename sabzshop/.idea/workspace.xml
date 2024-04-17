@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c91d6989-d724-4f24-98c1-ea8ff039c885" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/account/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account/migrations/0002_shopuser_date_joined.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/common/KaveSms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart/cart.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/cart.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orders/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/orders/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sabzshop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sabzshop/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/orders/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +55,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\django-projects\sabzshop\cart\common" />
       <recent name="C:\Users\User\Desktop\django-projects\sabzshop\cart\static\css" />
     </key>
   </component>
@@ -141,7 +140,23 @@
       <workItem from="1708021660635" duration="34000" />
       <workItem from="1708090772861" duration="20000" />
       <workItem from="1708104854224" duration="13825000" />
-      <workItem from="1708286202783" duration="398000" />
+      <workItem from="1708286202783" duration="4197000" />
+      <workItem from="1708700177889" duration="83000" />
+      <workItem from="1708806086764" duration="3393000" />
+      <workItem from="1708868236091" duration="22000" />
+      <workItem from="1709053631398" duration="4068000" />
+      <workItem from="1709471220511" duration="16000" />
+      <workItem from="1709479711129" duration="1466000" />
+      <workItem from="1709645403915" duration="595000" />
+      <workItem from="1709649057377" duration="18000" />
+      <workItem from="1709656041857" duration="903000" />
+      <workItem from="1709669340971" duration="3000" />
+      <workItem from="1710161295397" duration="1241000" />
+      <workItem from="1710497498197" duration="4295000" />
+      <workItem from="1710534283902" duration="1189000" />
+      <workItem from="1711284577336" duration="155000" />
+      <workItem from="1713305181825" duration="2983000" />
+      <workItem from="1713353041410" duration="421000" />
     </task>
     <servers />
   </component>
