@@ -16,3 +16,7 @@ class OrderAdmin(admin.ModelAdmin):
                     'paid', 'created', 'updated']
     list_filter = ['paid', 'created', 'updated']
     inlines = [OrderItemInline, ]
+
+@admin.register(OrderItem)
+class OrderItemAdmin(admin.ModelAdmin):
+    list_display = ['product',]
