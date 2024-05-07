@@ -1,10 +1,12 @@
 from django.db import models
 from shop.models import Product
+from account.models import ShopUser
 
 
 # Create your models here.
 
 class Order(models.Model):
+    buyer = models.ForeignKey(ShopUser, related_name='orders', on_delete=models.SET_NULL, null=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     phone = models.CharField(max_length=11)
@@ -31,11 +33,11 @@ class Order(models.Model):
     def get_post_cost(self):
         weight = sum(item.get_weight() for item in self.items.all())
         if weight < 1000:
-            return 20000
+            return 0
         elif 1000 <= weight <= 2000:
-            return 30000
+            return 0
         else:
-            return 50000
+            return 0
 
     def get_final_cost(self):
         price = self.get_post_cost() + self.get_total_cost()

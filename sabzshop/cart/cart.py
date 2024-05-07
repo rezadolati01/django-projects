@@ -37,7 +37,7 @@ class Cart:
     def get_post_price(self):
         weight = sum(item['weight'] * item['quantity'] for item in self.cart.values())
         if weight < 1000:
-            return 20000
+            return 0
         elif 1000 <= weight <= 2000:
             return 30000
         else:
