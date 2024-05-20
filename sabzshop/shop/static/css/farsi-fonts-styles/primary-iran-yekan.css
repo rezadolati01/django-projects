@@ -1,0 +1,39 @@
+@font-face {
+	font-family: "primary-font";
+	src: url("../fonts/farsi-fonts/iran-yekan-300.eot");
+	src: url("../fonts/farsi-fonts/iran-yekan-300.eot?#iefix") format("embedded-opentype"),
+		 url("../fonts/farsi-fonts/iran-yekan-300.woff2") format("woff2"),
+		 url("../fonts/farsi-fonts/iran-yekan-300.woff") format("woff"),
+		 url("../fonts/farsi-fonts/iran-yekan-300.ttf") format("truetype");
+	font-weight: 300;
+}
+
+@font-face {
+	font-family: "primary-font";
+	src: url("../fonts/farsi-fonts/iran-yekan-400.eot");
+	src: url("../fonts/farsi-fonts/iran-yekan-400.eot?#iefix") format("embedded-opentype"),
+		 url("../fonts/farsi-fonts/iran-yekan-400.woff2") format("woff2"),
+		 url("../fonts/farsi-fonts/iran-yekan-400.woff") format("woff"),
+		 url("../fonts/farsi-fonts/iran-yekan-400.ttf") format("truetype");
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: "primary-font";
+	src: url("../fonts/farsi-fonts/iran-yekan-500.eot");
+	src: url("../fonts/farsi-fonts/iran-yekan-500.eot?#iefix") format("embedded-opentype"),
+		 url("../fonts/farsi-fonts/iran-yekan-500.woff2") format("woff2"),
+		 url("../fonts/farsi-fonts/iran-yekan-500.woff") format("woff"),
+		 url("../fonts/farsi-fonts/iran-yekan-500.ttf") format("truetype");
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: "primary-font";
+	src: url("../fonts/farsi-fonts/iran-yekan-700.eot");
+	src: url("../fonts/farsi-fonts/iran-yekan-700.eot?#iefix") format("embedded-opentype"),
+		 url("../fonts/farsi-fonts/iran-yekan-700.woff2") format("woff2"),
+		 url("../fonts/farsi-fonts/iran-yekan-700.woff") format("woff"),
+		 url("../fonts/farsi-fonts/iran-yekan-700.ttf") format("truetype");
+	font-weight: 700;
+}

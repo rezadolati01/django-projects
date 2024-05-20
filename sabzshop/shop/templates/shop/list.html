@@ -1,40 +1,53 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
 {% extends 'parent/base.html' %}
 {% load static %}
 {% block title %}product list{% endblock %}
 
 {% block content %}
-    <div class="header">
-        {% if category %}
-            <h1>لیست محصولات بر اساس دسته بندی {{ category.name }}</h1>
-        {% else %}
-            <h1> لیست محصولات</h1>
-        {% endif %}
-    </div>
 
-    <div class="container">
-        <div class="small-div">
-            <ul class="categories">
-                <li class="category"><a href="{% url 'shop:product_list' %}">All</a></li>
-                {% for ct in categories %}
-                <li class="category"><a href="{{ ct.get_absolute_url }}">{{ ct.name }}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
+		<div class="body">
 
-        <div class="large-div">
-            {% for product in products %}
-                <div class="product">
-                    <h2><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h2>
-                    <img class="pic" src="{{ product.images.first.file.url }}">
-                    <div class="price">
-                        <span class="original-price">{{ product.price}}</span>
-                        <br>
-                        <span class="discounted-price">{{ product.new_price}}</span>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
+			<div role="main" class="main shop py-4">
 
-    </div>
+				<div class="container">
+					<div class="masonry-loader masonry-loader-showing">
 
+						<div class="row products product-thumb-info-list" data-plugin-masonry data-plugin-options="{'layoutMode': 'fitRows'}">
+                            {% for product in products %}
+							<div class="col-12 col-sm-6 col-lg-3 product">
+								<a href="{{ product.get_absolute_url }}">
+									<span class="onsale">ویژه!</span>
+								</a>
+								<span class="product-thumb-info border-0">
+{#									<a href="shop-cart.html" class="add-to-cart-product bg-color-primary">#}
+{#										<span class="text-1">افزودن به سبد</span>#}
+{#									</a>#}
+									<a href="{{ product.get_absolute_url }}">
+										<span class="product-thumb-info-image">
+											<img alt="" class="img-fluid" src="{{ product.images.first.file.url }}">
+										</span>
+									</a>
+									<span class="product-thumb-info-content product-thumb-info-content pl-0 bg-color-light">
+										<a href="{{ product.get_absolute_url }}">
+											<h4 class="text-4 text-primary">{{ product.name }}</h4>
+											<span class="price">
+												<del><span class="amount">{{ product.price }} تومان</span></del>
+												<ins><span class="amount text-dark font-weight-semibold">{{ product.new_price }} تومان</span></ins>
+											</span>
+										</a>
+									</span>
+								</span>
+							</div>
+                            {% endfor %}
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
 {% endblock %}
+</html>

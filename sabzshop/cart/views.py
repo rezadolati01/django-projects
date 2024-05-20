@@ -5,6 +5,7 @@ from .cart import Cart
 from django.http import JsonResponse
 from .common.KaveSms import send_sms_normal, send_sms_with_template
 
+
 # Create your views here.
 
 @require_POST
@@ -31,6 +32,8 @@ def cart_detail(request):
 def update_quantity(request):
     item_id = request.POST.get('item_id')
     action = request.POST.get('action')
+    print(item_id)
+    print(action)
     try:
         product = get_object_or_404(Product, id=item_id)
         cart = Cart(request)
@@ -56,6 +59,7 @@ def update_quantity(request):
 @require_POST
 def remove_item(request):
     item_id = request.POST.get('item_id')
+    print(item_id)
     try:
         product = get_object_or_404(Product, id=item_id)
         cart = Cart(request)
