@@ -1,0 +1,20 @@
+{% extends 'parent/base.html' %}
+{% load static %}
+{% block title %}payment{% endblock %}
+
+{% block content %}
+    {% if success %}
+        <div class="success">
+            <p>پرداخت موفق</p>
+            <p>{{ RefID }}: شماره پیگیری </p>
+            <p>{{ order_id }}: شماره سفارش </p>
+        </div>
+    {% else %}
+        <div class="failure">
+            <p>پرداخت با شکست مواجه شد</p>
+        </div>
+    {% endif %}
+
+    <a class="back-btn" href= "{% url 'shop:product_list' %}">بازگشت به لیست محصولات</a>
+
+{% endblock %}

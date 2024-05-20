@@ -1,0 +1,13 @@
+{% for item in order.items.all %}
+    نام محصول:{{ item.product.name }}
+    <br />
+    تعداد: {{ item.quantity }}
+    <br />
+    قیمت:{{ item.price }}
+    <br />
+{% endfor %}
+
+<br /><br /><br />
+تاریخ ایجاد: {{ order.created }}
+<br />
+آدرس: {{ order.address }}

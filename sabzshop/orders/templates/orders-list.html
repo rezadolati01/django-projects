@@ -1,0 +1,28 @@
+<h1>لیست سفارش‌ها</h1>
+<table>
+    <thead>
+        <tr>
+            <th>شماره سفارش</th>
+            <th>تاریخ سفارش</th>
+            <th>وضعیت سفارش</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for order in orders %}
+        <tr>
+
+           <td>
+               <a href="{% url 'orders:order-detail' order.id %}">
+               {{ order.id }}
+               </a>
+           </td>
+            <td>{{ order.created }}</td>
+            {% if order.paid %}
+            <td class="success">موفق</td>
+            {% else %}
+            <td class="success">نا موفق</td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
