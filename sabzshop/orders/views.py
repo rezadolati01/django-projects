@@ -164,6 +164,7 @@ def orders_list(request):
     orders = Order.objects.filter(buyer=user)
     return render(request, 'orders-list.html', {'orders': orders})
 
+
 def order_detail(request, id):
     order = Order.objects.get(id=id)
-    return render(request, 'order-detail.html', {'order':order})
+    return render(request, 'order-detail.html', {'order': order})

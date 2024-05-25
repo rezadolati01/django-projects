@@ -1,11 +1,61 @@
-<h2>بررسی کد تایید</h2>
-{% for message in messages %}
-    <div>
-    {{ message }}
-    </div>
-{% endfor %}
-<form method="post">
-    {% csrf_token %}
-    <input type="text", name="code" placeholder="کد تایید را وارد کنید">
-    <button type="submit">تایید کد</button>
-</form>
+<!DOCTYPE html>
+<html dir="rtl">
+{% extends 'parent/base.html' %}
+{% load static %}
+{% block title %}تایید کد{% endblock %}
+
+{% block content %}
+		<div class="body">
+
+			<div role="main" class="main">
+
+				<section class="page-header page-header-modern page-header-background page-header-background-sm overlay overlay-color-primary overlay-show overlay-op-8 mb-5" style="background-image: url(img/page-header/page-header-elements.jpg);">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12 align-self-center p-static order-2 text-center">
+								<h1 class="mb-n2">بررسی کد تایید</h1>
+							</div>
+							<div class="col-md-12 align-self-center order-1">
+								<ul class="breadcrumb breadcrumb-light d-block text-center">
+{#									<li><a href="#">خانه</a></li>#}
+{#									<li class="active">عناصر</li>#}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<div class="container py-2">
+
+					<div class="row">
+						<div class="col">
+                        <form  method="post">
+							<section class="call-to-action featured featured-tertiary mb-5">
+                            {% csrf_token %}
+								<div class="mx-5">
+									<div class="">
+
+                                        <label>
+                                            <input class="form-control blackboard-text"  type="text" name="code" placeholder="کد تایید را وارد کنید" style="margin-right: 3cm">
+                                        </label>
+                                        {% for message in messages %}
+                                        <p class="mb-0" style="margin-right: 3cm"><strong class="font-weight-extra-bold text-success">{{ message }}</strong></p>
+									    {% endfor %}
+                                    </div>
+								</div>
+								<div class="" style="margin-right: 8cm">
+									<div class="call-to-action-btn">
+										<button type="submit" class="btn btn-modern text-2 btn-tertiary">کد تایید</button>
+									</div>
+								</div>
+
+							</section>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+ 
+		</div>
+{% endblock %}
+</html>

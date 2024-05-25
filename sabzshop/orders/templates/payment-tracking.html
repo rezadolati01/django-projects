@@ -1,20 +1,58 @@
+<!DOCTYPE html>
+<html dir="rtl">
 {% extends 'parent/base.html' %}
 {% load static %}
-{% block title %}payment{% endblock %}
+{% block title %}تراکنش{% endblock %}
 
 {% block content %}
-    {% if success %}
-        <div class="success">
-            <p>پرداخت موفق</p>
-            <p>{{ RefID }}: شماره پیگیری </p>
-            <p>{{ order_id }}: شماره سفارش </p>
-        </div>
-    {% else %}
-        <div class="failure">
-            <p>پرداخت با شکست مواجه شد</p>
-        </div>
-    {% endif %}
 
-    <a class="back-btn" href= "{% url 'shop:product_list' %}">بازگشت به لیست محصولات</a>
+
+		<div class="body">
+
+			<div role="main" class="main">
+
+				<section class="page-header page-header-modern page-header-background page-header-background-sm overlay overlay-color-primary overlay-show overlay-op-8 mb-5" style="background-image: url(img/page-header/page-header-elements.jpg);">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12 align-self-center p-static order-2 text-center">
+								<h1 class="mb-n2">تراکنش</h1>
+							</div>
+							<div class="col-md-12 align-self-center order-1">
+								<ul class="breadcrumb breadcrumb-light d-block text-center">
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<div class="container py-2" style="margin-right: 15cm">
+					<div class="row mb-5 pb-3">
+						<div class="col-md-6 col-lg-4 mb-5 mb-lg-0 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">
+                            {% if success %}
+							<div class="card card-background-image-hover border-0 " style="background-color: darkgreen">
+								<div class="card-body text-center p-5">
+									<i class="fa fa-check-circle text-success"></i>
+									<h4 class="card-title mt-2 mb-2 text-5 font-weight-bold">تراکنش موفق</h4>
+                                    <p class="card-text">شماره پیگیری: {{ RefID }}</p>
+                                    <p class="card-text">شماره سفارش: {{ order_id }}</p>
+									<a href="{% url 'shop:index' %}" class="btn btn-primary btn-modern">خانه</a>
+								</div>
+							</div>
+                            {% else %}
+                            <div class="card card-background-image-hover border-0" style="background-color: #cd3333;">
+								<div class="card-body text-center p-5">
+									<i class="fa fa-minus-circle text-danger"></i>
+									<h4 class="card-title mt-2 mb-2 text-5 font-weight-bold">تراکنش ناموفق</h4>
+                                    <br>
+									<a href="{% url 'shop:index' %}" class="btn btn-primary btn-modern">خانه</a>
+								</div>
+							</div>
+                            {% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 {% endblock %}
+</html>

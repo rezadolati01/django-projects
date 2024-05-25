@@ -3,6 +3,8 @@ from .models import Category, Product
 
 
 # Create your views here.
+def index(request):
+    return render(request, 'shop/index.html')
 
 
 def product_list(request, category_slug=None):

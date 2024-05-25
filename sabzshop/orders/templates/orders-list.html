@@ -1,28 +1,90 @@
-<h1>لیست سفارش‌ها</h1>
-<table>
-    <thead>
-        <tr>
-            <th>شماره سفارش</th>
-            <th>تاریخ سفارش</th>
-            <th>وضعیت سفارش</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for order in orders %}
-        <tr>
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+{% extends 'parent/base.html' %}
+{% load static %}
+{% block title %}لیست سفارش ها{% endblock %}
 
-           <td>
-               <a href="{% url 'orders:order-detail' order.id %}">
-               {{ order.id }}
-               </a>
-           </td>
-            <td>{{ order.created }}</td>
-            {% if order.paid %}
-            <td class="success">موفق</td>
-            {% else %}
-            <td class="success">نا موفق</td>
-            {% endif %}
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+{% block content %}
+
+		<div class="body">
+
+			<div role="main" class="main">
+
+				<div class="container py-2">
+
+					<div class="row">
+						<div class="col">
+							<div class="row">
+								<div class="col pb-3">
+									<h4>تراکنش ها من</h4>
+
+									<table class="table">
+										<thead>
+											<tr>
+												<th>
+													شماره سفارش
+												</th>
+												<th>
+													تاریخ سفارش
+												</th>
+												<th>
+													وضعیت سفارش
+												</th>
+                                                <th>
+                                                    کدپستی
+                                                </th>
+											</tr>
+										</thead>
+										<tbody>
+                                        {% for order in orders %}
+                                            {% if order.paid %}
+											<tr style="background-color: #9aae67">
+												<th scope="row" class="px-4">
+													<a href="{% url 'orders:order-detail' order.id %}">
+                                                        {{ order.id }}
+                                                   </a>
+												</th>
+												<td>
+													{{ order.created }}
+												</td>
+                                                <td>
+                                                    موفق
+                                                </td>
+												<td>
+													{{ order.postal_code }}
+												</td>
+											</tr>
+                                            {% else %}
+                                                <tr style="background-color: #ca7979">
+												<th scope="row" class="px-4">
+													<a href="{% url 'orders:order-detail' order.id %}">
+                                                        {{ order.id }}
+                                                   </a>
+												</th>
+												<td>
+													{{ order.created }}
+												</td>
+                                                <td>
+                                                    ناموفق
+                                                </td>
+												<td>
+													{{ order.postal_code }}
+												</td>
+											</tr>
+                                            {% endif %}
+                                        {% endfor %}
+										</tbody>
+									</table>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+{% endblock %}
+</html>
