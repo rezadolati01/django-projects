@@ -1,13 +1,58 @@
-{% for item in order.items.all %}
-    نام محصول:{{ item.product.name }}
-    <br />
-    تعداد: {{ item.quantity }}
-    <br />
-    قیمت:{{ item.price }}
-    <br />
-{% endfor %}
+<!DOCTYPE html>
+<html dir="rtl">
+{% extends 'parent/base.html' %}
+{% load static %}
+{% block title %}جزئیات سفارش{% endblock %}
 
-<br /><br /><br />
-تاریخ ایجاد: {{ order.created }}
-<br />
-آدرس: {{ order.address }}
+{% block content %}
+		<div class="body">
+
+			<div role="main" class="main">
+
+				<section class="page-header page-header-modern page-header-background page-header-background-sm overlay overlay-color-primary overlay-show overlay-op-8 mb-5" style="background-image: url(img/page-header/page-header-elements.jpg);">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12 align-self-center p-static order-2 text-center">
+								<h1 class="mb-n2">جزئیات تراکنش</h1>
+							</div>
+							<div class="col-md-12 align-self-center order-1">
+								<ul class="breadcrumb breadcrumb-light d-block text-center">
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<div class="container py-2">
+
+					<div class="row">
+						<div class="col">
+
+							<div class="row" style="margin-right: 12cm">
+								<div class="col-lg-6">
+
+									<ul class="list list-icons">
+                                        {% for item in order.items.all %}
+										<li><i class="fas fa-check"></i>نام محصول:  {{ item.product.name }}</li>
+										<li><i class="fas fa-arrow-alt-circle-left"></i>تعداد:  {{ item.quantity }}</li>
+										<li><i class="fas fa-money-bill-wave"></i>قیمت:  {{ item.price }}</li>
+									    {% endfor %}
+										<li><i class="fa fa-history"></i>تاریخ ایجاد:  {{ order.created }}</li>
+										<li><i class="fa fa-list"></i>استان:  {{ order.province }}</li>
+                                        <li><i class="fa fa-city"></i>شهر:  {{ order.city }}</li>
+                                        <li><i class="far fa-address-card"></i>آدرس:  {{ order.address }}</li>
+                                    </ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+ 
+		</div>
+
+{% endblock %}
+</html>

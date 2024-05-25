@@ -2,7 +2,7 @@
 <html dir="rtl" lang="fa">
 {% extends 'parent/base.html' %}
 {% load static %}
-{% block title %}cart{% endblock %}
+{% block title %}سبد خرید{% endblock %}
 
 {% block content %}
 
@@ -126,7 +126,7 @@
 							<div class="row">
 								<div class="col">
 									<div class="actions-continue mt-2">
-										<button type="submit" class="btn  btn-primary btn-modern text-uppercase">پرداخت <i class="fas fa-angle-left ml-1"></i></button>
+										<a href="{% url 'orders:verify_phone' %}" class="btn  btn-primary btn-modern text-uppercase">پرداخت <i class="fas fa-angle-left ml-1"></i></a>
 									</div>
 								</div>
 							</div>

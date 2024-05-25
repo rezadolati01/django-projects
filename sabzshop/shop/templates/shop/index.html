@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html dir="rtl">
+{% extends 'parent/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+		<div class="body">
+
+			<div role="main" class="main">
+
+				<section class="page-header page-header-modern page-header-background page-header-background-sm overlay overlay-color-primary overlay-show overlay-op-8 mb-5" style="background-image: url(img/page-header/page-header-elements.jpg);">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12 align-self-center p-static order-2 text-center">
+								<h1 class="mb-n2">خانه</h1>
+							</div>
+							<div class="col-md-12 align-self-center order-1">
+								<ul class="breadcrumb breadcrumb-light d-block text-center">
+{#									<li><a href="#">خانه</a></li>#}
+{#									<li class="active">عناصر</li>#}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<div class="container py-2">
+
+					<div class="row">
+						<div class="col">
+
+							<div class="row">
+								<div class="col pb-3">
+
+
+									<div class="alert alert-success text-center">
+                                        <a href="{% url 'shop:product_list' %}" class="alert-link" style="font-size: 22px">محصولات</a>
+									</div>
+
+									<div class="alert alert-info text-center">
+										<a href="{% url 'orders:orders-list' %}" class="alert-link" style="font-size: 22px">سفارش های من</a>
+									</div>
+
+{#									<div class="alert alert-warning">#}
+{#										<strong>باید به عرضتان برسانیم!</strong> این قالب با عشق ساخته شده توسط <a href="#" class="alert-link">v3dboy</a>.#}
+{#									</div>#}
+{##}
+{#									<div class="alert alert-danger">#}
+{#										<strong>اوه نه!</strong> از قالب دیگری استفاده می کنید؟ <a href="#" class="alert-link">پورتو را خریداری کنید</a> و مشتریان خود را بسیار خوشحال کنید.#}
+{#									</div>#}
+{##}
+{#									<div class="alert alert-dark">#}
+{#										<strong>عالیه!</strong> شما از یک قالب عالی استفاده می کنید! <a href="#" class="alert-link">به پورتو سلام کنید.</a>.#}
+{#									</div>#}
+{##}
+{#									<hr class="solid my-5">#}
+
+
+
+
+									<hr class="solid my-5">
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+{% endblock %}
+</html>

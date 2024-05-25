@@ -1,22 +1,227 @@
+<!DOCTYPE html>
+<html dir="rtl">
+{% extends 'parent/base.html' %}
+{% load static %}
+{% block title %}ایجاد سفارش{% endblock %}
 
-<h2>
-    محصولات انتخاب شده شمت:
-</h2>
-<ul>
-    {% for item in cart %}
-        <li>
-            {{ item.quantity }} X {{ item.product.name }}
-            {{ item.total }}
-        </li>
-    {% endfor %}
-</ul>
+{% block content %}
+		<div class="body">
 
-<h2>
-    اطلاعات سفارش را تکمیل کنید
-</h2>
+			<div role="main" class="main shop py-4">
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" >تایید سفارش</button>
-</form>
+				<div class="container">
+
+					<div class="row">
+						<div class="col-lg-9">
+                        {{ form.errors }}
+                            <form id="frmBillingAddress" method="post">
+                            {% csrf_token %}
+							<div class="accordion accordion-modern" id="accordion">
+								<div class="card card-default">
+									<div class="card-header">
+										<h4 class="card-title m-0">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+												آدرس صورت حساب
+											</a>
+										</h4>
+									</div>
+									<div id="collapseOne" class="collapse show">
+										<div class="card-body">
+												<div class="form-row">
+													<div class="form-group col-lg-6">
+														<label class="font-weight-bold text-dark text-2" for="id_first_name">نام</label>
+														<input type="text" name="first_name" class="form-control" id="id_first_name">
+													</div>
+													<div class="form-group col-lg-6">
+														<label class="font-weight-bold text-dark text-2" for="id_last_name">نام خانوادگی</label>
+														<input type="text" name="last_name" class="form-control" id="id_last_name">
+													</div>
+												</div>
+												<div class="form-row">
+													<div class="form-group col">
+														<label class="font-weight-bold text-dark text-2" for="id_phone">شماره تلفن</label>
+														<input type="text" name="phone" class="form-control" id="id_phone">
+													</div>
+                                                    <div class="form-group col">
+														<label class="font-weight-bold text-dark text-2" for="id_postal_code">کدپستی</label>
+														<input type="text" name="postal_code" class="form-control" id="id_postal_code">
+													</div>
+												</div>
+												<div class="form-row">
+													<div class="form-group col">
+														<label class="font-weight-bold text-dark text-2" for="id_province">استان </label>
+														<input type="text" name="province" class="form-control" id="id_province">
+													</div>
+                                                    <div class="form-group col">
+														<label class="font-weight-bold text-dark text-2" for="id_city">شهر </label>
+														<input type="text" name="city" class="form-control" id="id_city">
+													</div>
+												</div>
+                                                <div class="form-row">
+                                                    <div class="form-group col">
+														<label class="font-weight-bold text-dark text-2" for="id_address">آدرس </label>
+														<input type="text" name="address" class="form-control" id="id_address">
+													</div>
+												</div>
+
+												<div class="form-row">
+{#													<div class="form-group col">#}
+{#														<input type="submit" value="ادامه" class="btn btn-xl btn-light pr-4 pl-4 text-2 font-weight-semibold text-uppercase float-right mb-2" data-loading-text="در حال بارگذاری ...">#}
+{#													</div>#}
+												</div>
+
+										</div>
+									</div>
+								</div>
+								<div class="card card-default">
+{#									<div class="card-header">#}
+{#										<h4 class="card-title m-0">#}
+{#											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">#}
+{#												آدرس ارسال#}
+{#											</a>#}
+{#										</h4>#}
+{#									</div>#}
+									<div id="collapseTwo" class="collapse">
+									</div>
+								</div>
+								<div class="card card-default">
+									<div class="card-header">
+										<h4 class="card-title m-0">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+												بررسی و پرداخت
+											</a>
+										</h4>
+									</div>
+									<div id="collapseThree" class="collapse">
+										<div class="card-body">
+											<table class="shop_table cart">
+												<thead>
+													<tr>
+														<th class="product-thumbnail">
+															
+														</th>
+														<th class="product-name">
+															محصول
+														</th>
+														<th class="product-price">
+															قیمت
+														</th>
+														<th class="product-quantity">
+															تعداد
+														</th>
+														<th class="product-subtotal">
+															جمع
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+                                                {% for item in cart %}
+													<tr class="cart_table_item">
+														<td class="product-thumbnail">
+															<a href="{{ item.product.get_absolute_url }}">
+																<img width="100" height="100" alt="" class="img-fluid" src="{{ item.product.images.first.file.url }}">
+															</a>
+														</td>
+														<td class="product-name">
+															<a href="{{ item.product.get_absolute_url }}">{{ item.product.name }}</a>
+														</td>
+														<td class="product-price">
+															<span class="amount">{{ item.product.price }} تومان</span>
+														</td>
+														<td class="product-quantity">
+															{{ item.quantity }}
+														</td>
+														<td class="product-subtotal">
+															<span class="amount">{{ item.total }} تومان</span>
+														</td>
+													</tr>
+                                                {% endfor %}
+												</tbody>
+											</table>
+							
+											<hr class="solid my-5">
+							
+											<h4 class="text-primary">مجموع سبد</h4>
+											<table class="cart-totals">
+												<tbody>
+													<tr class="cart-subtotal">
+														<th>
+															<strong class="text-dark">جمع سبد</strong>
+														</th>
+														<td>
+															<strong class="text-dark"><span class="amount">{{ cart.get_total_price }} تومان</span></strong>
+														</td>
+													</tr>
+													<tr class="shipping">
+														<th>
+															حمل و نقل
+														</th>
+														<td>
+															ارسال رایگان<input type="hidden" value="free_shipping" id="shipping_method" name="shipping_method">
+														</td>
+													</tr>
+													<tr class="total">
+														<th>
+															<strong class="text-dark d-inline-block pt-1">مجموع سفارش</strong>
+														</th>
+														<td>
+															<strong><span class="amount pt-1">{{ cart.get_final_price }} <small>تومان</small></span></strong>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+							
+											<hr class="solid my-5">
+							
+											<h4 class="text-primary">پرداخت</h4>
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+							
+							<div class="actions-continue mt-2">
+                                <button type="submit" class="btn btn-primary btn-modern text-uppercase mt-4 mb-5 mb-lg-0">ثبت سفارش</button>
+							</div>
+                            </form>
+
+						</div>
+						<div class="col-lg-3 mt-3 mt-lg-0 mb-n3">
+							<h4 class="text-primary">مجموع سبد</h4>
+							<table class="cart-totals">
+								<tbody>
+									<tr class="cart-subtotal">
+										<th>
+											<strong class="text-dark">جمع سبد</strong>
+										</th>
+										<td>
+											<strong class="text-dark"><span class="amount">{{ cart.get_total_price }} تومان</span></strong>
+										</td>
+									</tr>
+									<tr class="shipping">
+										<th>
+											حمل و نقل
+										</th>
+										<td>
+											ارسال رایگان<input type="hidden" value="free_shipping" id="shipping_method2" name="shipping_method">
+										</td>
+									</tr>
+									<tr class="total">
+										<th>
+											<strong class="text-dark d-inline-block pt-1">مجموع سفارش</strong>
+										</th>
+										<td>
+											<strong><span class="amount pt-1"><span class="text-1">{{ cart.get_final_price }}</span> <small>تومان</small></span></strong>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+{% endblock %}
+</html>

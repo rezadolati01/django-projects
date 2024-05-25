@@ -40,7 +40,12 @@
                                 <nav class="collapse">
                                     <ul class="nav nav-pills" id="mainNav">
                                         <li class="dropdown">
-                                            <a class="dropdown-item dropdown-toggle" href="">
+                                            <a class="dropdown-item dropdown-toggle" href="{% url 'shop:index' %}">
+                                                خانه
+                                            </a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a class="dropdown-item dropdown-toggle" href="{% url 'shop:product_list' %}">
                                                 {% if category %}
                                                     لیست محصولات بر اساس دسته بندی: <span class="text-danger mx-2">{{ category.name }}</span>
                                                 {% else %}
@@ -53,6 +58,11 @@
                                                 <li class="category"><a href="{{ ct.get_absolute_url }}">{{ ct.name }}</a></li>
                                                 {% endfor %}
                                             </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a class="dropdown-item dropdown-toggle" href="{% url 'orders:orders-list' %}">
+                                                سفارش های من
+                                            </a>
                                         </li>
 {#                                        <li class="dropdown dropdown-mega">#}
 {#                                            <a class="dropdown-item dropdown-toggle" href="elements.html">#}
