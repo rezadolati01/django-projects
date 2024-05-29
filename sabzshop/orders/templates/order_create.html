@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="rtl">
+<html dir="rtl" lang="fa">
 {% extends 'parent/base.html' %}
 {% load static %}
 {% block title %}ایجاد سفارش{% endblock %}
@@ -13,7 +13,6 @@
 
 					<div class="row">
 						<div class="col-lg-9">
-                        {{ form.errors }}
                             <form id="frmBillingAddress" method="post">
                             {% csrf_token %}
 							<div class="accordion accordion-modern" id="accordion">

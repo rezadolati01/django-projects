@@ -20,7 +20,7 @@
                                 </div>
                                 <div class="actions">
                                     <a class="btn btn-dark" href="{% url 'cart:cart_detail' %}">مشاهده سبد</a>
-                                    <a class="btn btn-primary" href="#">پرداخت</a>
+                                    <a class="btn btn-primary" href="{% url 'orders:verify_phone' %}">پرداخت</a>
                                 </div>
                             </div>
                             {% endwith %}
