@@ -11,12 +11,23 @@ from .common.KaveSms import send_sms_normal, send_sms_with_template
 @require_POST
 def add_to_cart(request, product_id):
     try:
+        quantity = request.POST['quantity']
         cart = Cart(request)
         product = get_object_or_404(Product, id=product_id)
-        cart.add(product)
+
+        for _ in range(int(quantity)):
+            cart.add(product)
+
+        cart_quantity = cart.cart[str(product_id)]['quantity']
+
+        if product.inventory == cart_quantity:
+            count = True
+        else:
+            count = False
         context = {
             'item_count': len(cart),
             'total_price': cart.get_total_price(),
+            'cart_count': count,
         }
         return JsonResponse(context)
     except:

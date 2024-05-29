@@ -140,6 +140,7 @@ def verify(request):
         if response.status_code == 200:
             response_json = response.json()
             reference_id = response_json['RefID']
+
             if response_json['Status'] == 100:
                 for item in order.items.all():
                     item.product.inventory -= item.quantity
@@ -160,11 +161,17 @@ def verify(request):
 
 
 def orders_list(request):
-    user = request.user
-    orders = Order.objects.filter(buyer=user)
-    return render(request, 'orders-list.html', {'orders': orders})
+    try:
+        user = request.user
+        orders = Order.objects.filter(buyer=user)
+        return render(request, 'orders-list.html', {'orders': orders})
+    except:
+        return render(request, 'orders-list.html', )
 
 
 def order_detail(request, id):
     order = Order.objects.get(id=id)
-    return render(request, 'order-detail.html', {'order': order})
+    context = {
+        'order': order,
+    }
+    return render(request, 'order-detail.html', context)
