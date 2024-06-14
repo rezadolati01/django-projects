@@ -46,12 +46,17 @@
 								</p>
 
 								<p class="mb-4">موجودی: {{ product.inventory }}</p>
-{#									<div class="quantity quantity-lg">#}
-{#										<input type="button" class="minus" value="-">#}
-{#										<input type="text" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">#}
-{#										<input type="button" class="plus" value="+">#}
-{#									</div>#}
-									<button type="button" class="btn btn-primary btn-modern text-uppercase mb-4" id="add-cart">افزودن به سبد</button>
+									<div class="quantity quantity-lg">
+										<input type="button" class="minus" value="-">
+										<input type="text" class="input-text qty text" title="Qty" value="1" name="quantity" id="id-quantity" min="1" step="1">
+										<input type="button" class="plus" value="+">
+									</div>
+                                {% if count %}
+                                    <button type="button" class="btn btn-primary btn-modern text-uppercase mb-4" id="add-cart" disabled>فاقد موجودی</button>
+                                {% else %}
+                                    <button type="button" class="btn btn-primary btn-modern text-uppercase mb-4" id="add-cart">افزودن به سبد</button>
+                                {% endif %}
+
 								<div class="product-meta">
 									<span class="posted-in">دسته ها: <a rel="tag" href="#">{{ product.category }}</a></span>
 								</div>
@@ -93,15 +98,22 @@
     $(document).ready(function(){
         $('#add-cart').click(function(){
             var button = $(this);
+            var quantity = document.getElementById('id-quantity').value;
 
             $.ajax({
                type: 'POST',
                url: '{% url 'cart:add_to_cart' product.id %}',
-               data:{'csrfmiddlewaretoken':'{{ csrf_token }}'},
+               data:{
+                   'csrfmiddlewaretoken':'{{ csrf_token }}',
+                    'quantity': quantity,
+               },
                success: function(data) {
-                $('#item_count').text(data.item_count);
-                $('#total_price').text(data.total_price);
-
+                   $('#item_count').text(data.item_count);
+                   $('#total_price').text(data.total_price);
+                   if (data.cart_count === true) {
+                       $('#add-cart').attr('disabled', true);
+                       $('#add-cart').text('فاقد موجودی');
+                   }
                },
             });
         });

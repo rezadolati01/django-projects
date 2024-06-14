@@ -21,57 +21,51 @@
 									<table class="table">
 										<thead>
 											<tr>
-												<th>
-													شماره سفارش
-												</th>
-												<th>
-													تاریخ سفارش
-												</th>
-												<th>
-													وضعیت سفارش
-												</th>
                                                 <th>
-                                                    کدپستی
+
+                                                </th>
+												<th>
+                                                    تاریخ سفارش
+												</th>
+												<th>
+                                                    نام محصول
+												</th>
+												<th>
+                                                    قیمت
+                                                </th>
+                                                <th>
+                                                    تعداد
+                                                </th>
+                                                <th>
+                                                    مشخصات
+                                                </th>
+                                                <th>
+                                                    وضعیت
+                                                </th>
+                                                <th>
+                                                    جزئیات
                                                 </th>
 											</tr>
 										</thead>
 										<tbody>
                                         {% for order in orders %}
-                                            {% if order.paid %}
-											<tr style="background-color: #9aae67">
-												<th scope="row" class="px-4">
-													<a href="{% url 'orders:order-detail' order.id %}">
-                                                        {{ order.id }}
-                                                   </a>
-												</th>
+
+											<tr>
+												<td><a href="{{ order.items.first.product.get_absolute_url }}"><img src="{{ order.items.first.product.images.first.file.url }}" width="50" height="60" alt="product picture"></a></td>
 												<td>
 													{{ order.created }}
 												</td>
-                                                <td>
-                                                    موفق
-                                                </td>
-												<td>
-													{{ order.postal_code }}
-												</td>
+                                                <td><a href="{% url 'orders:order-detail' order.id %}">{{ order.items.first.product }}</a></td>
+												<td>{{ order.items.first.price }}</td>
+                                                <td>{{ order.items.first.quantity }}</td>
+                                                <td>{{ order.items.first.weight }}</td>
+                                                {% if order.paid %}
+                                                <td><i class="fa fa-check text-success"></i></td>
+                                                {% else %}
+                                                <td><i class="fa fa-stop-circle text-danger"></i></td>
+                                                {% endif %}
+                                                <td><a href="{% url 'orders:order-detail' order.id %}" class="check-btn sqr-btn ">نمایش</a></td>
 											</tr>
-                                            {% else %}
-                                                <tr style="background-color: #ca7979">
-												<th scope="row" class="px-4">
-													<a href="{% url 'orders:order-detail' order.id %}">
-                                                        {{ order.id }}
-                                                   </a>
-												</th>
-												<td>
-													{{ order.created }}
-												</td>
-                                                <td>
-                                                    ناموفق
-                                                </td>
-												<td>
-													{{ order.postal_code }}
-												</td>
-											</tr>
-                                            {% endif %}
                                         {% endfor %}
 										</tbody>
 									</table>
