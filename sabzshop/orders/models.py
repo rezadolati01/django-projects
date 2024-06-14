@@ -23,6 +23,8 @@ class Order(models.Model):
         indexes = [
             models.Index(fields=['-created']),
         ]
+        verbose_name = 'سفارش'
+        verbose_name_plural = 'سفارش ها'
 
     def __str__(self):
         return f"order {self.id}"
@@ -51,6 +53,9 @@ class OrderItem(models.Model):
     quantity = models.PositiveIntegerField(default=1)
     weight = models.PositiveIntegerField(default=0)
 
+    class Meta:
+        verbose_name = 'آیتم سفارش'
+        verbose_name_plural = 'آیتم های سفارش'
     def __str__(self):
         return str(self.id)
 

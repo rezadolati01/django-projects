@@ -40,6 +40,10 @@ class ShopUser(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'phone'
     REQUIRED_FIELDS = []
 
+    class Meta:
+
+        verbose_name = 'کاربر فروشگاه'
+        verbose_name_plural = 'کاربر های فروشگاه'
     def __str__(self):
         return self.phone
 
