@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c91d6989-d724-4f24-98c1-ea8ff039c885" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/api/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orders/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/orders/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabzshop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sabzshop/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabzshop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sabzshop/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -42,7 +45,7 @@
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;development&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/algorithm&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -174,6 +177,8 @@
       <workItem from="1717878240537" duration="12000" />
       <workItem from="1718355358312" duration="765000" />
       <workItem from="1718357930673" duration="11000" />
+      <workItem from="1718393124401" duration="4202000" />
+      <workItem from="1718431079128" duration="1211000" />
     </task>
     <servers />
   </component>
