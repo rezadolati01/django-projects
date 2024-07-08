@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c91d6989-d724-4f24-98c1-ea8ff039c885" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sabzshop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sabzshop/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sabzshop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sabzshop/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +44,7 @@
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;development&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/algorithm&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -178,7 +177,13 @@
       <workItem from="1718355358312" duration="765000" />
       <workItem from="1718357930673" duration="11000" />
       <workItem from="1718393124401" duration="4202000" />
-      <workItem from="1718431079128" duration="1211000" />
+      <workItem from="1718431079128" duration="5916000" />
+      <workItem from="1718538814214" duration="2230000" />
+      <workItem from="1718558970656" duration="4402000" />
+      <workItem from="1718643817392" duration="4968000" />
+      <workItem from="1718720867879" duration="2580000" />
+      <workItem from="1718888665057" duration="620000" />
+      <workItem from="1720450133691" duration="1980000" />
     </task>
     <servers />
   </component>
