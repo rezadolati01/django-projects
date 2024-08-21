@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'taggit',
     'easy_thumbnails',
     'debug_toolbar',
+    'chat',
 
 ]
 

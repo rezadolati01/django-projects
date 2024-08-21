@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c91d6989-d724-4f24-98c1-ea8ff039c885" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../sabzsocial/chat/migrations/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sabzshop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sabzshop/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sabzsocial/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../sabzsocial/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sabzsocial/sabzsocial/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../sabzsocial/sabzsocial/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sabzweb/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../sabzweb/blog/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +187,10 @@
       <workItem from="1718643817392" duration="4968000" />
       <workItem from="1718720867879" duration="2580000" />
       <workItem from="1718888665057" duration="620000" />
-      <workItem from="1720450133691" duration="1980000" />
+      <workItem from="1720450133691" duration="3348000" />
+      <workItem from="1721460974068" duration="58000" />
+      <workItem from="1724182379310" duration="10188000" />
+      <workItem from="1724197741570" duration="101000" />
     </task>
     <servers />
   </component>

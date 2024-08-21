@@ -37,11 +37,11 @@ def post_list(request, category=None):
     }
     return render(request, "blog/list.html", context)
 
-# class PostListView(ListView):
-#     queryset = Post.published.all()
-#     context_object_name = "posts"
-#     paginate_by = 4f
-#     template_name = "blog/list.html"
+class PostListView(ListView):
+    queryset = Post.published.all()
+    context_object_name = "posts"
+    paginate_by = 4
+    template_name = "blog/list.html"
 
 
 def post_detail(request, pk):
