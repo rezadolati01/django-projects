@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'api.apps.ApiConfig',
     'rest_framework',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [

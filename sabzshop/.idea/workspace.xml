@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c91d6989-d724-4f24-98c1-ea8ff039c885" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../sabzsocial/chat/migrations/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sabzsocial/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../sabzsocial/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sabzsocial/sabzsocial/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../sabzsocial/sabzsocial/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sabzweb/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../sabzweb/blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabzshop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sabzshop/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +44,7 @@
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;development&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/algorithm&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -191,6 +187,11 @@
       <workItem from="1721460974068" duration="58000" />
       <workItem from="1724182379310" duration="10188000" />
       <workItem from="1724197741570" duration="101000" />
+      <workItem from="1724244202308" duration="5646000" />
+      <workItem from="1724272991106" duration="15000" />
+      <workItem from="1728234183713" duration="3628000" />
+      <workItem from="1728912604060" duration="3366000" />
+      <workItem from="1728920763131" duration="21000" />
     </task>
     <servers />
   </component>
