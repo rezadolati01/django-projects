@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from shop.models import Product, ProductFeature
+from orders.models import Order
 from account.models import ShopUser
 
 
@@ -37,3 +38,9 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
+
+
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = '__all__'
