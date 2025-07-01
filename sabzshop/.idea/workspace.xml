@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c91d6989-d724-4f24-98c1-ea8ff039c885" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api/permissions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sabzsocial/chat/templates/chat/access_denied.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sabzsocial/chat/templates/chat/chat.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sabzsocial/chat/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sabzsocial/chat/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../sabzsocial/chat/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sabzsocial/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../sabzsocial/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sabzsocial/sabzsocial/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../sabzsocial/sabzsocial/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sabzsocial/social/templates/user/user_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/../sabzsocial/social/templates/user/user_detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +47,7 @@
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;development&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/algorithm&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -198,6 +201,8 @@
       <workItem from="1730043839939" duration="2149000" />
       <workItem from="1730277916854" duration="80000" />
       <workItem from="1731247901412" duration="7275000" />
+      <workItem from="1731420370343" duration="569000" />
+      <workItem from="1732284381529" duration="1130000" />
     </task>
     <servers />
   </component>

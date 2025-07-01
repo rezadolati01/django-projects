@@ -22,6 +22,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('social.urls', namespace='social')),
+    path('chat', include('chat.urls', namespace='chat')),
     path("__debug__/", include("debug_toolbar.urls")),
 ]
 

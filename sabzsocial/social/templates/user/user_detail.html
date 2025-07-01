@@ -102,6 +102,7 @@
 							<!--/ media -->
 						</div>
 						<div class="col-lg-3">
+                        <a class="kafe-btn kafe-btn-default-mint"  href="{% url 'chat:chat_view' user.username %}"> چت </a>
                             {% if request.user == user %}
                                     {% if request.user in user.followers.all%}
                                         <button class="kafe-btn kafe-btn-default-mint" > آنفالو </button>ton>
@@ -232,8 +233,8 @@
                         button.addClass('kafe-btn-mint');
                         button.text('فالو');
                     }
-                    $('.followers-count').text(data.followers_count + 'Follower"+pruralize(data.followers_count)');
-                    $('.following-count').text(data.following_count +'Following');
+                    $('.followers-count').text(data.followers_count);
+                    $('.following-count').text(data.following_count);
                 },
             });
         });
